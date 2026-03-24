@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 const programs = [
   {
@@ -89,7 +89,6 @@ export default function Programs() {
                 className={`border ${A.border} bg-pitch-card overflow-hidden group hover:shadow-[0_16px_64px_rgba(0,0,0,0.5)] transition-all duration-500`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3">
-                  {/* Left */}
                   <div
                     className={`${A.bg} border-r border-pitch-border p-8 lg:p-12 flex flex-col justify-between`}
                   >
@@ -123,7 +122,6 @@ export default function Programs() {
                     </div>
                   </div>
 
-                  {/* Right */}
                   <div className="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-between">
                     <div>
                       <div className="text-gray-600 text-xs font-heading tracking-widest uppercase mb-4">
@@ -185,7 +183,6 @@ export default function Programs() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="py-20 bg-pitch-dark">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center gap-3 mb-3 justify-center">
