@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 export default function Camps() {
   const [showForm, setShowForm] = useState(false)
@@ -12,17 +12,12 @@ export default function Camps() {
         subtitle="Train at a high level. Compete. Improve. Get ready for the next step."
       />
 
-      {/* CAMP SECTION */}
       <section className="py-20 bg-pitch-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-
           <div className="relative border border-gold/30 bg-pitch-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.5)]">
-            
             <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent pointer-events-none" />
 
             <div className="relative p-8 md:grid md:grid-cols-2 md:gap-12">
-
-              {/* LEFT SIDE */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs font-heading tracking-widest uppercase px-2.5 py-1 border bg-gold/20 text-gold border-gold/30">
@@ -61,7 +56,6 @@ export default function Camps() {
                 </button>
               </div>
 
-              {/* RIGHT SIDE */}
               <div>
                 <div className="text-xs font-heading tracking-widest uppercase text-gray-600 mb-3">
                   Camp Highlights
@@ -87,23 +81,19 @@ export default function Camps() {
                   <div className="text-3xl text-gold font-display">$400</div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* FORM SECTION */}
       {showForm && (
         <section className="py-20 bg-pitch-black border-t border-pitch-border">
           <div className="max-w-2xl mx-auto px-4">
-
             <h2 className="text-3xl text-white mb-6 font-display text-center">
               Camp Registration
             </h2>
 
             <form className="flex flex-col gap-4 bg-pitch-card p-6 border border-pitch-border">
-
               <input
                 type="text"
                 placeholder="First Name"
@@ -151,7 +141,6 @@ export default function Camps() {
               >
                 Submit Registration
               </button>
-
             </form>
           </div>
         </section>
