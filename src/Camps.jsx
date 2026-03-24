@@ -3,6 +3,48 @@ import PageHero from './PageHero.jsx'
 
 export default function Camps() {
   const [showForm, setShowForm] = useState(false)
+  const [result, setResult] = useState('')
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    setResult('Sending...')
+
+    const formData = new FormData(event.target)
+    const first = formData.get('first_name')
+    const last = formData.get('last_name')
+    formData.append('name', `${first} ${last}`)
+    formData.append('camp_name', 'Savannah Elite Summer Camp')
+    formData.append('camp_dates', 'June 30 – July 3, 2026')
+    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('subject', 'New Camp Registration - Savannah Athletic')
+    formData.append('from_name', 'Savannah Athletic Website')
+
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult('Camp registration submitted successfully.')
+        event.target.reset()
+      } else {
+        setResult(data.message || 'Something went wrong.')
+      }
+    } catch (error) {
+      console.error(error)
+      setResult('Network error. Please try again.')
+    }
+  }
 
   return (
     <div>
@@ -49,6 +91,7 @@ export default function Camps() {
                 </p>
 
                 <button
+                  type="button"
                   onClick={() => setShowForm(true)}
                   className="bg-gold text-black font-bold py-2 px-6 hover:bg-yellow-600 transition"
                 >
@@ -93,47 +136,33 @@ export default function Camps() {
               Camp Registration
             </h2>
 
-            <form className="flex flex-col gap-4 bg-pitch-card p-6 border border-pitch-border">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="p-3 bg-gray-800 text-white rounded"
-              />
+            <form onSubmit={onSubmit} className="flex flex-col gap-4 bg-pitch-card p-6 border border-pitch-border">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" name="first_name" placeholder="First Name" required className="p-3 bg-gray-800 text-white rounded" />
+                <input type="text" name="last_name" placeholder="Last Name" required className="p-3 bg-gray-800 text-white rounded" />
+              </div>
 
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="p-3 bg-gray-800 text-white rounded"
-              />
+              <input type="tel" name="phone" placeholder="Phone Number" className="p-3 bg-gray-800 text-white rounded" />
+              <input type="email" name="email" placeholder="Email" required className="p-3 bg-gray-800 text-white rounded" />
 
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="p-3 bg-gray-800 text-white rounded"
-              />
-
-              <input
-                type="email"
-                placeholder="Email"
-                className="p-3 bg-gray-800 text-white rounded"
-              />
-
-              <select className="p-3 bg-gray-800 text-white rounded">
-                <option>Position</option>
+              <select name="position" className="p-3 bg-gray-800 text-white rounded">
+                <option value="">Position</option>
                 <option>Goalkeeper</option>
                 <option>Defender</option>
                 <option>Midfielder</option>
                 <option>Forward</option>
               </select>
 
-              <select className="p-3 bg-gray-800 text-white rounded">
-                <option>Age Group</option>
+              <select name="age_group" className="p-3 bg-gray-800 text-white rounded">
+                <option value="">Age Group</option>
                 <option>U10</option>
                 <option>U12</option>
                 <option>U14</option>
                 <option>U16</option>
                 <option>U18</option>
               </select>
+
+              <textarea name="message" placeholder="Extra details" className="p-3 bg-gray-800 text-white rounded" />
 
               <button
                 type="submit"
@@ -142,6 +171,8 @@ export default function Camps() {
                 Submit Registration
               </button>
             </form>
+
+            <span className="text-white mt-4 block">{result}</span>
           </div>
         </section>
       )}
