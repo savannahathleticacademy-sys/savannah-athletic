@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 const sessionTypes = [
   { id: '1v1', label: '1v1 Training', desc: 'Personalized individual session', duration: '60 min', price: 'Cost $80/h' },
@@ -22,9 +22,7 @@ export default function Book() {
 
   const today = new Date()
 
-  // Helper para obtener días del mes
   const getDaysInMonth = (year, month) => {
-    const firstDay = new Date(year, month, 1)
     const lastDay = new Date(year, month + 1, 0)
     const days = []
     for (let d = 1; d <= lastDay.getDate(); d++) {
@@ -64,7 +62,6 @@ export default function Book() {
       <section className="py-20 bg-pitch-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-          {/* Step 1 — Session Type */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-gold text-pitch-black flex items-center justify-center font-display text-lg">1</div>
@@ -97,7 +94,6 @@ export default function Book() {
             </div>
           </div>
 
-          {/* Step 2 — Coach */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className={`w-8 h-8 flex items-center justify-center font-display text-lg ${sessionType ? 'bg-gold text-pitch-black' : 'bg-pitch-card text-gray-600 border border-pitch-border'}`}>2</div>
@@ -130,11 +126,8 @@ export default function Book() {
             </div>
           </div>
 
-          {/* Step 3 — Calendar + Form */}
           {selectedCoach && (
             <div className="flex flex-col md:flex-row gap-6 mb-12">
-
-              {/* Calendario */}
               <div className="w-full md:w-2/3 border border-gold/20 bg-pitch-card p-6">
                 <div className="flex justify-between items-center mb-4 text-white">
                   <button onClick={prevMonth} className="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">&lt;</button>
@@ -143,21 +136,29 @@ export default function Book() {
                 </div>
 
                 <div className="grid grid-cols-7 gap-2 text-center text-white text-sm font-bold">
-                  {['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => (
+                  {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
                     <div key={d}>{d}</div>
                   ))}
                 </div>
 
                 <div className="grid grid-cols-7 gap-2 text-center text-white text-sm mt-1">
-                  {[...Array(firstDayIndex)].map((_, i) => <div key={'empty-'+i}></div>)}
-                  {days.map(day => {
-                    const isPast = day < today.getDate() && currentMonth.getMonth() === today.getMonth() && currentMonth.getFullYear() === today.getFullYear()
+                  {[...Array(firstDayIndex)].map((_, i) => <div key={`empty-${i}`}></div>)}
+                  {days.map((day) => {
+                    const isPast =
+                      day < new Date(today.getFullYear(), today.getMonth(), today.getDate()) &&
+                      currentMonth.getMonth() === today.getMonth() &&
+                      currentMonth.getFullYear() === today.getFullYear()
+
                     return (
                       <button
                         key={day.getDate()}
                         onClick={() => handleDayClick(day)}
                         disabled={isPast}
-                        className={`p-2 rounded ${selectedDate?.getTime() === day.getTime() ? 'bg-gold text-black' : 'bg-gray-700 hover:bg-gray-600'} ${isPast ? 'opacity-40 cursor-not-allowed' : ''}`}
+                        className={`p-2 rounded ${
+                          selectedDate?.getTime() === day.getTime()
+                            ? 'bg-gold text-black'
+                            : 'bg-gray-700 hover:bg-gray-600'
+                        } ${isPast ? 'opacity-40 cursor-not-allowed' : ''}`}
                       >
                         {day.getDate()}
                       </button>
@@ -166,13 +167,12 @@ export default function Book() {
                 </div>
               </div>
 
-              {/* Formulario */}
               <div className="w-full md:w-1/3 bg-pitch-black p-6 rounded-lg shadow-lg">
                 {selectedDate && (
                   <div className="mb-4">
                     <h4 className="text-white font-bold mb-2">Available Times</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {hours.map(h => (
+                      {hours.map((h) => (
                         <button
                           key={h}
                           type="button"
@@ -188,12 +188,12 @@ export default function Book() {
 
                 <h3 className="text-xl font-bold mb-4 text-white">Book Your Session</h3>
                 <form className="flex flex-col gap-3 text-white">
-                  <input type="text" placeholder="First Name" className="p-2 rounded bg-gray-800"/>
-                  <input type="text" placeholder="Last Name" className="p-2 rounded bg-gray-800"/>
-                  <input type="email" placeholder="Email" className="p-2 rounded bg-gray-800"/>
-                  <input type="tel" placeholder="Phone Number" className="p-2 rounded bg-gray-800"/>
-                  {selectedDate && <input type="text" value={formattedDate} readOnly className="p-2 rounded bg-gray-800"/>}
-                  {selectedTime && <input type="text" value={selectedTime} readOnly className="p-2 rounded bg-gray-800"/>}
+                  <input type="text" placeholder="First Name" className="p-2 rounded bg-gray-800" />
+                  <input type="text" placeholder="Last Name" className="p-2 rounded bg-gray-800" />
+                  <input type="email" placeholder="Email" className="p-2 rounded bg-gray-800" />
+                  <input type="tel" placeholder="Phone Number" className="p-2 rounded bg-gray-800" />
+                  {selectedDate && <input type="text" value={formattedDate} readOnly className="p-2 rounded bg-gray-800" />}
+                  {selectedTime && <input type="text" value={selectedTime} readOnly className="p-2 rounded bg-gray-800" />}
                   <select className="p-2 rounded bg-gray-800">
                     <option value="1v1">1v1 Training</option>
                     <option value="group">Group Training</option>
@@ -203,7 +203,6 @@ export default function Book() {
                   </button>
                 </form>
               </div>
-
             </div>
           )}
 
