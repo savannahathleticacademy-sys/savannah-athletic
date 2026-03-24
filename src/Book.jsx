@@ -14,6 +14,7 @@ const coaches = [
 const hours = ['16:00', '17:00', '18:00', '19:00', '20:00', '21:00']
 
 export default function Book() {
+  const [result, setResult] = useState('')
   const [sessionType, setSessionType] = useState('1v1')
   const [selectedCoach, setSelectedCoach] = useState(null)
   const [selectedDate, setSelectedDate] = useState(null)
@@ -51,6 +52,53 @@ export default function Book() {
     ? selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     : ''
 
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    setResult('Sending...')
+
+    const formData = new FormData(event.target)
+    const first = formData.get('first_name')
+    const last = formData.get('last_name')
+    formData.append('name', `${first} ${last}`)
+    formData.append('session_type', sessionType === '1v1' ? '1v1 Training' : 'Group Session')
+    formData.append('coach', selectedCoach === 'zack' ? 'Zack Hargreaves' : selectedCoach === 'ignacio' ? 'Ignacio Gallego' : '')
+    formData.append('preferred_date', formattedDate)
+    formData.append('preferred_time', selectedTime || '')
+    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('subject', 'New Session Booking - Savannah Athletic')
+    formData.append('from_name', 'Savannah Athletic Website')
+
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult('Booking request submitted successfully.')
+        event.target.reset()
+        setSelectedDate(null)
+        setSelectedTime(null)
+        setSelectedCoach(null)
+        setSessionType('1v1')
+      } else {
+        setResult(data.message || 'Something went wrong.')
+      }
+    } catch (error) {
+      console.error(error)
+      setResult('Network error. Please try again.')
+    }
+  }
+
   return (
     <div>
       <PageHero
@@ -70,6 +118,7 @@ export default function Book() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {sessionTypes.map((type) => (
                 <button
+                  type="button"
                   key={type.id}
                   onClick={() => setSessionType(type.id)}
                   className={`text-left p-6 border transition-all duration-300 ${
@@ -102,6 +151,7 @@ export default function Book() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {coaches.map((coach) => (
                 <button
+                  type="button"
                   key={coach.id}
                   onClick={() => setSelectedCoach(coach.id)}
                   className={`text-left p-6 border transition-all duration-300 ${
@@ -130,9 +180,9 @@ export default function Book() {
             <div className="flex flex-col md:flex-row gap-6 mb-12">
               <div className="w-full md:w-2/3 border border-gold/20 bg-pitch-card p-6">
                 <div className="flex justify-between items-center mb-4 text-white">
-                  <button onClick={prevMonth} className="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">&lt;</button>
+                  <button type="button" onClick={prevMonth} className="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">&lt;</button>
                   <h3 className="text-lg font-bold">{currentMonth.toLocaleString('en-US', { month: 'long', year: 'numeric' })}</h3>
-                  <button onClick={nextMonth} className="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">&gt;</button>
+                  <button type="button" onClick={nextMonth} className="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">&gt;</button>
                 </div>
 
                 <div className="grid grid-cols-7 gap-2 text-center text-white text-sm font-bold">
@@ -151,6 +201,7 @@ export default function Book() {
 
                     return (
                       <button
+                        type="button"
                         key={day.getDate()}
                         onClick={() => handleDayClick(day)}
                         disabled={isPast}
@@ -187,21 +238,22 @@ export default function Book() {
                 )}
 
                 <h3 className="text-xl font-bold mb-4 text-white">Book Your Session</h3>
-                <form className="flex flex-col gap-3 text-white">
-                  <input type="text" placeholder="First Name" className="p-2 rounded bg-gray-800" />
-                  <input type="text" placeholder="Last Name" className="p-2 rounded bg-gray-800" />
-                  <input type="email" placeholder="Email" className="p-2 rounded bg-gray-800" />
-                  <input type="tel" placeholder="Phone Number" className="p-2 rounded bg-gray-800" />
+                <form onSubmit={onSubmit} className="flex flex-col gap-3 text-white">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input type="text" name="first_name" placeholder="First Name" required className="p-2 rounded bg-gray-800" />
+                    <input type="text" name="last_name" placeholder="Last Name" required className="p-2 rounded bg-gray-800" />
+                  </div>
+                  <input type="email" name="email" placeholder="Email" required className="p-2 rounded bg-gray-800" />
+                  <input type="tel" name="phone" placeholder="Phone Number" className="p-2 rounded bg-gray-800" />
                   {selectedDate && <input type="text" value={formattedDate} readOnly className="p-2 rounded bg-gray-800" />}
                   {selectedTime && <input type="text" value={selectedTime} readOnly className="p-2 rounded bg-gray-800" />}
-                  <select className="p-2 rounded bg-gray-800">
-                    <option value="1v1">1v1 Training</option>
-                    <option value="group">Group Training</option>
-                  </select>
+                  <textarea name="message" placeholder="Extra details" className="p-2 rounded bg-gray-800" />
                   <button type="submit" className="bg-gold text-black font-bold py-2 rounded mt-3 hover:bg-yellow-600">
                     Submit
                   </button>
                 </form>
+
+                <span className="text-white mt-4 block">{result}</span>
               </div>
             </div>
           )}
