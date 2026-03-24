@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
@@ -45,9 +45,7 @@ export default function PathToCollege() {
 
       <section className="py-20 bg-pitch-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
-
-          {/* Program Overview */}
-          <div className={`border border-gold/30 bg-pitch-card overflow-hidden p-8 lg:p-12 rounded-lg`}>
+          <div className="border border-gold/30 bg-pitch-card overflow-hidden p-8 lg:p-12 rounded-lg">
             <div className="mb-6">
               <div className="font-display text-7xl text-gold opacity-20 leading-none mb-4">{program.tag}</div>
               <h2 className="font-display text-4xl text-white mb-2">{program.title}</h2>
@@ -55,13 +53,11 @@ export default function PathToCollege() {
               <p className="text-gray-300 text-sm leading-relaxed">{program.description}</p>
             </div>
 
-            {/* Cost */}
             <div className="mb-6">
               <h3 className="text-gray-600 text-xs font-heading tracking-wider uppercase mb-1">Cost</h3>
               <div className="font-heading text-xl text-gold">{program.price}</div>
             </div>
 
-            {/* What's Included */}
             <div className="mb-6">
               <h3 className="text-gray-600 text-xs font-heading tracking-widest uppercase mb-2">What's Included</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -71,13 +67,11 @@ export default function PathToCollege() {
               </ul>
             </div>
 
-            {/* Ideal For */}
             <div className="mb-6">
               <h3 className="text-gray-600 text-xs font-heading tracking-wider uppercase mb-1">Ideal For</h3>
               <div className="text-gray-300 text-sm">{program.ideal}</div>
             </div>
 
-            {/* Benefits */}
             <div className="mb-6">
               <h3 className="text-gray-600 text-xs font-heading tracking-widest uppercase mb-2">Benefits</h3>
               <ul className="list-disc list-inside text-gray-300 space-y-1">
@@ -87,7 +81,6 @@ export default function PathToCollege() {
               </ul>
             </div>
 
-            {/* Start Pathway Button */}
             <div className="mt-6">
               <button
                 onClick={() => setShowForm(!showForm)}
@@ -100,7 +93,6 @@ export default function PathToCollege() {
               </button>
             </div>
 
-            {/* Form */}
             {showForm && (
               <form className="mt-8 bg-pitch-dark p-6 rounded-lg space-y-4 text-gray-300">
                 <h3 className="text-xl font-display mb-4">Learn More About the Process</h3>
