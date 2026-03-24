@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 const pillars = [
   { number: '01', title: 'Technical Mastery', desc: 'Ball control, passing, first touch, dribbling, and finishing — the fundamental tools of an elite player, honed to precision.' },
@@ -26,7 +26,6 @@ export default function About() {
         subtitle="Built in Savannah. Built for champions."
       />
 
-      {/* Mission */}
       <section className="py-24 bg-pitch-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -53,7 +52,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* Mission statement pullout */}
             <div className="relative">
               <div className="border border-gold/20 p-10 relative bg-pitch-card">
                 <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold" />
@@ -72,7 +70,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Four Pillars */}
       <section className="py-24 bg-pitch-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
@@ -94,7 +91,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
       <section className="py-24 bg-pitch-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
@@ -104,11 +100,10 @@ export default function About() {
           <h2 className="display-heading text-5xl md:text-6xl mb-16">THE MILESTONES</h2>
 
           <div className="relative">
-            {/* Timeline line */}
             <div className="absolute left-20 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-gold/30 to-transparent hidden sm:block" />
 
             <div className="space-y-8">
-              {milestones.map((m, i) => (
+              {milestones.map((m) => (
                 <div key={m.year} className="flex items-start gap-8">
                   <div className="flex-shrink-0 text-right w-16 hidden sm:block">
                     <span className="font-display text-gold text-xl">{m.year}</span>
@@ -127,7 +122,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 bg-pitch-dark border-t border-pitch-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="display-heading text-4xl md:text-5xl mb-4">BE PART OF<br />THE STORY.</h2>
