@@ -3,6 +3,7 @@ import PageHero from './PageHero.jsx'
 
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
+  const [result, setResult] = useState('')
 
   const program = {
     id: 'college-pathway',
@@ -28,7 +29,46 @@ export default function PathToCollege() {
       'Structured roadmap for athletic and academic success',
     ],
     cta: 'Start Pathway',
-    accent: 'gold',
+  }
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    setResult('Sending...')
+
+    const formData = new FormData(event.target)
+    const first = formData.get('first_name')
+    const last = formData.get('last_name')
+    formData.append('name', `${first} ${last}`)
+    formData.append('program', 'College Pathway')
+    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('subject', 'New College Pathway Inquiry - Savannah Athletic')
+    formData.append('from_name', 'Savannah Athletic Website')
+
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult('Pathway inquiry submitted successfully.')
+        event.target.reset()
+      } else {
+        setResult(data.message || 'Something went wrong.')
+      }
+    } catch (error) {
+      console.error(error)
+      setResult('Network error. Please try again.')
+    }
   }
 
   return (
@@ -83,6 +123,7 @@ export default function PathToCollege() {
 
             <div className="mt-6">
               <button
+                type="button"
                 onClick={() => setShowForm(!showForm)}
                 className="btn-primary flex items-center gap-2 text-xs"
               >
@@ -94,22 +135,26 @@ export default function PathToCollege() {
             </div>
 
             {showForm && (
-              <form className="mt-8 bg-pitch-dark p-6 rounded-lg space-y-4 text-gray-300">
+              <form onSubmit={onSubmit} className="mt-8 bg-pitch-dark p-6 rounded-lg space-y-4 text-gray-300">
                 <h3 className="text-xl font-display mb-4">Learn More About the Process</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input type="text" placeholder="First Name" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="text" placeholder="Last Name" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="date" placeholder="Date of Birth" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="text" placeholder="Class Year" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="text" placeholder="Position" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="email" placeholder="Email (Gmail)" className="p-2 rounded bg-pitch-card border border-gray-600" />
-                  <input type="tel" placeholder="Phone Number" className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="text" name="first_name" placeholder="First Name" required className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="text" name="last_name" placeholder="Last Name" required className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="date" name="date_of_birth" placeholder="Date of Birth" className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="text" name="class_year" placeholder="Class Year" className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="text" name="position" placeholder="Position" className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="email" name="email" placeholder="Email" required className="p-2 rounded bg-pitch-card border border-gray-600" />
+                  <input type="tel" name="phone" placeholder="Phone Number" className="p-2 rounded bg-pitch-card border border-gray-600" />
                 </div>
+
+                <textarea name="message" placeholder="Extra details" className="w-full p-2 rounded bg-pitch-card border border-gray-600" />
 
                 <button type="submit" className="btn-primary mt-4">
                   Submit
                 </button>
+
+                <span className="text-white mt-4 block">{result}</span>
               </form>
             )}
           </div>
