@@ -1,11 +1,11 @@
 import React from 'react'
-import PageHero from '../components/PageHero'
+import PageHero from './PageHero.jsx'
 
 // Array de partners (puedes añadir logos y links)
 const partnersList = [
   {
     name: 'Partner 1',
-    logo: '/partners/logo1.png', // ruta al logo
+    logo: '/partners/logo1.png',
     website: 'https://partner1.com',
   },
   {
