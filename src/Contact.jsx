@@ -16,23 +16,28 @@ export default function Contact() {
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
 
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: json,
-    })
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
 
-    const data = await response.json()
+      const data = await response.json()
+      console.log('Web3Forms response:', data)
 
-    if (data.success) {
-      setResult('Form submitted successfully.')
-      event.target.reset()
-    } else {
-      console.log('Error', data)
-      setResult(data.message || 'Something went wrong.')
+      if (data.success) {
+        setResult('Form submitted successfully.')
+        event.target.reset()
+      } else {
+        setResult(data.message || 'Something went wrong.')
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      setResult('Network error. Please try again.')
     }
   }
 
