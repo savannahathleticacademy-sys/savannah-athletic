@@ -9,6 +9,13 @@ export default function Contact() {
     setResult('Sending...')
 
     const formData = new FormData(event.target)
+
+    // 👉 Crear nombre completo
+    const first = formData.get('first_name')
+    const last = formData.get('last_name')
+    formData.append('name', `${first} ${last}`)
+
+    // 👉 Web3Forms config
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
     formData.append('subject', 'New Contact Form - Savannah Athletic')
     formData.append('from_name', 'Savannah Athletic Website')
@@ -58,6 +65,8 @@ export default function Contact() {
       <section className="py-20 bg-pitch-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            {/* LEFT */}
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <div className="flex items-center gap-3 mb-6">
@@ -84,15 +93,28 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* FORM */}
             <div className="lg:col-span-3">
               <form onSubmit={onSubmit} className="space-y-5">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  required
-                  className="w-full p-3 bg-pitch-card border border-pitch-border text-white"
-                />
+
+                {/* 👇 FIRST + LAST NAME */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="First Name"
+                    required
+                    className="w-full p-3 bg-pitch-card border border-pitch-border text-white"
+                  />
+
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Last Name"
+                    required
+                    className="w-full p-3 bg-pitch-card border border-pitch-border text-white"
+                  />
+                </div>
 
                 <input
                   type="email"
@@ -123,6 +145,7 @@ export default function Contact() {
 
               <span className="text-white mt-4 block">{result}</span>
             </div>
+
           </div>
         </div>
       </section>
