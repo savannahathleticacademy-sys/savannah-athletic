@@ -9,12 +9,12 @@ const pillars = [
 ]
 
 const milestones = [
-  { year: '2019', event: 'Savannah Athletic founded by Marcus Johnson' },
-  { year: '2020', event: 'Expanded to first full training facility in Savannah' },
-  { year: '2021', event: 'Launched College Pathway Program — 4 players placed in first year' },
-  { year: '2022', event: 'Introduced Summer Elite Academy. 150+ campers in first season.' },
-  { year: '2023', event: 'Grew coaching staff; added GK and S&C specialists' },
-  { year: '2024', event: '200+ athletes served. 15+ college placements. Regional recognition.' },
+  { year: '2025', event: 'Savannah Athletic founded by Zack Hargreaves & Ignacio Gallego' },
+  { year: 'December 2025', event: 'Secured first training base in Savannah — Transform Savannah' },
+  { year: 'January 2026', event: 'Launched College Pathway Program — supporting aspiring college athletes' },
+  { year: 'February 2026', event: 'Announced Summer Elite Academy (150+ projected athletes)' },
+  { year: 'March 2026', event: 'Expanded coaching staff; added GK and performance specialists' },
+  { year: 'April 2026', event: 'More updates coming soon...' },
 ]
 
 export default function About() {
@@ -105,7 +105,7 @@ export default function About() {
             <div className="space-y-8">
               {milestones.map((m) => (
                 <div key={m.year} className="flex items-start gap-8">
-                  <div className="flex-shrink-0 text-right w-16 hidden sm:block">
+                  <div className="flex-shrink-0 text-right w-24 hidden sm:block">
                     <span className="font-display text-gold text-xl">{m.year}</span>
                   </div>
                   <div className="relative hidden sm:flex items-center justify-center flex-shrink-0 mt-1">
