@@ -61,8 +61,8 @@ export default function About() {
                   We develop complete athletes — not just better players.
                 </p>
                 <div className="mt-6 pt-6 border-t border-pitch-border">
-                  <div className="font-heading text-gold text-xs tracking-[0.3em] uppercase">Marcus Johnson</div>
-                  <div className="text-gray-600 text-xs mt-1">Founder & Head Coach, Savannah Athletic</div>
+                  <div className="font-heading text-gold text-xs tracking-[0.3em] uppercase">Nacho Gallego</div>
+                  <div className="text-gray-600 text-xs mt-1">Founder & Coach, Savannah Athletic</div>
                 </div>
               </div>
             </div>
