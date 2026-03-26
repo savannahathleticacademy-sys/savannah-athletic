@@ -13,28 +13,35 @@ export default {
       },
       colors: {
         pitch: {
-          black: '#080A0F',
-          dark: '#0D1117',
-          card: '#111827',
-          border: '#1F2937',
+          black: '#0B1220',
+          dark: '#111827',
+          card: '#1F2937',
+          border: '#334155',
         },
-        gold: {
-          DEFAULT: '#D4AF37',
-          light: '#F0D060',
-          dark: '#A88B1A',
+        blue: {
+          DEFAULT: '#3B82F6',
+          light: '#60A5FA',
+          dark: '#1D4ED8',
         },
-        turf: {
-          DEFAULT: '#2D6A4F',
-          light: '#40916C',
+        green: {
+          DEFAULT: '#22C55E',
+          light: '#4ADE80',
+          dark: '#16A34A',
+        },
+        text: {
+          main: '#E5EEF8',
+          muted: '#94A3B8',
         },
       },
       backgroundImage: {
-        'hero-gradient': 'radial-gradient(ellipse at top left, rgba(212,175,55,0.12) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(45,106,79,0.10) 0%, transparent 60%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 100%)',
+        'hero-gradient':
+          'radial-gradient(ellipse at top left, rgba(59,130,246,0.14) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(34,197,94,0.12) 0%, transparent 60%)',
+        'card-gradient':
+          'linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(34,197,94,0.05) 100%)',
       },
       animation: {
         'fade-up': 'fadeUp 0.7s ease forwards',
-        'shimmer': 'shimmer 2.5s infinite',
+        shimmer: 'shimmer 2.5s infinite',
         'pulse-slow': 'pulse 3s infinite',
       },
       keyframes: {
