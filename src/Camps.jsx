@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import PageHero from './PageHero.jsx'
 
+const highlights = [
+  'Technical training sessions',
+  'Game-based learning',
+  'Position-specific coaching',
+  'Small-sided competitive games',
+  'Player evaluation',
+]
+
 export default function Camps() {
   const [showForm, setShowForm] = useState(false)
   const [result, setResult] = useState('')
@@ -12,6 +20,7 @@ export default function Camps() {
     const formData = new FormData(event.target)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
+
     formData.append('name', `${first} ${last}`)
     formData.append('camp_name', 'Savannah Elite Summer Camp')
     formData.append('camp_dates', 'June 30 – July 3, 2026')
@@ -50,78 +59,118 @@ export default function Camps() {
     <div>
       <PageHero
         label="Camps"
-        title={<>ELITE<br /><span className="text-gradient-gold">SUMMER CAMP</span></>}
-        subtitle="Train at a high level. Compete. Improve. Get ready for the next step."
+        title={
+          <>
+            ELITE
+            <br />
+            <span className="text-gradient-gold">SUMMER CAMP</span>
+          </>
+        }
+        subtitle="High-energy training, competitive environments, and focused development for players ready to improve."
       />
 
+      {/* CAMP OVERVIEW */}
       <section className="py-20 bg-pitch-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="relative border border-gold/30 bg-pitch-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.5)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent pointer-events-none" />
-
-            <div className="relative p-8 md:grid md:grid-cols-2 md:gap-12">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-heading tracking-widest uppercase px-2.5 py-1 border bg-gold/20 text-gold border-gold/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="rounded-3xl border border-pitch-border bg-pitch-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
+              {/* LEFT */}
+              <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-pitch-border bg-gradient-to-br from-blue/10 via-transparent to-green/10">
+                <div className="flex flex-wrap items-center gap-3 mb-5">
+                  <span className="text-xs font-heading tracking-[0.18em] uppercase px-3 py-1 rounded-full border border-blue/30 bg-blue/10 text-blue">
                     Summer 2026
                   </span>
-                  <span className="text-xs font-heading tracking-wider text-red-400">
+
+                  <span className="text-xs font-heading tracking-[0.18em] uppercase px-3 py-1 rounded-full border border-green/30 bg-green/10 text-green">
                     Limited Spots Available
                   </span>
                 </div>
 
-                <h2 className="font-display text-3xl md:text-4xl text-white mb-3">
-                  Savannah Elite Summer Camp
+                <h2 className="font-display text-4xl md:text-5xl text-white mb-4 leading-none">
+                  Savannah Elite
+                  <br />
+                  Summer Camp
                 </h2>
 
-                <div className="flex flex-col gap-2 text-sm text-gray-400 mb-4">
-                  <span>📅 June 30 – July 3, 2026</span>
-                  <span>⏰ 9 AM – 1 PM Daily</span>
-                  <span>📍 Jennifer Ross Soccer Complex</span>
-                  <span className="text-xs text-gray-500">
-                    7221 Sallie Mood Dr, Savannah, GA 31406
-                  </span>
-                  <span>👥 Ages 9–18</span>
-                </div>
-
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  An elite 4-day training camp focused on technical development,
-                  game understanding, and high-level competition. Designed for
-                  players who want to improve fast and compete at the next level.
+                <p className="text-slate-300 leading-relaxed mb-6 max-w-2xl">
+                  A focused 4-day summer training experience designed to help players
+                  improve technical sharpness, game understanding, and confidence in
+                  competitive environments.
                 </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                    <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Dates
+                    </div>
+                    <div className="text-white">June 30 – July 3, 2026</div>
+                  </div>
+
+                  <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                    <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Time
+                    </div>
+                    <div className="text-white">9 AM – 1 PM Daily</div>
+                  </div>
+
+                  <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                    <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Location
+                    </div>
+                    <div className="text-white">Jennifer Ross Soccer Complex</div>
+                    <div className="text-slate-500 text-sm mt-1">
+                      7221 Sallie Mood Dr, Savannah, GA 31406
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                    <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Age Range
+                    </div>
+                    <div className="text-white">Ages 9–18</div>
+                  </div>
+                </div>
 
                 <button
                   type="button"
                   onClick={() => setShowForm(true)}
-                  className="bg-gold text-black font-bold py-2 px-6 hover:bg-yellow-600 transition"
+                  className="btn-primary"
                 >
-                  Sign Up
+                  Register for Camp
                 </button>
               </div>
 
-              <div>
-                <div className="text-xs font-heading tracking-widest uppercase text-gray-600 mb-3">
-                  Camp Highlights
+              {/* RIGHT */}
+              <div className="p-8 md:p-10 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-px bg-green" />
+                    <span className="section-label">Camp Highlights</span>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    {highlights.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-xl border border-pitch-border bg-pitch-black p-4"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="text-green mt-0.5">✔</span>
+                          <span className="text-slate-300 leading-relaxed">{item}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <ul className="space-y-2 mb-6">
-                  {[
-                    'Technical training sessions',
-                    'Game-based learning',
-                    'Position-specific coaching',
-                    'Small-sided competitive games',
-                    'Player evaluation',
-                  ].map((item) => (
-                    <li key={item} className="text-sm text-gray-300 flex items-start gap-2">
-                      <span className="text-gold">✔</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="border-t border-pitch-border pt-4">
-                  <div className="text-gray-600 text-xs uppercase mb-1">Price</div>
-                  <div className="text-3xl text-gold font-display">$400</div>
+                <div className="rounded-2xl border border-blue/20 bg-blue/10 p-6">
+                  <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                    Camp Price
+                  </div>
+                  <div className="text-4xl text-blue font-display leading-none">$400</div>
+                  <div className="text-slate-300 text-sm mt-2">
+                    Includes all scheduled training sessions during camp.
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,50 +178,102 @@ export default function Camps() {
         </div>
       </section>
 
+      {/* REGISTRATION FORM */}
       {showForm && (
-        <section className="py-20 bg-pitch-black border-t border-pitch-border">
-          <div className="max-w-2xl mx-auto px-4">
-            <h2 className="text-3xl text-white mb-6 font-display text-center">
-              Camp Registration
-            </h2>
+        <section className="py-20 bg-pitch-dark border-t border-pitch-border">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="rounded-3xl border border-pitch-border bg-pitch-card p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue/10 via-transparent to-green/10 pointer-events-none" />
 
-            <form onSubmit={onSubmit} className="flex flex-col gap-4 bg-pitch-card p-6 border border-pitch-border">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" name="first_name" placeholder="First Name" required className="p-3 bg-gray-800 text-white rounded" />
-                <input type="text" name="last_name" placeholder="Last Name" required className="p-3 bg-gray-800 text-white rounded" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-blue" />
+                  <span className="section-label">Registration Form</span>
+                </div>
+
+                <h2 className="display-heading text-4xl md:text-5xl mb-4">
+                  CAMP
+                  <br />
+                  REGISTRATION
+                </h2>
+
+                <p className="text-slate-400 mb-8 leading-relaxed">
+                  Complete the form below and we’ll receive your registration inquiry directly.
+                </p>
+
+                <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="first_name"
+                      placeholder="First Name"
+                      required
+                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                    />
+
+                    <input
+                      type="text"
+                      name="last_name"
+                      placeholder="Last Name"
+                      required
+                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                    />
+                  </div>
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                  />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <select
+                      name="position"
+                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                    >
+                      <option value="">Position</option>
+                      <option>Goalkeeper</option>
+                      <option>Defender</option>
+                      <option>Midfielder</option>
+                      <option>Forward</option>
+                    </select>
+
+                    <select
+                      name="age_group"
+                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white"
+                    >
+                      <option value="">Age Group</option>
+                      <option>U10</option>
+                      <option>U12</option>
+                      <option>U14</option>
+                      <option>U16</option>
+                      <option>U18</option>
+                    </select>
+                  </div>
+
+                  <textarea
+                    name="message"
+                    placeholder="Extra details"
+                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-white min-h-[120px]"
+                  />
+
+                  <button type="submit" className="btn-primary justify-center mt-2">
+                    Submit Registration
+                  </button>
+                </form>
+
+                <span className="text-white mt-4 block">{result}</span>
               </div>
-
-              <input type="tel" name="phone" placeholder="Phone Number" className="p-3 bg-gray-800 text-white rounded" />
-              <input type="email" name="email" placeholder="Email" required className="p-3 bg-gray-800 text-white rounded" />
-
-              <select name="position" className="p-3 bg-gray-800 text-white rounded">
-                <option value="">Position</option>
-                <option>Goalkeeper</option>
-                <option>Defender</option>
-                <option>Midfielder</option>
-                <option>Forward</option>
-              </select>
-
-              <select name="age_group" className="p-3 bg-gray-800 text-white rounded">
-                <option value="">Age Group</option>
-                <option>U10</option>
-                <option>U12</option>
-                <option>U14</option>
-                <option>U16</option>
-                <option>U18</option>
-              </select>
-
-              <textarea name="message" placeholder="Extra details" className="p-3 bg-gray-800 text-white rounded" />
-
-              <button
-                type="submit"
-                className="bg-gold text-black font-bold py-3 mt-2 hover:bg-yellow-600 transition"
-              >
-                Submit Registration
-              </button>
-            </form>
-
-            <span className="text-white mt-4 block">{result}</span>
+            </div>
           </div>
         </section>
       )}
