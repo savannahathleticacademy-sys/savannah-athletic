@@ -4,63 +4,58 @@ import PageHero from './PageHero.jsx'
 const programs = [
   {
     id: 'one-v-one',
-    tag: '',
     title: '1v1 Training',
-    tagline: 'The Fastest Path to Elite',
+    tagline: 'Focused. Personalized. High Impact.',
     price: '$80/h',
     description:
-      'Our flagship individual training program is designed for the serious athlete who demands personalized attention. Each session is built around your specific position, weaknesses, and goals.',
+      'Our individual training program is built for athletes who want highly personalized coaching. Each session is tailored to the player’s position, level, and development priorities.',
     details: [
-      'Technical skill deep-dives: first touch, dribbling, finishing',
-      'Position-specific tactical training',
-      'Strength & conditioning integration',
-      'Video analysis sessions (monthly)',
-      'Bi-weekly progress reports',
-      'Direct coach access via messaging',
+      'Technical skill development',
+      'Position-specific training',
+      'Finishing and first-touch work',
+      'Confidence and decision-making',
+      'Individual feedback and progression',
+      'Clear player development focus',
     ],
     ideal: 'Ages 9–19 | All skill levels',
-    cta: 'Book 1v1',
-    accent: 'gold',
+    cta: 'Book 1v1 Session',
+    theme: 'blue',
   },
   {
     id: 'small-group',
-    tag: '',
     title: 'Small Group Training',
-    tagline: 'Compete Together. Grow Together.',
+    tagline: 'Compete Together. Develop Faster.',
     price: '$50/session',
     description:
-      'Train alongside 4–5 athletes of similar ability in structured, high-intensity sessions that build tactical intelligence, game-reading skills, and competitive edge.',
+      'Train in a focused small-group environment that encourages competition, tactical awareness, and game-speed decision-making with players of similar level.',
     details: [
-      'Max 8 athletes per group (skill-matched)',
-      'Tactical drills, rondos, and game scenarios',
-      'Competitive small-sided matches',
-      'Positional play and shape work',
-      'Monthly fitness assessments',
-      'Monthly group film review',
+      'Small-sided competitive play',
+      'Tactical drills and scenarios',
+      'Higher repetition in realistic moments',
+      'Improved speed of play',
+      'Game understanding and communication',
+      'Strong team and training intensity',
     ],
     ideal: 'Ages 9–19 | Intermediate to Advanced',
     cta: 'Book Group Session',
-    accent: 'turf',
+    theme: 'green',
   },
 ]
 
-const ACCENT = {
-  gold: {
-    border: 'border-gold/30',
-    tag: 'text-gold',
-    bg: 'bg-gold/5',
-    dot: 'bg-gold',
-    btn: 'btn-primary',
-    line: 'bg-gold',
+const themeStyles = {
+  blue: {
+    panel: 'bg-blue/10 border-blue/20',
+    label: 'text-blue',
+    line: 'bg-blue',
+    dot: 'bg-blue',
+    button: 'btn-primary',
   },
-  turf: {
-    border: 'border-turf/30',
-    tag: 'text-turf-light',
-    bg: 'bg-turf/5',
-    dot: 'bg-turf-light',
-    btn:
-      'btn-outline border-turf-light text-turf-light hover:bg-turf-light hover:text-pitch-black',
-    line: 'bg-turf-light',
+  green: {
+    panel: 'bg-green/10 border-green/20',
+    label: 'text-green',
+    line: 'bg-green',
+    dot: 'bg-green',
+    button: 'btn-outline',
   },
 }
 
@@ -76,90 +71,102 @@ export default function Programs() {
             <span className="text-gradient-gold">PROGRAMS</span>
           </>
         }
-        subtitle="Three pathways. One goal — make you the best athlete you can be."
+        subtitle="Purpose-built training pathways designed to help athletes improve, compete, and move forward with confidence."
       />
 
       <section className="py-20 bg-pitch-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
-          {programs.map((p) => {
-            const A = ACCENT[p.accent]
+          {programs.map((program) => {
+            const styles = themeStyles[program.theme]
+
             return (
               <div
-                key={p.id}
-                className={`border ${A.border} bg-pitch-card overflow-hidden group hover:shadow-[0_16px_64px_rgba(0,0,0,0.5)] transition-all duration-500`}
+                key={program.id}
+                className="rounded-3xl border border-pitch-border bg-pitch-card overflow-hidden hover:shadow-[0_16px_64px_rgba(0,0,0,0.45)] transition-all duration-500"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-3">
-                  <div
-                    className={`${A.bg} border-r border-pitch-border p-8 lg:p-12 flex flex-col justify-between`}
-                  >
-                    <div>
-                      <div
-                        className={`font-display text-7xl ${A.tag} opacity-20 leading-none mb-6`}
-                      >
-                        {p.tag}
+                <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.4fr]">
+                  {/* LEFT PANEL */}
+                  <div className={`p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-pitch-border ${styles.panel}`}>
+                    <div className="mb-8">
+                      <div className={`text-xs font-heading tracking-[0.22em] uppercase mb-3 ${styles.label}`}>
+                        Program
                       </div>
-                      <h2 className="font-display text-4xl text-white mb-2">
-                        {p.title}
+
+                      <h2 className="font-display text-4xl md:text-5xl text-white mb-2 leading-none">
+                        {program.title}
                       </h2>
-                      <div
-                        className={`font-heading tracking-wider uppercase text-xs ${A.tag} mb-6`}
-                      >
-                        {p.tagline}
+
+                      <div className={`font-heading tracking-[0.18em] uppercase text-xs mb-5 ${styles.label}`}>
+                        {program.tagline}
                       </div>
-                      <div className={`w-12 h-px ${A.line} mb-6`} />
-                      <p className="text-gray-400 text-sm leading-relaxed">
-                        {p.description}
+
+                      <div className={`w-14 h-px ${styles.line} mb-6`} />
+
+                      <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                        {program.description}
                       </p>
                     </div>
 
-                    <div className="mt-8">
-                      <div className="text-gray-600 text-xs font-heading tracking-wider uppercase mb-1">
-                        Cost
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                        <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                          Cost
+                        </div>
+                        <div className={`font-heading text-xl ${styles.label}`}>
+                          {program.price}
+                        </div>
                       </div>
-                      <div className={`font-heading text-xl ${A.tag}`}>
-                        {p.price}
+
+                      <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                        <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                          Ideal For
+                        </div>
+                        <div className="text-slate-200 text-sm">
+                          {program.ideal}
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-between">
+                  {/* RIGHT PANEL */}
+                  <div className="p-8 lg:p-10 flex flex-col justify-between">
                     <div>
-                      <div className="text-gray-600 text-xs font-heading tracking-widest uppercase mb-4">
-                        What's Included
+                      <div className="text-slate-500 text-xs font-heading tracking-[0.2em] uppercase mb-4">
+                        What’s Included
                       </div>
 
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                        {p.details.map((d) => (
-                          <li
-                            key={d}
-                            className="flex items-start gap-3 text-sm text-gray-300"
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        {program.details.map((detail) => (
+                          <div
+                            key={detail}
+                            className="rounded-xl border border-pitch-border bg-pitch-black p-4"
                           >
-                            <span
-                              className={`w-1.5 h-1.5 rounded-full ${A.dot} mt-1.5 flex-shrink-0`}
-                            />
-                            {d}
-                          </li>
+                            <div className="flex items-start gap-3">
+                              <span className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${styles.dot}`} />
+                              <span className="text-slate-300 text-sm leading-relaxed">
+                                {detail}
+                              </span>
+                            </div>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-pitch-border">
+                    <div className="pt-6 border-t border-pitch-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div>
-                        <div className="text-gray-600 text-xs font-heading tracking-wider uppercase mb-1">
-                          Ideal For
+                        <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                          Next Step
                         </div>
-                        <div className="text-gray-300 text-sm">{p.ideal}</div>
+                        <div className="text-slate-300 text-sm">
+                          Book a session and start building your development plan.
+                        </div>
                       </div>
 
                       <Link
                         to="/book"
-                        className={`btn-primary text-xs flex-shrink-0 ${
-                          p.accent === 'turf'
-                            ? 'bg-turf-light text-pitch-black hover:bg-turf hover:shadow-[0_0_24px_rgba(64,145,108,0.4)]'
-                            : ''
-                        }`}
+                        className={`${styles.button} text-xs flex-shrink-0`}
                       >
-                        {p.cta}
+                        {program.cta}
                         <svg
                           className="w-4 h-4"
                           fill="none"
@@ -184,23 +191,24 @@ export default function Programs() {
       </section>
 
       <section className="py-20 bg-pitch-dark">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center gap-3 mb-3 justify-center">
-            <div className="w-8 h-px bg-gold" />
-            <span className="section-label">Questions?</span>
+            <div className="w-8 h-px bg-blue" />
+            <span className="section-label">Need Help Choosing?</span>
+            <div className="w-8 h-px bg-green" />
           </div>
 
           <h2 className="display-heading text-4xl md:text-5xl mb-4">
             NOT SURE WHERE TO START?
           </h2>
 
-          <p className="text-gray-400 mb-8">
-            We'll match you with the right program for your age, skill level, and goals.
-            Book a free 15-minute discovery call.
+          <p className="text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+            We’ll help match you with the right training option based on age,
+            experience, goals, and the type of support you need most.
           </p>
 
           <Link to="/contact" className="btn-outline">
-            Get in Touch
+            Contact Us
           </Link>
         </div>
       </section>
