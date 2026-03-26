@@ -76,12 +76,12 @@ export default function Camps() {
 
                 <div className="flex flex-col gap-2 text-sm text-gray-400 mb-4">
                   <span>📅 June 30 – July 3, 2026</span>
-                  <span>⏰ 9 AM – 3 PM Daily</span>
+                  <span>⏰ 9 AM – 1 PM Daily</span>
                   <span>📍 Jennifer Ross Soccer Complex</span>
                   <span className="text-xs text-gray-500">
                     7221 Sallie Mood Dr, Savannah, GA 31406
                   </span>
-                  <span>👥 Ages 10–18</span>
+                  <span>👥 Ages 9–18</span>
                 </div>
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
