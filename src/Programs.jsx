@@ -6,7 +6,7 @@ const programs = [
     id: 'one-v-one',
     title: '1v1 Training',
     tagline: 'Focused. Personalized. High Impact.',
-    price: '$80/h',
+    price: '$70/h',
     description:
       'Our individual training program is built for athletes who want highly personalized coaching. Each session is tailored to the player’s position, level, and development priorities.',
     details: [
