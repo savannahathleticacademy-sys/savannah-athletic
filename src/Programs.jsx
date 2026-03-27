@@ -36,7 +36,7 @@ const programs = [
       'Game understanding and communication',
       'Strong team and training intensity',
     ],
-    ideal: 'Ages 9–19 | Intermediate to Advanced',
+    ideal: 'Ages 9–19 | All skill levels',
     cta: 'Book Group Session',
     theme: 'green',
   },
