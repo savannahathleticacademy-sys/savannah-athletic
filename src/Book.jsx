@@ -92,8 +92,8 @@ export default function Book() {
     formData.append('preferred_date', formattedDate)
     formData.append('preferred_time', selectedTime || '')
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
-    formData.append('subject', 'New Session Booking - Savannah Athletic')
-    formData.append('from_name', 'Savannah Athletic Website')
+    formData.append('subject', 'New Session Booking - Skill Mill Soccer')
+    formData.append('from_name', 'Skill Mill Soccer Website')
 
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
@@ -132,23 +132,23 @@ export default function Book() {
         label="Book a Session"
         title={
           <>
-            RESERVE YOUR
+            BOOK YOUR
             <br />
-            <span className="text-gradient-gold">SESSION</span>
+            <span className="text-primary">SESSION</span>
           </>
         }
-        subtitle="Choose your training type, select a coach, and request the time that works best for you."
+        subtitle="Choose your training type, select your coach, and request the date and time that work best for you."
       />
 
-      <section className="py-20 bg-pitch-black">
+      <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* STEP 1 */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center font-display text-lg">
+              <div className="w-9 h-9 rounded-full bg-primary text-skill-black flex items-center justify-center font-display text-lg">
                 1
               </div>
-              <h2 className="font-heading text-xl tracking-[0.14em] text-white uppercase">
+              <h2 className="font-heading text-xl tracking-[0.14em] text-text-main uppercase">
                 Select Session Type
               </h2>
             </div>
@@ -164,39 +164,39 @@ export default function Book() {
                     onClick={() => setSessionType(type.id)}
                     className={`text-left rounded-2xl border p-6 transition-all duration-300 ${
                       active
-                        ? 'border-blue bg-blue/10 shadow-[0_0_24px_rgba(59,130,246,0.18)]'
-                        : 'border-pitch-border bg-pitch-card hover:border-blue/30'
+                        ? 'border-primary bg-primary/10 shadow-[0_0_24px_rgba(125,211,252,0.18)]'
+                        : 'border-skill-border bg-skill-card hover:border-primary/30'
                     }`}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div
                         className={`w-5 h-5 border-2 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          active ? 'border-blue' : 'border-slate-500'
+                          active ? 'border-primary' : 'border-slate-500'
                         }`}
                       >
-                        {active && <div className="w-2.5 h-2.5 rounded-full bg-blue" />}
+                        {active && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
                       </div>
 
                       <span
                         className={`text-xs font-heading tracking-[0.18em] px-2 py-1 rounded border ${
                           active
-                            ? 'text-blue border-blue/30 bg-blue/10'
-                            : 'text-slate-400 border-pitch-border'
+                            ? 'text-primary border-primary/30 bg-primary/10'
+                            : 'text-slate-400 border-skill-border'
                         }`}
                       >
                         {type.price}
                       </span>
                     </div>
 
-                    <h3 className="font-heading text-xl text-white tracking-wide mb-2">
+                    <h3 className="font-heading text-xl text-text-main tracking-wide mb-2">
                       {type.label}
                     </h3>
 
-                    <p className="text-slate-400 text-sm mb-3">
+                    <p className="text-text-muted text-sm mb-3">
                       {type.desc}
                     </p>
 
-                    <div className="text-xs text-slate-500 font-heading tracking-[0.18em] uppercase">
+                    <div className="text-xs text-text-muted font-heading tracking-[0.18em] uppercase">
                       {type.duration} session
                     </div>
                   </button>
@@ -211,13 +211,13 @@ export default function Book() {
               <div
                 className={`w-9 h-9 rounded-full flex items-center justify-center font-display text-lg ${
                   sessionType
-                    ? 'bg-green text-pitch-black'
-                    : 'bg-pitch-card text-slate-500 border border-pitch-border'
+                    ? 'bg-accent-green text-skill-black'
+                    : 'bg-skill-card text-slate-500 border border-skill-border'
                 }`}
               >
                 2
               </div>
-              <h2 className="font-heading text-xl tracking-[0.14em] text-white uppercase">
+              <h2 className="font-heading text-xl tracking-[0.14em] text-text-main uppercase">
                 Choose Your Coach
               </h2>
             </div>
@@ -233,26 +233,26 @@ export default function Book() {
                     onClick={() => setSelectedCoach(coach.id)}
                     className={`text-left rounded-2xl border p-6 transition-all duration-300 ${
                       active
-                        ? 'border-green bg-green/10 shadow-[0_0_24px_rgba(34,197,94,0.16)]'
-                        : 'border-pitch-border bg-pitch-card hover:border-green/30'
+                        ? 'border-accent-green bg-accent-green/10 shadow-[0_0_24px_rgba(34,197,94,0.16)]'
+                        : 'border-skill-border bg-skill-card hover:border-accent-green/30'
                     }`}
                   >
                     <div className="flex items-center gap-4">
                       <div
                         className={`w-14 h-14 rounded-xl border flex items-center justify-center font-display text-xl flex-shrink-0 ${
                           active
-                            ? 'border-green text-green bg-green/10'
-                            : 'border-pitch-border text-slate-400'
+                            ? 'border-accent-green text-accent-green bg-accent-green/10'
+                            : 'border-skill-border text-slate-400'
                         }`}
                       >
                         {coach.initials}
                       </div>
 
                       <div>
-                        <div className="font-heading text-lg text-white tracking-wide">
+                        <div className="font-heading text-lg text-text-main tracking-wide">
                           {coach.name}
                         </div>
-                        <div className="text-green text-xs font-heading tracking-[0.18em] uppercase">
+                        <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase">
                           {coach.title}
                         </div>
                       </div>
@@ -267,22 +267,22 @@ export default function Book() {
           {selectedCoach && (
             <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6">
               {/* CALENDAR */}
-              <div className="rounded-3xl border border-pitch-border bg-pitch-card p-6 md:p-8">
+              <div className="rounded-3xl border border-skill-border bg-skill-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center font-display text-lg">
+                  <div className="w-9 h-9 rounded-full bg-primary text-skill-black flex items-center justify-center font-display text-lg">
                     3
                   </div>
-                  <h2 className="font-heading text-xl tracking-[0.14em] text-white uppercase">
+                  <h2 className="font-heading text-xl tracking-[0.14em] text-text-main uppercase">
                     Select Preferred Date & Time
                   </h2>
                 </div>
 
-                <div className="rounded-2xl border border-pitch-border bg-pitch-black p-5">
-                  <div className="flex justify-between items-center mb-5 text-white">
+                <div className="rounded-2xl border border-skill-border bg-skill-black p-5">
+                  <div className="flex justify-between items-center mb-5 text-text-main">
                     <button
                       type="button"
                       onClick={prevMonth}
-                      className="px-3 py-1.5 rounded-lg bg-pitch-card border border-pitch-border hover:border-blue/30 transition-colors"
+                      className="px-3 py-1.5 rounded-lg bg-skill-card border border-skill-border hover:border-primary/30 transition-colors"
                     >
                       &lt;
                     </button>
@@ -297,7 +297,7 @@ export default function Book() {
                     <button
                       type="button"
                       onClick={nextMonth}
-                      className="px-3 py-1.5 rounded-lg bg-pitch-card border border-pitch-border hover:border-blue/30 transition-colors"
+                      className="px-3 py-1.5 rounded-lg bg-skill-card border border-skill-border hover:border-primary/30 transition-colors"
                     >
                       &gt;
                     </button>
@@ -309,7 +309,7 @@ export default function Book() {
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-7 gap-2 text-center text-white text-sm">
+                  <div className="grid grid-cols-7 gap-2 text-center text-text-main text-sm">
                     {[...Array(firstDayIndex)].map((_, i) => (
                       <div key={`empty-${i}`}></div>
                     ))}
@@ -330,8 +330,8 @@ export default function Book() {
                           disabled={isPast}
                           className={`p-2.5 rounded-lg transition-all duration-200 ${
                             active
-                              ? 'bg-blue text-white'
-                              : 'bg-pitch-card hover:bg-slate-700'
+                              ? 'bg-primary text-skill-black'
+                              : 'bg-skill-card hover:bg-slate-700'
                           } ${isPast ? 'opacity-30 cursor-not-allowed' : ''}`}
                         >
                           {day.getDate()}
@@ -343,7 +343,7 @@ export default function Book() {
 
                 {selectedDate && (
                   <div className="mt-6">
-                    <h4 className="text-white font-heading tracking-[0.14em] uppercase mb-4 text-sm">
+                    <h4 className="text-text-main font-heading tracking-[0.14em] uppercase mb-4 text-sm">
                       Available Times
                     </h4>
 
@@ -358,8 +358,8 @@ export default function Book() {
                             onClick={() => setSelectedTime(hour)}
                             className={`p-3 rounded-xl border text-sm transition-all duration-200 ${
                               active
-                                ? 'bg-green text-pitch-black border-green'
-                                : 'bg-pitch-card border-pitch-border text-white hover:border-green/30'
+                                ? 'bg-accent-green text-skill-black border-accent-green'
+                                : 'bg-skill-card border-skill-border text-text-main hover:border-accent-green/30'
                             }`}
                           >
                             {hour}
@@ -372,50 +372,50 @@ export default function Book() {
               </div>
 
               {/* FORM */}
-              <div className="rounded-3xl border border-pitch-border bg-pitch-card p-6 md:p-8">
+              <div className="rounded-3xl border border-skill-border bg-skill-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-full bg-green text-pitch-black flex items-center justify-center font-display text-lg">
+                  <div className="w-9 h-9 rounded-full bg-accent-green text-skill-black flex items-center justify-center font-display text-lg">
                     4
                   </div>
-                  <h3 className="font-heading text-xl tracking-[0.14em] text-white uppercase">
+                  <h3 className="font-heading text-xl tracking-[0.14em] text-text-main uppercase">
                     Booking Request
                   </h3>
                 </div>
 
-                <div className="mb-5 rounded-2xl border border-pitch-border bg-pitch-black p-4 space-y-2 text-sm">
+                <div className="mb-5 rounded-2xl border border-skill-border bg-skill-black p-4 space-y-2 text-sm">
                   <div className="flex justify-between gap-4">
                     <span className="text-slate-500">Session</span>
-                    <span className="text-white text-right">{selectedSessionLabel}</span>
+                    <span className="text-text-main text-right">{selectedSessionLabel}</span>
                   </div>
                   <div className="flex justify-between gap-4">
                     <span className="text-slate-500">Coach</span>
-                    <span className="text-white text-right">{selectedCoachName}</span>
+                    <span className="text-text-main text-right">{selectedCoachName}</span>
                   </div>
                   <div className="flex justify-between gap-4">
                     <span className="text-slate-500">Date</span>
-                    <span className="text-white text-right">{formattedDate || 'Not selected'}</span>
+                    <span className="text-text-main text-right">{formattedDate || 'Not selected'}</span>
                   </div>
                   <div className="flex justify-between gap-4">
                     <span className="text-slate-500">Time</span>
-                    <span className="text-white text-right">{selectedTime || 'Not selected'}</span>
+                    <span className="text-text-main text-right">{selectedTime || 'Not selected'}</span>
                   </div>
                 </div>
 
-                <form onSubmit={onSubmit} className="flex flex-col gap-4 text-white">
+                <form onSubmit={onSubmit} className="flex flex-col gap-4 text-text-main">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="first_name"
                       placeholder="First Name"
                       required
-                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border"
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border"
                     />
                     <input
                       type="text"
                       name="last_name"
                       placeholder="Last Name"
                       required
-                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border"
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border"
                     />
                   </div>
 
@@ -424,14 +424,14 @@ export default function Book() {
                     name="email"
                     placeholder="Email"
                     required
-                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border"
                   />
 
                   <input
                     type="tel"
                     name="phone"
                     placeholder="Phone Number"
-                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border"
                   />
 
                   {selectedDate && (
@@ -439,7 +439,7 @@ export default function Book() {
                       type="text"
                       value={formattedDate}
                       readOnly
-                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-slate-300"
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-slate-300"
                     />
                   )}
 
@@ -448,14 +448,14 @@ export default function Book() {
                       type="text"
                       value={selectedTime}
                       readOnly
-                      className="p-3 rounded-xl bg-pitch-black border border-pitch-border text-slate-300"
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-slate-300"
                     />
                   )}
 
                   <textarea
                     name="message"
                     placeholder="Extra details"
-                    className="p-3 rounded-xl bg-pitch-black border border-pitch-border min-h-[120px]"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border min-h-[120px]"
                   />
 
                   <button type="submit" className="btn-primary justify-center mt-2">
@@ -463,7 +463,7 @@ export default function Book() {
                   </button>
                 </form>
 
-                <span className="text-white mt-4 block">{result}</span>
+                <span className="text-text-main mt-4 block">{result}</span>
               </div>
             </div>
           )}
