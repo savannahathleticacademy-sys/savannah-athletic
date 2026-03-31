@@ -12,32 +12,31 @@ export default {
         body: ['DM Sans', 'sans-serif'],
       },
       colors: {
-        pitch: {
-          black: '#0B1220',
-          dark: '#111827',
-          card: '#1F2937',
-          border: '#334155',
+        skill: {
+          black: '#0a0a0a',
+          dark: '#111111',
+          card: '#1a1a1a',
+          border: '#2a2a2a',
         },
-        blue: {
-          DEFAULT: '#3B82F6',
-          light: '#60A5FA',
-          dark: '#1D4ED8',
+        primary: {
+          DEFAULT: '#7dd3fc', // azul hielo (MAIN COLOR)
+          light: '#bae6fd',
+          dark: '#38bdf8',
         },
-        green: {
-          DEFAULT: '#22C55E',
-          light: '#4ADE80',
-          dark: '#16A34A',
+        accent: {
+          green: '#22c55e',
+          lime: '#a3e635',
         },
         text: {
-          main: '#E5EEF8',
-          muted: '#94A3B8',
+          main: '#f1f5f9',
+          muted: '#9ca3af',
         },
       },
       backgroundImage: {
+        'grain-texture':
+          "url('https://www.transparenttextures.com/patterns/asfalt-light.png')",
         'hero-gradient':
-          'radial-gradient(ellipse at top left, rgba(59,130,246,0.14) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(34,197,94,0.12) 0%, transparent 60%)',
-        'card-gradient':
-          'linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(34,197,94,0.05) 100%)',
+          'radial-gradient(circle at top, rgba(125,211,252,0.15), transparent 60%)',
       },
       animation: {
         'fade-up': 'fadeUp 0.7s ease forwards',
