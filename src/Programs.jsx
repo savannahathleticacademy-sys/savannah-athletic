@@ -8,7 +8,7 @@ const programs = [
     tagline: 'Focused. Personalized. High Impact.',
     price: '$70/h',
     description:
-      'Our individual training program is built for athletes who want highly personalized coaching. Each session is tailored to the player’s position, level, and development priorities.',
+      'Our individual training program is built for players who want highly personalized coaching. Each session is tailored to the athlete’s position, level, and development priorities.',
     details: [
       'Technical skill development',
       'Position-specific training',
@@ -19,7 +19,7 @@ const programs = [
     ],
     ideal: 'Ages 9–19 | All skill levels',
     cta: 'Book 1v1 Session',
-    theme: 'blue',
+    theme: 'primary',
   },
   {
     id: 'small-group',
@@ -43,18 +43,18 @@ const programs = [
 ]
 
 const themeStyles = {
-  blue: {
-    panel: 'bg-blue/10 border-blue/20',
-    label: 'text-blue',
-    line: 'bg-blue',
-    dot: 'bg-blue',
+  primary: {
+    panel: 'bg-primary/10 border-primary/20',
+    label: 'text-primary',
+    line: 'bg-primary',
+    dot: 'bg-primary',
     button: 'btn-primary',
   },
   green: {
-    panel: 'bg-green/10 border-green/20',
-    label: 'text-green',
-    line: 'bg-green',
-    dot: 'bg-green',
+    panel: 'bg-accent-green/10 border-accent-green/20',
+    label: 'text-accent-green',
+    line: 'bg-accent-green',
+    dot: 'bg-accent-green',
     button: 'btn-outline',
   },
 }
@@ -68,13 +68,13 @@ export default function Programs() {
           <>
             OUR
             <br />
-            <span className="text-gradient-gold">PROGRAMS</span>
+            <span className="text-primary">PROGRAMS</span>
           </>
         }
-        subtitle="Purpose-built training pathways designed to help athletes improve, compete, and move forward with confidence."
+        subtitle="Purpose-built training options designed to help players improve, compete, and develop with confidence."
       />
 
-      <section className="py-20 bg-pitch-black">
+      <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
           {programs.map((program) => {
             const styles = themeStyles[program.theme]
@@ -82,17 +82,17 @@ export default function Programs() {
             return (
               <div
                 key={program.id}
-                className="rounded-3xl border border-pitch-border bg-pitch-card overflow-hidden hover:shadow-[0_16px_64px_rgba(0,0,0,0.45)] transition-all duration-500"
+                className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden hover:shadow-[0_16px_64px_rgba(0,0,0,0.45)] transition-all duration-500"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.4fr]">
                   {/* LEFT PANEL */}
-                  <div className={`p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-pitch-border ${styles.panel}`}>
+                  <div className={`p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-skill-border ${styles.panel}`}>
                     <div className="mb-8">
                       <div className={`text-xs font-heading tracking-[0.22em] uppercase mb-3 ${styles.label}`}>
                         Program
                       </div>
 
-                      <h2 className="font-display text-4xl md:text-5xl text-white mb-2 leading-none">
+                      <h2 className="font-display text-4xl md:text-5xl text-text-main mb-2 leading-none uppercase">
                         {program.title}
                       </h2>
 
@@ -108,7 +108,7 @@ export default function Programs() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                      <div className="rounded-xl border border-skill-border bg-skill-black p-4">
                         <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                           Cost
                         </div>
@@ -117,7 +117,7 @@ export default function Programs() {
                         </div>
                       </div>
 
-                      <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                      <div className="rounded-xl border border-skill-border bg-skill-black p-4">
                         <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                           Ideal For
                         </div>
@@ -139,7 +139,7 @@ export default function Programs() {
                         {program.details.map((detail) => (
                           <div
                             key={detail}
-                            className="rounded-xl border border-pitch-border bg-pitch-black p-4"
+                            className="rounded-xl border border-skill-border bg-skill-black p-4"
                           >
                             <div className="flex items-start gap-3">
                               <span className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${styles.dot}`} />
@@ -152,7 +152,7 @@ export default function Programs() {
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-pitch-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="pt-6 border-t border-skill-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div>
                         <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                           Next Step
@@ -190,19 +190,19 @@ export default function Programs() {
         </div>
       </section>
 
-      <section className="py-20 bg-pitch-dark">
+      <section className="py-20 bg-skill-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center gap-3 mb-3 justify-center">
-            <div className="w-8 h-px bg-blue" />
+            <div className="w-8 h-px bg-primary" />
             <span className="section-label">Need Help Choosing?</span>
-            <div className="w-8 h-px bg-green" />
+            <div className="w-8 h-px bg-accent-green" />
           </div>
 
-          <h2 className="display-heading text-4xl md:text-5xl mb-4">
+          <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
             NOT SURE WHERE TO START?
           </h2>
 
-          <p className="text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
             We’ll help match you with the right training option based on age,
             experience, goals, and the type of support you need most.
           </p>
