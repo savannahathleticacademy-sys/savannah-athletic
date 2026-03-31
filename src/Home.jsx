@@ -65,22 +65,23 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden bg-mesh">
+      <section className="relative min-h-screen overflow-hidden bg-skill-black">
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(59,130,246,1) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,1) 1px, transparent 1px)',
+              'linear-gradient(rgba(125,211,252,1) 1px, transparent 1px), linear-gradient(90deg, rgba(125,211,252,1) 1px, transparent 1px)',
             backgroundSize: '72px 72px',
           }}
         />
 
-        <div className="absolute -top-24 right-[-10%] w-[420px] h-[420px] rounded-full bg-blue/10 blur-3xl" />
-        <div className="absolute bottom-[-80px] left-[-8%] w-[320px] h-[320px] rounded-full bg-green/10 blur-3xl" />
+        <div className="absolute inset-0 bg-grain-texture opacity-[0.06] pointer-events-none" />
+        <div className="absolute -top-24 right-[-10%] w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-[-80px] left-[-8%] w-[320px] h-[320px] rounded-full bg-accent-green/10 blur-3xl" />
 
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-          <div className="font-display text-[22vw] text-white/[0.03] leading-none select-none whitespace-nowrap">
-            SAVANNAH
+          <div className="font-display text-[18vw] text-white/[0.03] leading-none select-none whitespace-nowrap uppercase">
+            SKILL MILL
           </div>
         </div>
 
@@ -88,22 +89,19 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
             <div>
               <div className="flex items-center gap-3 mb-6 animate-fade-up">
-                <div className="w-10 h-px bg-blue" />
-                <span className="section-label">Soccer Performance Academy</span>
+                <div className="w-10 h-px bg-primary" />
+                <span className="section-label">Technical. Speed. Performance.</span>
               </div>
 
-              <h1 className="font-display text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] text-white leading-[0.92] mb-6 animate-fade-up delay-100">
-                BUILD THE
+              <h1 className="font-display text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] text-text-main leading-[0.92] mb-6 animate-fade-up delay-100 uppercase">
+                BUILD YOUR
                 <br />
-                <span className="text-gradient-gold">COMPLETE</span>
-                <br />
-                PLAYER
+                <span className="text-primary">GAME</span>
               </h1>
 
               <p className="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 animate-fade-up delay-200">
-                High-performance soccer training in Savannah for athletes who want
-                to improve faster, compete harder, and create a real pathway to the
-                next level.
+                Skill Mill Soccer delivers high-performance training in Savannah for players who want
+                to improve technically, move faster, and compete at a higher level.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-up delay-300">
@@ -125,7 +123,7 @@ export default function Home() {
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="bg-pitch-card/90 border border-pitch-border backdrop-blur-sm p-6 md:p-7 rounded-xl hover:border-blue/40 transition-all duration-300 hover:-translate-y-1"
+                    className="bg-skill-card/90 border border-skill-border backdrop-blur-sm p-6 md:p-7 rounded-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
                   >
                     <div className="stat-number text-4xl md:text-5xl">{stat.number}</div>
                     <div className="text-slate-400 text-xs md:text-sm font-heading tracking-[0.18em] uppercase mt-2">
@@ -135,16 +133,16 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-2xl border border-pitch-border bg-pitch-card/80 backdrop-blur-sm p-6">
+              <div className="mt-6 rounded-2xl border border-skill-border bg-skill-card/80 backdrop-blur-sm p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-3 h-3 rounded-full bg-green" />
-                  <span className="text-green text-xs font-heading tracking-[0.22em] uppercase">
+                  <div className="w-3 h-3 rounded-full bg-accent-green" />
+                  <span className="text-accent-green text-xs font-heading tracking-[0.22em] uppercase">
                     Athlete Development Focus
                   </span>
                 </div>
                 <p className="text-slate-300 leading-relaxed">
-                  We train with intention — combining technical detail, tactical growth,
-                  physical preparation, and the mentality needed to compete with confidence.
+                  We train with intention — combining technical detail, game awareness,
+                  speed, strength, and the mentality needed to perform with confidence.
                 </p>
               </div>
             </div>
@@ -152,23 +150,25 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <div className="gold-line" />
+          <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         </div>
       </section>
 
       {/* PROGRAMS */}
-      <section className="py-24 bg-pitch-dark">
+      <section className="py-24 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-px bg-blue" />
+            <div className="w-10 h-px bg-primary" />
             <span className="section-label">What We Offer</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
             <div>
-              <h2 className="display-heading text-5xl md:text-6xl">PROGRAMS BUILT TO DEVELOP PLAYERS</h2>
+              <h2 className="display-heading text-5xl md:text-6xl uppercase">
+                PROGRAMS BUILT TO DEVELOP PLAYERS
+              </h2>
             </div>
-            <div className="max-w-xl text-slate-400">
+            <div className="max-w-xl text-text-muted">
               From individualized training to recruiting support, every program is built to help athletes grow with structure and purpose.
             </div>
           </div>
@@ -178,21 +178,21 @@ export default function Home() {
               <Link
                 key={feature.title}
                 to={feature.link}
-                className="group rounded-2xl border border-pitch-border bg-pitch-card p-7 hover:border-blue/40 hover:-translate-y-1 transition-all duration-300"
+                className="group rounded-2xl border border-skill-border bg-skill-card p-7 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-xl border border-blue/30 bg-blue/10 flex items-center justify-center text-blue mb-5 group-hover:bg-blue/15 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-xl border border-primary/30 bg-primary/10 flex items-center justify-center text-primary mb-5 group-hover:bg-primary/15 transition-colors duration-300">
                   {feature.icon}
                 </div>
 
-                <h3 className="font-heading text-2xl tracking-wide text-white mb-3">
+                <h3 className="font-heading text-2xl tracking-wide text-text-main mb-3">
                   {feature.title}
                 </h3>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-text-muted text-sm leading-relaxed mb-6">
                   {feature.description}
                 </p>
 
-                <div className="flex items-center gap-2 text-green text-xs font-heading tracking-[0.18em] uppercase">
+                <div className="flex items-center gap-2 text-accent-green text-xs font-heading tracking-[0.18em] uppercase">
                   Learn More
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -205,14 +205,14 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24 bg-pitch-black">
+      <section className="py-24 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-px bg-green" />
+            <div className="w-10 h-px bg-accent-green" />
             <span className="section-label">How We Work</span>
           </div>
 
-          <h2 className="display-heading text-5xl md:text-6xl mb-16">
+          <h2 className="display-heading text-5xl md:text-6xl mb-16 uppercase">
             A CLEAR DEVELOPMENT PROCESS
           </h2>
 
@@ -220,12 +220,12 @@ export default function Home() {
             {process.map((item) => (
               <div
                 key={item.step}
-                className="rounded-2xl border border-pitch-border bg-pitch-card p-7 hover:border-green/30 transition-all duration-300"
+                className="rounded-2xl border border-skill-border bg-skill-card p-7 hover:border-accent-green/30 transition-all duration-300"
               >
-                <div className="font-display text-5xl text-blue/25 mb-4">{item.step}</div>
-                <h3 className="font-heading text-2xl tracking-wide text-white mb-3">{item.title}</h3>
-                <div className="w-10 h-px bg-green mb-4" />
-                <p className="text-slate-400 leading-relaxed">{item.text}</p>
+                <div className="font-display text-5xl text-primary/25 mb-4">{item.step}</div>
+                <h3 className="font-heading text-2xl tracking-wide text-text-main mb-3">{item.title}</h3>
+                <div className="w-10 h-px bg-accent-green mb-4" />
+                <p className="text-text-muted leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
@@ -233,28 +233,28 @@ export default function Home() {
       </section>
 
       {/* PHILOSOPHY */}
-      <section className="py-24 bg-pitch-dark">
+      <section className="py-24 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-px bg-blue" />
+                <div className="w-10 h-px bg-primary" />
                 <span className="section-label">Our Philosophy</span>
               </div>
 
-              <h2 className="display-heading text-5xl md:text-6xl mb-6">
+              <h2 className="display-heading text-5xl md:text-6xl mb-6 uppercase">
                 TRAINING WITH
                 <br />
-                <span className="text-gradient-gold">PURPOSE</span>
+                <span className="text-primary">PURPOSE</span>
               </h2>
 
-              <p className="text-slate-400 leading-relaxed mb-6">
+              <p className="text-text-muted leading-relaxed mb-6">
                 We believe development should be intentional. Every athlete needs more
                 than random drills — they need structure, feedback, competition, and
                 a clear sense of progression.
               </p>
 
-              <p className="text-slate-400 leading-relaxed mb-8">
+              <p className="text-text-muted leading-relaxed mb-8">
                 Our environment is built to challenge players technically, sharpen them
                 mentally, and prepare them to perform with confidence.
               </p>
@@ -268,30 +268,30 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10">
+              <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-blue/20 bg-blue/10 p-5">
-                    <div className="text-blue text-xs font-heading tracking-[0.18em] uppercase mb-2">Technical</div>
-                    <div className="text-white font-heading text-xl">Detail & Precision</div>
+                  <div className="rounded-xl border border-primary/20 bg-primary/10 p-5">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Technical</div>
+                    <div className="text-text-main font-heading text-xl">Detail & Precision</div>
                   </div>
 
-                  <div className="rounded-xl border border-green/20 bg-green/10 p-5">
-                    <div className="text-green text-xs font-heading tracking-[0.18em] uppercase mb-2">Tactical</div>
-                    <div className="text-white font-heading text-xl">Game Understanding</div>
+                  <div className="rounded-xl border border-accent-green/20 bg-accent-green/10 p-5">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">Tactical</div>
+                    <div className="text-text-main font-heading text-xl">Game Understanding</div>
                   </div>
 
-                  <div className="rounded-xl border border-blue/20 bg-pitch-black p-5">
-                    <div className="text-blue text-xs font-heading tracking-[0.18em] uppercase mb-2">Physical</div>
-                    <div className="text-white font-heading text-xl">Speed & Intensity</div>
+                  <div className="rounded-xl border border-primary/20 bg-skill-black p-5">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Physical</div>
+                    <div className="text-text-main font-heading text-xl">Speed & Intensity</div>
                   </div>
 
-                  <div className="rounded-xl border border-green/20 bg-pitch-black p-5">
-                    <div className="text-green text-xs font-heading tracking-[0.18em] uppercase mb-2">Mental</div>
-                    <div className="text-white font-heading text-xl">Confidence & Focus</div>
+                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-5">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">Mental</div>
+                    <div className="text-text-main font-heading text-xl">Confidence & Focus</div>
                   </div>
                 </div>
 
-                <div className="mt-6 rounded-xl border border-pitch-border bg-pitch-black p-6">
+                <div className="mt-6 rounded-xl border border-skill-border bg-skill-black p-6">
                   <div className="text-slate-300 leading-relaxed">
                     The result is a more complete athlete — one who can think faster,
                     move better, and compete with intent.
@@ -299,33 +299,33 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute -top-5 -right-5 w-24 h-24 rounded-2xl border border-blue/20 bg-blue/10 blur-[1px]" />
-              <div className="absolute -bottom-5 -left-5 w-20 h-20 rounded-2xl border border-green/20 bg-green/10 blur-[1px]" />
+              <div className="absolute -top-5 -right-5 w-24 h-24 rounded-2xl border border-primary/20 bg-primary/10 blur-[1px]" />
+              <div className="absolute -bottom-5 -left-5 w-20 h-20 rounded-2xl border border-accent-green/20 bg-accent-green/10 blur-[1px]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-pitch-black">
+      <section className="py-24 bg-skill-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="rounded-3xl border border-pitch-border bg-pitch-card p-10 md:p-14 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue/10 via-transparent to-green/10 pointer-events-none" />
+          <div className="rounded-3xl border border-skill-border bg-skill-card p-10 md:p-14 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 justify-center mb-4">
-                <div className="w-8 h-px bg-blue" />
+                <div className="w-8 h-px bg-primary" />
                 <span className="section-label">Get Started</span>
-                <div className="w-8 h-px bg-green" />
+                <div className="w-8 h-px bg-accent-green" />
               </div>
 
-              <h2 className="display-heading text-5xl md:text-6xl mb-4">
+              <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
                 READY TO TAKE THE NEXT STEP?
               </h2>
 
-              <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-8">
+              <p className="text-text-muted text-lg max-w-2xl mx-auto mb-8">
                 Book a session, explore our programs, or start your pathway today.
-                We’re building athletes with ambition.
+                We’re building players with ambition.
               </p>
 
               <div className="flex items-center justify-center gap-4 flex-wrap">
