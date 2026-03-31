@@ -4,32 +4,32 @@ import PageHero from './PageHero.jsx'
 const pillars = [
   {
     number: '01',
-    title: 'Technical Mastery',
-    desc: 'Ball control, passing, first touch, dribbling, and finishing — the core technical tools every high-level player must sharpen.',
+    title: 'Technical Detail',
+    desc: 'First touch, ball mastery, passing, dribbling, finishing, and repetition under pressure — the details that separate better players.',
   },
   {
     number: '02',
-    title: 'Tactical Intelligence',
-    desc: 'Understanding space, reading the game, and making strong decisions under pressure are central to how we train players.',
+    title: 'Game Awareness',
+    desc: 'We train players to scan, read situations, understand space, and make sharper decisions at speed in realistic football actions.',
   },
   {
     number: '03',
-    title: 'Physical Development',
-    desc: 'Speed, balance, strength, endurance, and movement quality are all developed with soccer-specific intent.',
+    title: 'Speed & Strength',
+    desc: 'Explosive movement, coordination, balance, strength, and athletic development are built with football-specific intent.',
   },
   {
     number: '04',
-    title: 'Mental Strength',
-    desc: 'Confidence, focus, resilience, and composure are critical to performance — especially when the game gets demanding.',
+    title: 'Competitive Mindset',
+    desc: 'Confidence, focus, discipline, and resilience are trained alongside performance so players can compete with purpose.',
   },
 ]
 
 const milestones = [
-  { year: '2025', event: 'Savannah Athletic founded by Zack Hargreaves & Ignacio Gallego' },
-  { year: 'December 2025', event: 'Secured first training base in Savannah — Transform Savannah' },
-  { year: 'January 2026', event: 'Launched College Pathway Program — supporting aspiring college athletes' },
-  { year: 'February 2026', event: 'Announced Summer Elite Academy (150+ projected athletes)' },
-  { year: 'March 2026', event: 'Expanded coaching staff and added specialist support' },
+  { year: '2025', event: 'Skill Mill Soccer launched by Zack Hargreaves & Ignacio Gallego' },
+  { year: 'December 2025', event: 'Established training presence in Savannah and began building the player development model' },
+  { year: 'January 2026', event: 'Expanded technical training and small-group sessions for serious players' },
+  { year: 'February 2026', event: 'Introduced a more complete performance approach including speed and strength work' },
+  { year: 'March 2026', event: 'Continued growing the brand, coaching structure, and training opportunities in Savannah' },
   { year: 'April 2026', event: 'More updates coming soon...' },
 ]
 
@@ -37,72 +37,71 @@ export default function About() {
   return (
     <div>
       <PageHero
-        label="About Us"
+        label="About"
         title={
           <>
             OUR
             <br />
-            <span className="text-gradient-gold">STORY</span>
+            <span className="text-primary">STORY</span>
           </>
         }
-        subtitle="Built in Savannah with a clear mission: develop better athletes through structure, purpose, and high-performance coaching."
+        subtitle="Built to help players improve with real training, clear intention, and a high-performance environment."
       />
 
       {/* MISSION */}
-      <section className="py-24 bg-pitch-black">
+      <section className="py-24 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-px bg-blue" />
+                <div className="w-10 h-px bg-primary" />
                 <span className="section-label">Our Mission</span>
               </div>
 
-              <h2 className="display-heading text-5xl md:text-6xl mb-6">
-                DEVELOP THE
+              <h2 className="display-heading text-5xl md:text-6xl mb-6 uppercase">
+                BUILD THE
                 <br />
-                WHOLE
+                COMPLETE
                 <br />
-                <span className="text-gradient-gold">ATHLETE.</span>
+                <span className="text-primary">PLAYER.</span>
               </h2>
 
-              <div className="space-y-4 text-slate-400 leading-relaxed">
+              <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Savannah Athletic was created from the belief that serious soccer players
-                  in Savannah deserve access to focused, high-quality development.
+                  Skill Mill Soccer was built for players who want more than casual training.
+                  We created an environment where every session has purpose, intensity, and a clear objective.
                 </p>
                 <p>
-                  What started with a simple vision has grown into a modern training environment
-                  built around player growth, competitive standards, and real progression.
+                  Our focus is simple: improve technical quality, movement, speed, strength,
+                  and confidence through work that translates to the game.
                 </p>
                 <p>
-                  We do not train without purpose. Every session is built to improve players
-                  technically, tactically, physically, and mentally — while giving them a clearer
-                  pathway toward the next stage of their journey.
+                  We do not believe in empty sessions. We believe in repetition, detail,
+                  competitive standards, and helping players develop habits that raise their level.
                 </p>
               </div>
             </div>
 
             <div className="relative">
-              <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue/10 via-transparent to-green/10 pointer-events-none" />
-                <div className="absolute top-0 left-0 w-14 h-14 border-t border-l border-blue/30" />
-                <div className="absolute bottom-0 right-0 w-14 h-14 border-b border-r border-green/30" />
+              <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10 relative overflow-hidden">
+                <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
+                <div className="absolute top-0 left-0 w-14 h-14 border-t border-l border-primary/30" />
+                <div className="absolute bottom-0 right-0 w-14 h-14 border-b border-r border-accent-green/30" />
 
-                <div className="font-display text-8xl text-blue/10 leading-none absolute top-4 left-6 select-none">
+                <div className="font-display text-8xl text-primary/10 leading-none absolute top-4 left-6 select-none">
                   "
                 </div>
 
-                <p className="font-heading text-2xl md:text-3xl text-white leading-snug tracking-wide relative z-10 pt-6">
-                  We develop complete athletes — not just better players.
+                <p className="font-heading text-2xl md:text-3xl text-text-main leading-snug tracking-wide relative z-10 pt-6 uppercase">
+                  We build sharper, faster, more complete players.
                 </p>
 
-                <div className="mt-6 pt-6 border-t border-pitch-border relative z-10">
-                  <div className="font-heading text-blue text-xs tracking-[0.3em] uppercase">
-                    Nacho Gallego
+                <div className="mt-6 pt-6 border-t border-skill-border relative z-10">
+                  <div className="font-heading text-primary text-xs tracking-[0.3em] uppercase">
+                    Ignacio Gallego
                   </div>
-                  <div className="text-slate-500 text-xs mt-1">
-                    Founder & Coach, Savannah Athletic
+                  <div className="text-text-muted text-xs mt-1 uppercase tracking-[0.2em]">
+                    Co-Founder & Coach, Skill Mill Soccer
                   </div>
                 </div>
               </div>
@@ -112,14 +111,14 @@ export default function About() {
       </section>
 
       {/* PILLARS */}
-      <section className="py-24 bg-pitch-dark">
+      <section className="py-24 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-px bg-green" />
+            <div className="w-10 h-px bg-accent-green" />
             <span className="section-label">Our Methodology</span>
           </div>
 
-          <h2 className="display-heading text-5xl md:text-6xl mb-16">
+          <h2 className="display-heading text-5xl md:text-6xl mb-16 uppercase">
             FOUR PILLARS
             <br />
             OF DEVELOPMENT
@@ -129,19 +128,27 @@ export default function About() {
             {pillars.map((pillar, index) => (
               <div
                 key={pillar.number}
-                className="rounded-2xl border border-pitch-border p-6 bg-pitch-card hover:-translate-y-1 transition-all duration-300"
+                className="rounded-2xl border border-skill-border p-6 bg-skill-card hover:-translate-y-1 transition-all duration-300"
               >
-                <div className={`font-display text-5xl mb-4 ${index % 2 === 0 ? 'text-blue/25' : 'text-green/25'}`}>
+                <div
+                  className={`font-display text-5xl mb-4 ${
+                    index % 2 === 0 ? 'text-primary/25' : 'text-accent-green/25'
+                  }`}
+                >
                   {pillar.number}
                 </div>
 
-                <h3 className="font-heading text-lg text-white tracking-wide mb-3">
+                <h3 className="font-heading text-lg text-text-main tracking-wide mb-3 uppercase">
                   {pillar.title}
                 </h3>
 
-                <div className={`w-8 h-px mb-4 ${index % 2 === 0 ? 'bg-blue' : 'bg-green'}`} />
+                <div
+                  className={`w-8 h-px mb-4 ${
+                    index % 2 === 0 ? 'bg-primary' : 'bg-accent-green'
+                  }`}
+                />
 
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-text-muted text-sm leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
@@ -151,35 +158,47 @@ export default function About() {
       </section>
 
       {/* MILESTONES */}
-      <section className="py-24 bg-pitch-black">
+      <section className="py-24 bg-skill-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-px bg-blue" />
+            <div className="w-10 h-px bg-primary" />
             <span className="section-label">Our Journey</span>
           </div>
 
-          <h2 className="display-heading text-5xl md:text-6xl mb-16">
+          <h2 className="display-heading text-5xl md:text-6xl mb-16 uppercase">
             THE MILESTONES
           </h2>
 
           <div className="relative">
-            <div className="absolute left-28 top-0 bottom-0 w-px bg-gradient-to-b from-blue via-green/40 to-transparent hidden sm:block" />
+            <div className="absolute left-28 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent-green/40 to-transparent hidden sm:block" />
 
             <div className="space-y-8">
               {milestones.map((milestone, index) => (
                 <div key={milestone.year} className="flex items-start gap-8">
                   <div className="flex-shrink-0 text-right w-28 hidden sm:block">
-                    <span className={`font-display text-xl ${index % 2 === 0 ? 'text-blue' : 'text-green'}`}>
+                    <span
+                      className={`font-display text-xl ${
+                        index % 2 === 0 ? 'text-primary' : 'text-accent-green'
+                      }`}
+                    >
                       {milestone.year}
                     </span>
                   </div>
 
                   <div className="relative hidden sm:flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className={`w-3 h-3 border-2 border-pitch-black z-10 ${index % 2 === 0 ? 'bg-blue' : 'bg-green'}`} />
+                    <div
+                      className={`w-3 h-3 border-2 border-skill-black z-10 ${
+                        index % 2 === 0 ? 'bg-primary' : 'bg-accent-green'
+                      }`}
+                    />
                   </div>
 
-                  <div className="flex-1 pb-4 rounded-xl border border-pitch-border bg-pitch-card px-5 py-4">
-                    <div className={`sm:hidden font-display text-lg mb-1 ${index % 2 === 0 ? 'text-blue' : 'text-green'}`}>
+                  <div className="flex-1 pb-4 rounded-xl border border-skill-border bg-skill-card px-5 py-4">
+                    <div
+                      className={`sm:hidden font-display text-lg mb-1 ${
+                        index % 2 === 0 ? 'text-primary' : 'text-accent-green'
+                      }`}
+                    >
                       {milestone.year}
                     </div>
                     <p className="text-slate-300 leading-relaxed">
@@ -194,22 +213,22 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-pitch-dark border-t border-pitch-border">
+      <section className="py-20 bg-skill-dark border-t border-skill-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center gap-3 justify-center mb-4">
-            <div className="w-8 h-px bg-blue" />
-            <span className="section-label">Join the Journey</span>
-            <div className="w-8 h-px bg-green" />
+            <div className="w-8 h-px bg-primary" />
+            <span className="section-label">Train With Us</span>
+            <div className="w-8 h-px bg-accent-green" />
           </div>
 
-          <h2 className="display-heading text-4xl md:text-5xl mb-4">
-            BE PART OF
+          <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
+            READY TO
             <br />
-            THE STORY
+            LEVEL UP?
           </h2>
 
-          <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-            Join the athletes and families choosing a more intentional pathway to development.
+          <p className="text-text-muted mb-8 max-w-2xl mx-auto">
+            Join Skill Mill Soccer and train in an environment built for real player development.
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
