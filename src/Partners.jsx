@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PageHero from './PageHero.jsx'
 
 const partnersList = [
@@ -18,6 +19,50 @@ const partnersList = [
 ]
 
 export default function Partners() {
+  const [showForm, setShowForm] = useState(false)
+  const [result, setResult] = useState('')
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    setResult('Sending...')
+
+    const formData = new FormData(event.target)
+    const first = formData.get('first_name')
+    const last = formData.get('last_name')
+
+    formData.append('name', `${first} ${last}`)
+    formData.append('inquiry_type', 'Partner Inquiry')
+    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('subject', 'New Partner Inquiry - Skill Mill Soccer')
+    formData.append('from_name', 'Skill Mill Soccer Website')
+
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult('Partner inquiry submitted successfully.')
+        event.target.reset()
+      } else {
+        setResult(data.message || 'Something went wrong.')
+      }
+    } catch (error) {
+      console.error(error)
+      setResult('Network error. Please try again.')
+    }
+  }
+
   return (
     <div>
       <PageHero
@@ -110,11 +155,130 @@ export default function Partners() {
             Interested in working with Skill Mill Soccer? Let’s build something together.
           </p>
 
-          <a href="/contact" className="btn-primary">
+          <button
+            type="button"
+            onClick={() => setShowForm(true)}
+            className="btn-primary"
+          >
             Get in Touch
-          </a>
+          </button>
         </div>
       </section>
+
+      {/* PARTNER FORM */}
+      {showForm && (
+        <section className="py-20 bg-skill-black border-t border-skill-border">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Partner Inquiry</span>
+                </div>
+
+                <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
+                  LET’S BUILD
+                  <br />
+                  SOMETHING TOGETHER
+                </h2>
+
+                <p className="text-text-muted mb-8 leading-relaxed">
+                  Fill out the form below and we’ll receive your partnership inquiry directly at
+                  <span className="text-text-main"> skillmillsoccer@gmail.com</span>.
+                </p>
+
+                <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="first_name"
+                      placeholder="First Name"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+
+                    <input
+                      type="text"
+                      name="last_name"
+                      placeholder="Last Name"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+                  </div>
+
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Company / Organization Name"
+                    required
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  />
+
+                  <input
+                    type="text"
+                    name="role"
+                    placeholder="Your Role / Position"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  />
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  />
+
+                  <input
+                    type="text"
+                    name="website"
+                    placeholder="Website or Social Media"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  />
+
+                  <select
+                    name="partnership_type"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Type of Partnership
+                    </option>
+                    <option>Brand Partnership</option>
+                    <option>Training / Performance Partnership</option>
+                    <option>Facility Partnership</option>
+                    <option>Event / Camp Partnership</option>
+                    <option>Sponsorship</option>
+                    <option>Other</option>
+                  </select>
+
+                  <textarea
+                    name="message"
+                    placeholder="Tell us about your organization and the type of partnership you have in mind"
+                    required
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main min-h-[140px]"
+                  />
+
+                  <button type="submit" className="btn-primary justify-center mt-2">
+                    Submit Partner Inquiry
+                  </button>
+                </form>
+
+                <span className="text-text-main mt-4 block">{result}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   )
 }
