@@ -2,30 +2,29 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-pitch-dark border-t border-pitch-border">
+    <footer className="bg-skill-dark border-t border-skill-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="font-display text-white text-3xl tracking-[0.18em] mb-1">
-              SAVANNAH
+            <div className="font-display text-text-main text-3xl tracking-[0.18em] mb-1 uppercase">
+              SKILL MILL
             </div>
-            <div className="font-heading text-green text-xs tracking-[0.4em] uppercase mb-4">
-              Athletic Academy
+            <div className="font-heading text-accent-green text-xs tracking-[0.4em] uppercase mb-4">
+              Soccer
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              High-performance soccer development in Savannah, GA. Focused on
-              building complete athletes through structured training, strong coaching,
-              and long-term development.
+            <p className="text-text-muted text-sm leading-relaxed max-w-sm">
+              High-performance soccer training in Savannah, GA. Focused on technical
+              development, speed, strength, and helping players improve in a real training environment.
             </p>
 
             <div className="flex items-center gap-4 mt-6">
               <a
-                href="https://www.instagram.com/savannahathleticacademy/"
+                href="https://www.instagram.com/skillmill.soccer/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-lg border border-pitch-border flex items-center justify-center text-slate-400 hover:text-blue hover:border-blue transition-all duration-200"
+                className="w-10 h-10 rounded-lg border border-skill-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-200"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -34,8 +33,8 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:savannahathleticacademy@gmail.com"
-                className="w-10 h-10 rounded-lg border border-pitch-border flex items-center justify-center text-slate-400 hover:text-green hover:border-green transition-all duration-200"
+                href="mailto:skillmillsoccer@gmail.com"
+                className="w-10 h-10 rounded-lg border border-skill-border flex items-center justify-center text-slate-400 hover:text-accent-green hover:border-accent-green transition-all duration-200"
                 aria-label="Email"
               >
                 📧
@@ -43,7 +42,7 @@ export default function Footer() {
 
               <a
                 href="tel:+19127241861"
-                className="w-10 h-10 rounded-lg border border-pitch-border flex items-center justify-center text-slate-400 hover:text-blue hover:border-blue transition-all duration-200"
+                className="w-10 h-10 rounded-lg border border-skill-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-200"
                 aria-label="Phone"
               >
                 📱
@@ -53,7 +52,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading tracking-[0.22em] uppercase text-xs text-blue mb-5">
+            <h4 className="font-heading tracking-[0.22em] uppercase text-xs text-primary mb-5">
               Navigate
             </h4>
 
@@ -70,7 +69,7 @@ export default function Footer() {
                 <li key={path}>
                   <Link
                     to={path}
-                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 font-body"
+                    className="text-text-muted hover:text-text-main text-sm transition-colors duration-200 font-body"
                   >
                     {label}
                   </Link>
@@ -81,11 +80,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading tracking-[0.22em] uppercase text-xs text-green mb-5">
+            <h4 className="font-heading tracking-[0.22em] uppercase text-xs text-accent-green mb-5">
               Contact
             </h4>
 
-            <ul className="space-y-3 text-sm text-slate-400">
+            <ul className="space-y-3 text-sm text-text-muted">
               <li className="flex items-start gap-2">
                 📍 Savannah, GA
               </li>
@@ -93,10 +92,10 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 📧
                 <a
-                  href="mailto:savannahathleticacademy@gmail.com"
-                  className="hover:text-white transition-colors duration-200 break-all"
+                  href="mailto:skillmillsoccer@gmail.com"
+                  className="hover:text-text-main transition-colors duration-200 break-all"
                 >
-                  savannahathleticacademy@gmail.com
+                  skillmillsoccer@gmail.com
                 </a>
               </li>
 
@@ -104,9 +103,21 @@ export default function Footer() {
                 📱
                 <a
                   href="tel:+19127241861"
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-text-main transition-colors duration-200"
                 >
                   (+1) 912-724-1861
+                </a>
+              </li>
+
+              <li className="flex items-start gap-2">
+                📸
+                <a
+                  href="https://www.instagram.com/skillmill.soccer/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-text-main transition-colors duration-200"
+                >
+                  @skillmill.soccer
                 </a>
               </li>
             </ul>
@@ -117,10 +128,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="gold-line my-10" />
+        <div className="my-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Savannah Athletic. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Skill Mill Soccer. All rights reserved.</p>
           <p className="font-heading tracking-[0.2em] uppercase">Savannah, Georgia</p>
         </div>
       </div>
