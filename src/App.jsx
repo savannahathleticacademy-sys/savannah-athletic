@@ -14,7 +14,7 @@ import Partners from './Partners.jsx'
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-pitch-black">
+      <div className="min-h-screen bg-skill-black">
         <Navbar />
         <main>
           <Routes>
