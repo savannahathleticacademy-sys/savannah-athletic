@@ -31,13 +31,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-pitch-black/90 backdrop-blur-xl border-b border-pitch-border shadow-[0_10px_40px_rgba(0,0,0,0.45)]'
+          ? 'bg-skill-black/90 backdrop-blur-xl border-b border-skill-border shadow-[0_10px_40px_rgba(0,0,0,0.45)]'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-blue/40 bg-pitch-card shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+          <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-primary/40 bg-skill-card shadow-[0_0_20px_rgba(125,211,252,0.15)]">
             <svg
               viewBox="0 0 36 36"
               fill="none"
@@ -46,22 +46,22 @@ export default function Navbar() {
             >
               <path
                 d="M18 4 L22 14 L32 14 L24 20 L27 30 L18 24 L9 30 L12 20 L4 14 L14 14 Z"
-                fill="#3B82F6"
+                fill="#7dd3fc"
                 opacity="0.18"
-                stroke="#3B82F6"
+                stroke="#7dd3fc"
                 strokeWidth="1"
                 strokeLinejoin="round"
               />
-              <circle cx="18" cy="18" r="4.5" fill="#22C55E" />
+              <circle cx="18" cy="18" r="4.5" fill="#22c55e" />
             </svg>
           </div>
 
           <div className="leading-tight">
-            <div className="font-display text-text-main text-xl tracking-[0.14em] group-hover:text-blue transition-colors duration-300">
-              SAVANNAH
+            <div className="font-display text-text-main text-xl tracking-[0.14em] uppercase group-hover:text-primary transition-colors duration-300">
+              SKILL MILL
             </div>
-            <div className="font-heading text-green text-[11px] tracking-[0.34em] uppercase -mt-1">
-              Athletic
+            <div className="font-heading text-accent-green text-[11px] tracking-[0.34em] uppercase -mt-1">
+              Soccer
             </div>
           </div>
         </Link>
@@ -75,15 +75,15 @@ export default function Navbar() {
                 key={path}
                 to={path}
                 className={`relative font-heading text-sm tracking-[0.16em] uppercase transition-all duration-200 ${
-                  active ? 'text-blue' : 'text-slate-300 hover:text-text-main'
+                  active ? 'text-primary' : 'text-slate-300 hover:text-text-main'
                 }`}
               >
                 {label}
                 <span
                   className={`absolute -bottom-1 left-0 h-[2px] rounded-full transition-all duration-300 ${
                     active
-                      ? 'w-full bg-green'
-                      : 'w-0 bg-blue group-hover:w-full'
+                      ? 'w-full bg-accent-green'
+                      : 'w-0 bg-primary'
                   }`}
                 />
               </Link>
@@ -92,6 +92,15 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
+          <a
+            href="https://www.instagram.com/skillmill.soccer/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-heading text-xs tracking-[0.18em] uppercase text-slate-300 hover:text-primary transition-colors"
+          >
+            @skillmill.soccer
+          </a>
+
           <Link to="/book" className="btn-primary text-xs px-6 py-2.5">
             Book Session
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,7 +110,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="lg:hidden text-slate-200 hover:text-blue transition-colors p-2"
+          className="lg:hidden text-slate-200 hover:text-primary transition-colors p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -127,10 +136,10 @@ export default function Navbar() {
 
       <div
         className={`lg:hidden overflow-hidden transition-all duration-400 ${
-          mobileOpen ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0'
+          mobileOpen ? 'max-h-[560px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-pitch-dark/95 backdrop-blur-xl border-t border-pitch-border px-4 py-6 flex flex-col gap-1">
+        <div className="bg-skill-dark/95 backdrop-blur-xl border-t border-skill-border px-4 py-6 flex flex-col gap-1">
           {navLinks.map(({ path, label }) => {
             const active = location.pathname === path
 
@@ -140,14 +149,23 @@ export default function Navbar() {
                 to={path}
                 className={`font-heading tracking-[0.14em] uppercase text-sm py-3 px-3 rounded-md border transition-all duration-200 ${
                   active
-                    ? 'text-blue border-blue/30 bg-blue/10'
-                    : 'text-slate-300 border-transparent hover:border-pitch-border hover:bg-pitch-card'
+                    ? 'text-primary border-primary/30 bg-primary/10'
+                    : 'text-slate-300 border-transparent hover:border-skill-border hover:bg-skill-card'
                 }`}
               >
                 {label}
               </Link>
             )
           })}
+
+          <a
+            href="https://www.instagram.com/skillmill.soccer/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-heading tracking-[0.14em] uppercase text-sm py-3 px-3 rounded-md border border-transparent text-slate-300 hover:border-skill-border hover:bg-skill-card transition-all duration-200"
+          >
+            @skillmill.soccer
+          </a>
 
           <Link to="/book" className="btn-primary justify-center mt-4 text-xs">
             Book Session
