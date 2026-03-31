@@ -50,8 +50,8 @@ export default function PathToCollege() {
     formData.append('name', `${first} ${last}`)
     formData.append('program', 'College Pathway')
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
-    formData.append('subject', 'New College Pathway Inquiry - Savannah Athletic')
-    formData.append('from_name', 'Savannah Athletic Website')
+    formData.append('subject', 'New College Pathway Inquiry - Skill Mill Soccer')
+    formData.append('from_name', 'Skill Mill Soccer Website')
 
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
@@ -86,7 +86,7 @@ export default function PathToCollege() {
         label="College Pathway"
         title={
           <>
-            PATH TO <span className="text-gradient-gold">COLLEGE</span>
+            PATH TO <span className="text-primary">COLLEGE</span>
           </>
         }
         subtitle="A structured pathway for ambitious players who want guidance, exposure, and support through the recruiting process."
@@ -107,16 +107,16 @@ export default function PathToCollege() {
       </PageHero>
 
       {/* OVERVIEW */}
-      <section id="pathway-details" className="py-20 bg-pitch-black">
+      <section id="pathway-details" className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10">
-            <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10">
+            <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-px bg-blue" />
+                <div className="w-10 h-px bg-primary" />
                 <span className="section-label">Program Overview</span>
               </div>
 
-              <h2 className="display-heading text-4xl md:text-5xl mb-5">
+              <h2 className="display-heading text-4xl md:text-5xl mb-5 uppercase">
                 A SMARTER ROUTE TO THE NEXT LEVEL
               </h2>
 
@@ -127,47 +127,47 @@ export default function PathToCollege() {
                 opportunities at the next level.
               </p>
 
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-text-muted leading-relaxed">
                 We combine player development with practical recruiting support so that
                 athletes are not only improving on the field, but also becoming better
                 prepared for the college process off the field.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10">
-              <div className="text-blue text-xs font-heading tracking-[0.2em] uppercase mb-3">
+            <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
+              <div className="text-primary text-xs font-heading tracking-[0.2em] uppercase mb-3">
                 Ideal For
               </div>
 
-              <h3 className="font-heading text-2xl text-white mb-4 tracking-wide">
+              <h3 className="font-heading text-2xl text-text-main mb-4 tracking-wide">
                 Ages 14–19
               </h3>
 
-              <p className="text-slate-400 leading-relaxed mb-6">
+              <p className="text-text-muted leading-relaxed mb-6">
                 Best suited for committed players and families looking for structure,
                 accountability, and support through the recruiting journey.
               </p>
 
               <div className="space-y-4">
-                <div className="rounded-xl border border-blue/20 bg-blue/10 p-4">
-                  <div className="text-blue text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
+                  <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
                     Focus
                   </div>
-                  <div className="text-white">Exposure, preparation, and planning</div>
+                  <div className="text-text-main">Exposure, preparation, and planning</div>
                 </div>
 
-                <div className="rounded-xl border border-green/20 bg-green/10 p-4">
-                  <div className="text-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                <div className="rounded-xl border border-accent-green/20 bg-accent-green/10 p-4">
+                  <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
                     Format
                   </div>
-                  <div className="text-white">Custom support packages</div>
+                  <div className="text-text-main">Custom support packages</div>
                 </div>
 
-                <div className="rounded-xl border border-pitch-border bg-pitch-black p-4">
+                <div className="rounded-xl border border-skill-border bg-skill-black p-4">
                   <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                     Goal
                   </div>
-                  <div className="text-white">Help athletes move forward with a real plan</div>
+                  <div className="text-text-main">Help athletes move forward with a real plan</div>
                 </div>
               </div>
             </div>
@@ -176,14 +176,14 @@ export default function PathToCollege() {
       </section>
 
       {/* 3 STEP PROCESS */}
-      <section className="py-20 bg-pitch-dark">
+      <section className="py-20 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-px bg-green" />
+            <div className="w-10 h-px bg-accent-green" />
             <span className="section-label">The Process</span>
           </div>
 
-          <h2 className="display-heading text-4xl md:text-6xl mb-14">
+          <h2 className="display-heading text-4xl md:text-6xl mb-14 uppercase">
             THREE STEPS.
             <br />
             ONE CLEAR PATH.
@@ -193,14 +193,14 @@ export default function PathToCollege() {
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="rounded-2xl border border-pitch-border bg-pitch-card p-7 hover:border-blue/40 transition-all duration-300"
+                className="rounded-2xl border border-skill-border bg-skill-card p-7 hover:border-primary/40 transition-all duration-300"
               >
-                <div className="font-display text-5xl text-blue/25 mb-4">{step.number}</div>
-                <h3 className="font-heading text-2xl text-white mb-3 tracking-wide">
+                <div className="font-display text-5xl text-primary/25 mb-4">{step.number}</div>
+                <h3 className="font-heading text-2xl text-text-main mb-3 tracking-wide">
                   {step.title}
                 </h3>
-                <div className="w-10 h-px bg-green mb-4" />
-                <p className="text-slate-400 leading-relaxed">{step.text}</p>
+                <div className="w-10 h-px bg-accent-green mb-4" />
+                <p className="text-text-muted leading-relaxed">{step.text}</p>
               </div>
             ))}
           </div>
@@ -208,15 +208,15 @@ export default function PathToCollege() {
       </section>
 
       {/* INCLUDED + BENEFITS */}
-      <section className="py-20 bg-pitch-black">
+      <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10">
+          <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-blue" />
+              <div className="w-10 h-px bg-primary" />
               <span className="section-label">What’s Included</span>
             </div>
 
-            <h2 className="display-heading text-4xl md:text-5xl mb-8">
+            <h2 className="display-heading text-4xl md:text-5xl mb-8 uppercase">
               BUILT TO SUPPORT
               <br />
               THE FULL PROCESS
@@ -226,10 +226,10 @@ export default function PathToCollege() {
               {includedItems.map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl border border-pitch-border bg-pitch-black p-4 text-slate-300"
+                  className="rounded-xl border border-skill-border bg-skill-black p-4 text-slate-300"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-green mt-0.5">✔</span>
+                    <span className="text-accent-green mt-0.5">✔</span>
                     <span className="leading-relaxed text-sm">{item}</span>
                   </div>
                 </div>
@@ -237,13 +237,13 @@ export default function PathToCollege() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-pitch-border bg-pitch-card p-8 md:p-10">
+          <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-px bg-green" />
+              <div className="w-10 h-px bg-accent-green" />
               <span className="section-label">Why It Matters</span>
             </div>
 
-            <h2 className="display-heading text-4xl md:text-5xl mb-8">
+            <h2 className="display-heading text-4xl md:text-5xl mb-8 uppercase">
               MORE CLARITY.
               <br />
               MORE DIRECTION.
@@ -253,18 +253,18 @@ export default function PathToCollege() {
               {benefits.map((benefit) => (
                 <div
                   key={benefit}
-                  className="rounded-xl border border-blue/20 bg-blue/10 p-4"
+                  className="rounded-xl border border-primary/20 bg-primary/10 p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-blue mt-0.5">→</span>
+                    <span className="text-primary mt-0.5">→</span>
                     <span className="text-slate-200 leading-relaxed">{benefit}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 rounded-xl border border-pitch-border bg-pitch-black p-5">
-              <div className="text-slate-400 text-sm leading-relaxed">
+            <div className="mt-8 rounded-xl border border-skill-border bg-skill-black p-5">
+              <div className="text-text-muted text-sm leading-relaxed">
                 Every athlete’s pathway looks different. Our goal is to give players and
                 families structure, confidence, and better decision-making throughout the journey.
               </div>
@@ -274,22 +274,22 @@ export default function PathToCollege() {
       </section>
 
       {/* FORM SECTION */}
-      <section className="py-20 bg-pitch-dark">
+      <section className="py-20 bg-skill-dark">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="rounded-3xl border border-pitch-border bg-pitch-card p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue/10 via-transparent to-green/10 pointer-events-none" />
+          <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-px bg-blue" />
+                <div className="w-10 h-px bg-primary" />
                 <span className="section-label">Start Here</span>
               </div>
 
-              <h2 className="display-heading text-4xl md:text-5xl mb-4">
+              <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
                 LET’S BUILD YOUR PATHWAY
               </h2>
 
-              <p className="text-slate-400 max-w-2xl mb-8 leading-relaxed">
+              <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
                 Fill out the form below and we’ll reach out with more information about the
                 process, support options, and next steps.
               </p>
@@ -310,58 +310,58 @@ export default function PathToCollege() {
                       name="first_name"
                       placeholder="First Name"
                       required
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="text"
                       name="last_name"
                       placeholder="Last Name"
                       required
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="date"
                       name="date_of_birth"
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="text"
                       name="class_year"
                       placeholder="Class Year"
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="text"
                       name="position"
                       placeholder="Position"
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="email"
                       name="email"
                       placeholder="Email"
                       required
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="tel"
                       name="phone"
                       placeholder="Phone Number"
-                      className="p-3 rounded-lg bg-pitch-black border border-pitch-border text-white md:col-span-2"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main md:col-span-2"
                     />
                   </div>
 
                   <textarea
                     name="message"
                     placeholder="Tell us more about your goals"
-                    className="w-full p-3 rounded-lg bg-pitch-black border border-pitch-border text-white min-h-[120px]"
+                    className="w-full p-3 rounded-lg bg-skill-black border border-skill-border text-text-main min-h-[120px]"
                   />
 
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <button type="submit" className="btn-primary">
                       Submit Inquiry
                     </button>
-                    <span className="text-white">{result}</span>
+                    <span className="text-text-main">{result}</span>
                   </div>
                 </form>
               )}
