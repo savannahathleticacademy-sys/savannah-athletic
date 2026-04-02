@@ -69,12 +69,10 @@ export default function Camps() {
         subtitle="High-energy training, competitive environments, and focused development for players ready to improve."
       />
 
-      {/* CAMP OVERVIEW */}
       <section className="py-20 bg-skill-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
-              {/* LEFT */}
               <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-skill-border bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
                 <div className="flex flex-wrap items-center gap-3 mb-5">
                   <span className="text-xs font-heading tracking-[0.18em] uppercase px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary">
@@ -140,7 +138,6 @@ export default function Camps() {
                 </button>
               </div>
 
-              {/* RIGHT */}
               <div className="p-8 md:p-10 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
@@ -178,7 +175,6 @@ export default function Camps() {
         </div>
       </section>
 
-      {/* REGISTRATION FORM */}
       {showForm && (
         <section className="py-20 bg-skill-dark border-t border-skill-border">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
@@ -202,11 +198,18 @@ export default function Camps() {
                 </p>
 
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="first_name"
-                      placeholder="First Name"
+                      placeholder="Player First Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     />
@@ -214,26 +217,56 @@ export default function Camps() {
                     <input
                       type="text"
                       name="last_name"
-                      placeholder="Last Name"
+                      placeholder="Player Last Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     />
                   </div>
 
                   <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
-                  />
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
+                    type="text"
+                    name="parent_name"
+                    placeholder="Parent / Guardian Name"
                     required
                     className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                   />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="number"
+                      name="age"
+                      placeholder="Age"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+
+                    <select
+                      name="gender"
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    >
+                      <option value="">Boys / Girls</option>
+                      <option value="Boys">Boys</option>
+                      <option value="Girls">Girls</option>
+                    </select>
+                  </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <select
@@ -241,28 +274,29 @@ export default function Camps() {
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     >
                       <option value="">Position</option>
-                      <option>Goalkeeper</option>
-                      <option>Defender</option>
-                      <option>Midfielder</option>
-                      <option>Forward</option>
+                      <option value="Goalkeeper">Goalkeeper</option>
+                      <option value="Defender">Defender</option>
+                      <option value="Midfielder">Midfielder</option>
+                      <option value="Forward">Forward</option>
                     </select>
 
-                    <select
-                      name="age_group"
+                    <input
+                      type="text"
+                      name="shirt_size"
+                      placeholder="Shirt Size"
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
-                    >
-                      <option value="">Age Group</option>
-                      <option>U10</option>
-                      <option>U12</option>
-                      <option>U14</option>
-                      <option>U16</option>
-                      <option>U18</option>
-                    </select>
+                    />
                   </div>
 
                   <textarea
+                    name="medical_notes"
+                    placeholder="Medical notes / allergies / important information"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main min-h-[110px]"
+                  />
+
+                  <textarea
                     name="message"
-                    placeholder="Extra details"
+                    placeholder="Additional information"
                     className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main min-h-[120px]"
                   />
 
