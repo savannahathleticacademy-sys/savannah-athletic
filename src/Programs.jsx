@@ -4,7 +4,7 @@ import PageHero from './PageHero.jsx'
 const programs = [
   {
     id: 'one-v-one',
-    title: '1v1 Training',
+    title: '1 on 1 Training',
     tagline: 'Focused. Personalized. High Impact.',
     price: '$70/h',
     description:
@@ -18,7 +18,7 @@ const programs = [
       'Clear player development focus',
     ],
     ideal: 'Ages 9–19 | All skill levels',
-    cta: 'Book 1v1 Session',
+    cta: 'Book 1 on 1 Session',
     theme: 'primary',
   },
   {
