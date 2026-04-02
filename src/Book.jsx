@@ -85,6 +85,7 @@ export default function Book() {
     const formData = new FormData(event.target)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
+    const email = formData.get('email')
 
     formData.append('name', `${first} ${last}`)
     formData.append('session_type', selectedSessionLabel)
@@ -94,6 +95,7 @@ export default function Book() {
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
     formData.append('subject', 'New Session Booking - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
+    formData.append('replyto', email)
 
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
@@ -402,22 +404,36 @@ export default function Book() {
                 </div>
 
                 <form onSubmit={onSubmit} className="flex flex-col gap-4 text-text-main">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="first_name"
-                      placeholder="First Name"
+                      placeholder="Player First Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border"
                     />
                     <input
                       type="text"
                       name="last_name"
-                      placeholder="Last Name"
+                      placeholder="Player Last Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border"
                     />
                   </div>
+
+                  <input
+                    type="text"
+                    name="parent_name"
+                    placeholder="Parent / Guardian Name"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border"
+                  />
 
                   <input
                     type="email"
@@ -431,6 +447,21 @@ export default function Book() {
                     type="tel"
                     name="phone"
                     placeholder="Phone Number"
+                    required
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border"
+                  />
+
+                  <input
+                    type="number"
+                    name="age"
+                    placeholder="Age"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border"
+                  />
+
+                  <input
+                    type="text"
+                    name="position"
+                    placeholder="Position"
                     className="p-3 rounded-xl bg-skill-black border border-skill-border"
                   />
 
@@ -453,8 +484,14 @@ export default function Book() {
                   )}
 
                   <textarea
+                    name="goals"
+                    placeholder="Player goals / areas to improve"
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border min-h-[110px]"
+                  />
+
+                  <textarea
                     name="message"
-                    placeholder="Extra details"
+                    placeholder="Additional information"
                     className="p-3 rounded-xl bg-skill-black border border-skill-border min-h-[120px]"
                   />
 
@@ -462,6 +499,10 @@ export default function Book() {
                     Submit Booking Request
                   </button>
                 </form>
+
+                <p className="text-text-muted text-sm mt-4">
+                  Booking requests are sent directly to <span className="text-text-main">skillmillsoccer@gmail.com</span>
+                </p>
 
                 <span className="text-text-main mt-4 block">{result}</span>
               </div>
