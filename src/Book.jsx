@@ -92,7 +92,7 @@ export default function Book() {
     formData.append('coach', selectedCoachName)
     formData.append('preferred_date', formattedDate)
     formData.append('preferred_time', selectedTime || '')
-    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
     formData.append('subject', 'New Session Booking - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
     formData.append('replyto', email)
@@ -144,7 +144,6 @@ export default function Book() {
 
       <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* STEP 1 */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-9 h-9 rounded-full bg-primary text-skill-black flex items-center justify-center font-display text-lg">
@@ -207,7 +206,6 @@ export default function Book() {
             </div>
           </div>
 
-          {/* STEP 2 */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <div
@@ -265,10 +263,8 @@ export default function Book() {
             </div>
           </div>
 
-          {/* STEP 3 */}
           {selectedCoach && (
             <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6">
-              {/* CALENDAR */}
               <div className="rounded-3xl border border-skill-border bg-skill-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-9 h-9 rounded-full bg-primary text-skill-black flex items-center justify-center font-display text-lg">
@@ -373,7 +369,6 @@ export default function Book() {
                 )}
               </div>
 
-              {/* FORM */}
               <div className="rounded-3xl border border-skill-border bg-skill-card p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-9 h-9 rounded-full bg-accent-green text-skill-black flex items-center justify-center font-display text-lg">
