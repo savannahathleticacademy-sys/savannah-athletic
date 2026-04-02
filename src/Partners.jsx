@@ -29,12 +29,14 @@ export default function Partners() {
     const formData = new FormData(event.target)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
+    const email = formData.get('email')
 
     formData.append('name', `${first} ${last}`)
     formData.append('inquiry_type', 'Partner Inquiry')
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
     formData.append('subject', 'New Partner Inquiry - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
+    formData.append('replyto', email)
 
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
@@ -91,7 +93,6 @@ export default function Partners() {
                 className="block rounded-3xl border border-skill-border bg-skill-card overflow-hidden transition-all duration-300 hover:border-primary/30"
               >
                 <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr]">
-                  {/* LOGO SIDE */}
                   <div className="flex items-center justify-center p-10 bg-skill-black border-b md:border-b-0 md:border-r border-skill-border">
                     <img
                       src={partner.logo}
@@ -100,7 +101,6 @@ export default function Partners() {
                     />
                   </div>
 
-                  {/* INFO SIDE */}
                   <div className="p-8 md:p-10 flex flex-col justify-center">
                     <div className="mb-4">
                       <h3 className="text-2xl text-text-main font-display mb-2 uppercase">
@@ -137,7 +137,6 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 bg-skill-dark border-t border-skill-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center gap-3 mb-3 justify-center">
@@ -165,7 +164,6 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* PARTNER FORM */}
       {showForm && (
         <section className="py-20 bg-skill-black border-t border-skill-border">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
@@ -190,6 +188,13 @@ export default function Partners() {
                 </p>
 
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
@@ -210,7 +215,7 @@ export default function Partners() {
 
                   <input
                     type="text"
-                    name="company"
+                    name="company_name"
                     placeholder="Company / Organization Name"
                     required
                     className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
@@ -249,16 +254,17 @@ export default function Partners() {
                     name="partnership_type"
                     className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     defaultValue=""
+                    required
                   >
                     <option value="" disabled>
                       Type of Partnership
                     </option>
-                    <option>Brand Partnership</option>
-                    <option>Training / Performance Partnership</option>
-                    <option>Facility Partnership</option>
-                    <option>Event / Camp Partnership</option>
-                    <option>Sponsorship</option>
-                    <option>Other</option>
+                    <option value="Club Partnership">Club Partnership</option>
+                    <option value="Brand Partnership">Brand Partnership</option>
+                    <option value="Event Collaboration">Event Collaboration</option>
+                    <option value="Sponsorship">Sponsorship</option>
+                    <option value="Facility Partnership">Facility Partnership</option>
+                    <option value="Other">Other</option>
                   </select>
 
                   <textarea
@@ -272,6 +278,10 @@ export default function Partners() {
                     Submit Partner Inquiry
                   </button>
                 </form>
+
+                <p className="text-text-muted text-sm mt-4">
+                  Partnership inquiries are sent directly to <span className="text-text-main">skillmillsoccer@gmail.com</span>
+                </p>
 
                 <span className="text-text-main mt-4 block">{result}</span>
               </div>
