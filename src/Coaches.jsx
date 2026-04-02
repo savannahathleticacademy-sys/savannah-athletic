@@ -7,7 +7,7 @@ const coaches = [
     image: '/assets/zack.jpg',
     bio: [
       'Former professional soccer player with experience across Europe and the United States.',
-      'Played at Burnley FC, Indiana Wesleyan University, Missouri State University, and captained the Michigan Stars (NISA).',
+      'Played at Burnley FC, Indiana Wesleyan University, Missouri State University, and captained the Savannah Clovers (NISA).',
       'Also captained Texas United (USL2), winning the conference.',
       'Coaching experience includes SCAD, Savannah United, and Savannah Country Day.',
     ],
