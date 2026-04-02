@@ -46,7 +46,7 @@ export default function Contact() {
     formData.append('name', `${first} ${last}`)
 
     formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
-    formData.append('subject', 'New Contact Form - Skill Mill Soccer')
+    formData.append('subject', 'New Contact Inquiry - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
 
     const object = Object.fromEntries(formData)
@@ -65,7 +65,7 @@ export default function Contact() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Form submitted successfully.')
+        setResult('Message sent successfully.')
         event.target.reset()
       } else {
         setResult(data.message || 'Something went wrong.')
@@ -93,7 +93,6 @@ export default function Contact() {
       <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8">
-            {/* LEFT SIDE */}
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-px bg-primary" />
@@ -145,7 +144,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* FORM */}
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
 
@@ -167,6 +165,13 @@ export default function Contact() {
                 </p>
 
                 <form onSubmit={onSubmit} className="space-y-5">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
@@ -199,6 +204,19 @@ export default function Contact() {
                     placeholder="Phone"
                     className="w-full p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                   />
+
+                  <select
+                    name="inquiry_type"
+                    required
+                    className="w-full p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  >
+                    <option value="">Select Inquiry Type</option>
+                    <option value="General Question">General Question</option>
+                    <option value="Training">Training</option>
+                    <option value="Path to College">Path to College</option>
+                    <option value="Camps">Camps</option>
+                    <option value="Partnership">Partnership</option>
+                  </select>
 
                   <textarea
                     name="message"
