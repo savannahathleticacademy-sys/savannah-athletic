@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const stats = [
-  { number: '50+', label: 'Athletes Developed' },
+  { number: '70+', label: 'Athletes Developed' },
   { number: '5+', label: 'College Placements' },
   { number: '2', label: 'Elite Coaches' },
   { number: '2', label: 'Years Building' },
