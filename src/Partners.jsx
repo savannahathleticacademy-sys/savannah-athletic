@@ -33,7 +33,7 @@ export default function Partners() {
 
     formData.append('name', `${first} ${last}`)
     formData.append('inquiry_type', 'Partner Inquiry')
-    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
     formData.append('subject', 'New Partner Inquiry - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
     formData.append('replyto', email)
