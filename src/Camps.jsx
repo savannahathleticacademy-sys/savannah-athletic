@@ -20,13 +20,15 @@ export default function Camps() {
     const formData = new FormData(event.target)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
+    const email = formData.get('email')
 
     formData.append('name', `${first} ${last}`)
     formData.append('camp_name', 'Skill Mill Soccer Summer Camp')
     formData.append('camp_dates', 'June 30 – July 3, 2026')
-    formData.append('access_key', '32de9cfe-9a49-44e1-adb9-018b5c1f24b6')
+    formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
     formData.append('subject', 'New Camp Registration - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
+    formData.append('replyto', email)
 
     const object = Object.fromEntries(formData)
     const json = JSON.stringify(object)
