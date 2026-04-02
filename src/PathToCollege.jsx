@@ -69,7 +69,7 @@ export default function PathToCollege() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Pathway inquiry submitted successfully.')
+        setResult('College pathway inquiry submitted successfully.')
         event.target.reset()
       } else {
         setResult(data.message || 'Something went wrong.')
@@ -106,7 +106,6 @@ export default function PathToCollege() {
         </div>
       </PageHero>
 
-      {/* OVERVIEW */}
       <section id="pathway-details" className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10">
@@ -175,7 +174,6 @@ export default function PathToCollege() {
         </div>
       </section>
 
-      {/* 3 STEP PROCESS */}
       <section className="py-20 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
@@ -207,7 +205,6 @@ export default function PathToCollege() {
         </div>
       </section>
 
-      {/* INCLUDED + BENEFITS */}
       <section className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="rounded-2xl border border-skill-border bg-skill-card p-8 md:p-10">
@@ -273,7 +270,6 @@ export default function PathToCollege() {
         </div>
       </section>
 
-      {/* FORM SECTION */}
       <section className="py-20 bg-skill-dark">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden">
@@ -304,36 +300,32 @@ export default function PathToCollege() {
                 </button>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-5">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="first_name"
-                      placeholder="First Name"
+                      placeholder="Player First Name"
                       required
                       className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
                       type="text"
                       name="last_name"
-                      placeholder="Last Name"
+                      placeholder="Player Last Name"
                       required
                       className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
-                      type="date"
-                      name="date_of_birth"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
                       type="text"
-                      name="class_year"
-                      placeholder="Class Year"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="position"
-                      placeholder="Position"
+                      name="parent_name"
+                      placeholder="Parent / Guardian Name"
                       className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
                     />
                     <input
@@ -347,13 +339,50 @@ export default function PathToCollege() {
                       type="tel"
                       name="phone"
                       placeholder="Phone Number"
+                      required
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="number"
+                      name="age"
+                      placeholder="Age"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="text"
+                      name="graduation_year"
+                      placeholder="Graduation Year"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="text"
+                      name="current_club"
+                      placeholder="Current Club / Team"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="text"
+                      name="position"
+                      placeholder="Position"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="text"
+                      name="gpa"
+                      placeholder="GPA (optional)"
+                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
+                    />
+                    <input
+                      type="url"
+                      name="highlight_video"
+                      placeholder="Highlight Video Link"
                       className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main md:col-span-2"
                     />
                   </div>
 
                   <textarea
-                    name="message"
-                    placeholder="Tell us more about your goals"
+                    name="goals"
+                    placeholder="Tell us about your goals"
                     className="w-full p-3 rounded-lg bg-skill-black border border-skill-border text-text-main min-h-[120px]"
                   />
 
