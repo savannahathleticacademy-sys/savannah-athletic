@@ -25,6 +25,19 @@ const coaches = [
     ],
     accent: 'green',
   },
+  {
+    name: 'Jack Crichton',
+    role: 'Goalkeeper Coach',
+    image: '/assets/jack.jpg',
+    bio: [
+      'Former collegiate goalkeeper with elite-level experience in both the United Kingdom and the United States.',
+      'Trained with Tranmere Rovers (EFL League 2) and Wrexham AFC, and played for Colwyn Bay, winning the Cymru North and earning promotion to the Welsh Premier League.',
+      'Played at Embry-Riddle Aeronautical University, earning Sunshine State All-Conference honors and leading the conference in saves.',
+      'Extensive coaching experience as Director of Goalkeeping and youth coach, including roles with Florida Elite Soccer Academy and FC Barcelona Residence Academy USA.',
+      'Developed in a professional football environment, influenced by his father, Paul Crichton, a former professional goalkeeper with over 550 appearances and coaching experience in the Premier League and Championship.',
+    ],
+    accent: 'primary',
+  },
 ]
 
 export default function Coaches() {
