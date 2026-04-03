@@ -3,24 +3,32 @@ import PageHero from './PageHero.jsx'
 
 const sessionTypes = [
   {
-    id: '1 on 1',
+    id: '1v1',
     label: '1v1 Training',
     desc: 'Personalized individual session',
     duration: '60 min',
-    price: '$70/h',
+    price: '$70/session',
   },
   {
     id: 'group',
     label: 'Group Session',
-    desc: 'Small group (max 5 athletes)',
+    desc: 'Small group (2–5 athletes)',
     duration: '60 min',
-    price: '$50/h',
+    price: '$20–$40 per player',
+  },
+  {
+    id: 'goalkeeping',
+    label: 'Goalkeeping Coaching',
+    desc: 'Specialized goalkeeper training with Jack',
+    duration: '60 min',
+    price: '$70/session',
   },
 ]
 
 const coaches = [
   { id: 'zack', name: 'Zack Hargreaves', title: 'Coach', initials: 'ZH' },
   { id: 'ignacio', name: 'Ignacio Gallego', title: 'Coach', initials: 'IG' },
+  { id: 'jack', name: 'Jack Crichton', title: 'Goalkeeper Coach', initials: 'JC' },
 ]
 
 const hours = ['16:00', '17:00', '18:00', '19:00', '20:00', '21:00']
@@ -73,10 +81,26 @@ export default function Book() {
       ? 'Zack Hargreaves'
       : selectedCoach === 'ignacio'
       ? 'Ignacio Gallego'
+      : selectedCoach === 'jack'
+      ? 'Jack Crichton'
       : ''
 
   const selectedSessionLabel =
-    sessionType === '1v1' ? '1v1 Training' : 'Group Session'
+    sessionType === '1v1'
+      ? '1v1 Training'
+      : sessionType === 'group'
+      ? 'Group Session'
+      : 'Goalkeeping Coaching'
+
+  const availableCoaches =
+    sessionType === 'goalkeeping'
+      ? coaches.filter((coach) => coach.id === 'jack')
+      : coaches
+
+  const onSelectSessionType = (typeId) => {
+    setSessionType(typeId)
+    setSelectedCoach(null)
+  }
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -154,7 +178,7 @@ export default function Book() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {sessionTypes.map((type) => {
                 const active = sessionType === type.id
 
@@ -162,14 +186,14 @@ export default function Book() {
                   <button
                     type="button"
                     key={type.id}
-                    onClick={() => setSessionType(type.id)}
+                    onClick={() => onSelectSessionType(type.id)}
                     className={`text-left rounded-2xl border p-6 transition-all duration-300 ${
                       active
                         ? 'border-primary bg-primary/10 shadow-[0_0_24px_rgba(125,211,252,0.18)]'
                         : 'border-skill-border bg-skill-card hover:border-primary/30'
                     }`}
                   >
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-4 gap-4">
                       <div
                         className={`w-5 h-5 border-2 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
                           active ? 'border-primary' : 'border-slate-500'
@@ -204,6 +228,37 @@ export default function Book() {
                 )
               })}
             </div>
+
+            {sessionType === 'group' && (
+              <div className="mt-6 rounded-2xl border border-skill-border bg-skill-card p-5">
+                <div className="text-xs font-heading tracking-[0.18em] uppercase text-accent-green mb-4">
+                  Group Session Pricing
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4 text-center">
+                    <div className="text-sm text-text-main font-heading">2 Players</div>
+                    <div className="text-xs text-text-muted mt-1">$40 per player</div>
+                  </div>
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4 text-center">
+                    <div className="text-sm text-text-main font-heading">3 Players</div>
+                    <div className="text-xs text-text-muted mt-1">$30 per player</div>
+                  </div>
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4 text-center">
+                    <div className="text-sm text-text-main font-heading">4 Players</div>
+                    <div className="text-xs text-text-muted mt-1">$25 per player</div>
+                  </div>
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4 text-center">
+                    <div className="text-sm text-text-main font-heading">5 Players</div>
+                    <div className="text-xs text-text-muted mt-1">$20 per player</div>
+                  </div>
+                </div>
+
+                <p className="text-text-muted text-sm mt-4">
+                  Small group sessions require a minimum of 2 players and allow a maximum of 5 players.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="mb-12">
@@ -222,8 +277,8 @@ export default function Book() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {coaches.map((coach) => {
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {availableCoaches.map((coach) => {
                 const active = selectedCoach === coach.id
 
                 return (
