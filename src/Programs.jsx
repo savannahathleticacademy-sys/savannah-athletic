@@ -6,7 +6,7 @@ const programs = [
     id: 'one-v-one',
     title: '1 on 1 Training',
     tagline: 'Focused. Personalized. High Impact.',
-    price: '$70/h',
+    price: '$70/session',
     description:
       'Our individual training program is built for players who want highly personalized coaching. Each session is tailored to the athlete’s position, level, and development priorities.',
     details: [
@@ -25,7 +25,7 @@ const programs = [
     id: 'small-group',
     title: 'Small Group Training',
     tagline: 'Compete Together. Develop Faster.',
-    price: '$50/session',
+    price: '$20–$40 per player',
     description:
       'Train in a focused small-group environment that encourages competition, tactical awareness, and game-speed decision-making with players of similar level.',
     details: [
@@ -39,6 +39,12 @@ const programs = [
     ideal: 'All ages | All skill levels',
     cta: 'Book Group Session',
     theme: 'green',
+    pricingTable: [
+      { players: 2, price: '$40 per player' },
+      { players: 3, price: '$30 per player' },
+      { players: 4, price: '$25 per player' },
+      { players: 5, price: '$20 per player' },
+    ],
   },
 ]
 
@@ -126,6 +132,47 @@ export default function Programs() {
                         </div>
                       </div>
                     </div>
+
+                    {program.pricingTable && (
+                      <div className="mt-6 rounded-2xl border border-skill-border bg-skill-black overflow-hidden">
+                        <div className="px-4 py-3 border-b border-skill-border">
+                          <div className={`text-xs font-heading tracking-[0.18em] uppercase ${styles.label}`}>
+                            Small Group Pricing
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 bg-white/5 text-xs font-heading tracking-[0.14em] uppercase text-slate-400">
+                          <div className="px-4 py-3 border-r border-skill-border">
+                            Players
+                          </div>
+                          <div className="px-4 py-3">
+                            Price
+                          </div>
+                        </div>
+
+                        {program.pricingTable.map((item, index) => (
+                          <div
+                            key={item.players}
+                            className={`grid grid-cols-2 text-sm ${
+                              index !== 0 ? 'border-t border-skill-border' : ''
+                            }`}
+                          >
+                            <div className="px-4 py-3 border-r border-skill-border text-slate-300">
+                              {item.players} Players
+                            </div>
+                            <div className="px-4 py-3 text-slate-200">
+                              {item.price}
+                            </div>
+                          </div>
+                        ))}
+
+                        <div className="px-4 py-3 border-t border-skill-border bg-white/5">
+                          <p className="text-xs text-slate-400 leading-relaxed">
+                            Small group sessions require a minimum of 2 players and allow a maximum of 5 players.
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* RIGHT PANEL */}
