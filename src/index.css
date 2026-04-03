@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Zing Rust Base Rough';
+  src: url('/Fonts/font.woff2') format('woff2'),
+       url('/Fonts/font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -69,8 +78,9 @@
     color: #7dd3fc;
   }
 
+  /* 🔥 AHORA USA ZING RUST */
   .display-heading {
-    @apply font-display leading-none tracking-wide uppercase;
+    @apply font-zing leading-none uppercase;
     color: #f8fafc;
   }
 
