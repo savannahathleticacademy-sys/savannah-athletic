@@ -4,7 +4,7 @@ import PageHero from './PageHero.jsx'
 const sessionTypes = [
   {
     id: '1v1',
-    label: '1v1 Training',
+    label: '1 on 1 Training',
     desc: 'Personalized individual session',
     duration: '60 min',
     price: '$70/session',
