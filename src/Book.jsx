@@ -86,8 +86,8 @@ export default function Book() {
       : ''
 
   const selectedSessionLabel =
-    sessionType === '1v1'
-      ? '1v1 Training'
+    sessionType === '1 on 1'
+      ? '1 on 1 Training'
       : sessionType === 'group'
       ? 'Group Session'
       : 'Goalkeeping Coaching'
