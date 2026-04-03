@@ -40,6 +40,13 @@ export default function PathToCollege() {
   const [selectedShowcase, setSelectedShowcase] = useState('')
   const [result, setResult] = useState('')
 
+  const showcaseDate =
+    selectedShowcase === 'Boys'
+      ? 'June 14th, 2026'
+      : selectedShowcase === 'Girls'
+        ? 'June 21st, 2026'
+        : ''
+
   const onSubmit = async (event) => {
     event.preventDefault()
     setResult('Sending...')
@@ -52,9 +59,13 @@ export default function PathToCollege() {
     formData.append('name', `${first} ${last}`)
     formData.append('program', 'College Pathway Showcase June 2026')
     formData.append('showcase_category', selectedShowcase)
+    formData.append('showcase_date', showcaseDate)
     formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
-    formData.append('subject', `New Showcase Registration - ${selectedShowcase} - Skill Mill Soccer`)
-    formData.append('from_name', 'Skill Mill Soccer Website')
+    formData.append(
+      'subject',
+      `New Showcase Registration - ${selectedShowcase} - ${showcaseDate} - Savannah Athletic`
+    )
+    formData.append('from_name', 'Savannah Athletic Website')
     formData.append('replyto', email)
 
     const object = Object.fromEntries(formData)
@@ -174,10 +185,16 @@ export default function PathToCollege() {
               <h3 className="font-heading text-3xl text-text-main mb-3 tracking-wide uppercase">
                 Boys
               </h3>
-              <p className="text-text-muted leading-relaxed">
+              <p className="text-text-muted leading-relaxed mb-4">
                 Register for the boys showcase and take the field in a competitive environment
                 built to support exposure and next-level opportunities.
               </p>
+              <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                  Showcase Date
+                </div>
+                <div className="text-text-main">June 14th, 2026</div>
+              </div>
             </button>
 
             <button
@@ -199,10 +216,16 @@ export default function PathToCollege() {
               <h3 className="font-heading text-3xl text-text-main mb-3 tracking-wide uppercase">
                 Girls
               </h3>
-              <p className="text-text-muted leading-relaxed">
+              <p className="text-text-muted leading-relaxed mb-4">
                 Register for the girls showcase and compete in a high-level setting designed
                 to create visibility and meaningful recruiting opportunities.
               </p>
+              <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                  Showcase Date
+                </div>
+                <div className="text-text-main">June 21st, 2026</div>
+              </div>
             </button>
           </div>
         </div>
@@ -230,10 +253,28 @@ export default function PathToCollege() {
                   Complete the form below to register for the {selectedShowcase.toLowerCase()} showcase.
                 </p>
 
-                <p className="text-slate-300 mb-8 leading-relaxed">
-                  Ages: <span className="text-primary font-medium">16–19</span> · Cost:{' '}
-                  <span className="text-primary font-medium">$100 per player</span>
-                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Date
+                    </div>
+                    <div className="text-text-main">{showcaseDate}</div>
+                  </div>
+
+                  <div className="rounded-xl border border-accent-green/20 bg-accent-green/10 p-4">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Ages
+                    </div>
+                    <div className="text-text-main">16–19</div>
+                  </div>
+
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+                    <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Cost
+                    </div>
+                    <div className="text-text-main">$100 per player</div>
+                  </div>
+                </div>
 
                 <form onSubmit={onSubmit} className="space-y-5">
                   <input
@@ -244,6 +285,7 @@ export default function PathToCollege() {
                   />
 
                   <input type="hidden" name="showcase" value={selectedShowcase} />
+                  <input type="hidden" name="showcase_date" value={showcaseDate} />
                   <input type="hidden" name="event_name" value="Showcase June 2026" />
                   <input type="hidden" name="price" value="$100" />
                   <input type="hidden" name="age_group" value="16-19" />
