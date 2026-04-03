@@ -95,7 +95,7 @@ export default function Book() {
   const availableCoaches =
     sessionType === 'goalkeeping'
       ? coaches.filter((coach) => coach.id === 'jack')
-      : coaches
+      : coaches.filter((coach) => coach.id === 'zack' || coach.id === 'ignacio')
 
   const onSelectSessionType = (typeId) => {
     setSessionType(typeId)
