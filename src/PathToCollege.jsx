@@ -35,6 +35,33 @@ const benefits = [
   'Create a structured pathway with clear next steps',
 ]
 
+const confirmedColleges = [
+  {
+    name: 'School Name 1',
+    logo: '/college-logos/school-1.png',
+  },
+  {
+    name: 'School Name 2',
+    logo: '/college-logos/school-2.png',
+  },
+  {
+    name: 'School Name 3',
+    logo: '/college-logos/school-3.png',
+  },
+  {
+    name: 'School Name 4',
+    logo: '/college-logos/school-4.png',
+  },
+  {
+    name: 'School Name 5',
+    logo: '/college-logos/school-5.png',
+  },
+  {
+    name: 'School Name 6',
+    logo: '/college-logos/school-6.png',
+  },
+]
+
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
   const [selectedShowcase, setSelectedShowcase] = useState('')
@@ -384,6 +411,49 @@ export default function PathToCollege() {
           </div>
         </section>
       )}
+
+      <section className="py-20 bg-skill-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-10 h-px bg-accent-green" />
+              <span className="section-label">Colleges Confirmed</span>
+              <div className="w-10 h-px bg-accent-green" />
+            </div>
+
+            <h2 className="display-heading text-4xl md:text-5xl uppercase mb-4">
+              SCHOOLS ATTENDING
+              <br />
+              THE SHOWCASE
+            </h2>
+
+            <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
+              College programs confirmed for the showcase will appear below. Add each school
+              logo and name as they are confirmed.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            {confirmedColleges.map((college) => (
+              <div
+                key={college.name}
+                className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
+                  <img
+                    src={college.logo}
+                    alt={college.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="text-sm text-text-main font-medium leading-snug">
+                  {college.name}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="pathway-details" className="py-20 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
