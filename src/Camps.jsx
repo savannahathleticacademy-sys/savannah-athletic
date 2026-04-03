@@ -110,7 +110,7 @@ export default function Camps() {
                     <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Time
                     </div>
-                    <div className="text-text-main">9 AM – 1 PM Daily</div>
+                    <div className="text-text-main">9 AM – 2 PM Daily</div>
                   </div>
 
                   <div className="rounded-xl border border-skill-border bg-skill-black p-4">
