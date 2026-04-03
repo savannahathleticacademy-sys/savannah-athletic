@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        zing: ['"Zing Rust Base Rough"', 'cursive'],
         display: ['Bebas Neue', 'cursive'],
         heading: ['Barlow Condensed', 'sans-serif'],
         body: ['DM Sans', 'sans-serif'],
@@ -19,7 +20,7 @@ export default {
           border: '#2a2a2a',
         },
         primary: {
-          DEFAULT: '#7dd3fc', // azul hielo (MAIN COLOR)
+          DEFAULT: '#7dd3fc',
           light: '#bae6fd',
           dark: '#38bdf8',
         },
