@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import PageHero from './PageHero.jsx'
 
+function InstagramIcon({ className }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5A3.75 3.75 0 0020 16.25v-8.5A3.75 3.75 0 0016.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm4.75-.9a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z" />
+    </svg>
+  )
+}
+
 const contactItems = [
   {
     label: 'Email',
@@ -27,7 +35,7 @@ const contactItems = [
     label: 'Instagram',
     value: '@skillmill.soccer',
     href: 'https://www.instagram.com/skillmill.soccer/',
-    icon: '📸',
+    icon: 'instagram',
     accent: 'green',
   },
 ]
@@ -129,7 +137,11 @@ export default function Contact() {
                             : 'border-accent-green/30 bg-accent-green/10 text-accent-green'
                         }`}
                       >
-                        {item.icon}
+                        {item.icon === 'instagram' ? (
+                          <InstagramIcon className="w-5 h-5" />
+                        ) : (
+                          item.icon
+                        )}
                       </div>
 
                       <div>
