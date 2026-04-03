@@ -166,7 +166,7 @@ export default function Camps() {
                   <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                     Camp Price
                   </div>
-                  <div className="text-4xl text-primary font-display leading-none">$400</div>
+                  <div className="text-4xl text-primary font-display leading-none">$325</div>
                   <div className="text-slate-300 text-sm mt-2">
                     Includes all scheduled training sessions during camp.
                   </div>
