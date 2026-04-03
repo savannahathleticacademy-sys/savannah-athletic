@@ -46,6 +46,25 @@ const programs = [
       { players: 5, price: '$20 per player' },
     ],
   },
+  {
+    id: 'goalkeeping-sessions',
+    title: 'Goalkeeping Sessions',
+    tagline: 'Specialized. Focused. Position-Specific.',
+    price: '$70/session',
+    description:
+      'Our goalkeeping sessions are designed specifically for keepers who want specialized training in handling, footwork, positioning, reactions, distribution, and decision-making under pressure.',
+    details: [
+      'Position-specific goalkeeper training',
+      'Handling, diving, and shot-stopping work',
+      'Footwork, balance, and movement patterns',
+      '1v1 situations and reaction training',
+      'Distribution and decision-making under pressure',
+      'Led exclusively by Jack Crichton',
+    ],
+    ideal: 'Goalkeepers | All ages | All levels',
+    cta: 'Book Goalkeeping Session',
+    theme: 'primary',
+  },
 ]
 
 const themeStyles = {
