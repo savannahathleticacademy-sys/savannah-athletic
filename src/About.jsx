@@ -26,11 +26,12 @@ const pillars = [
 
 const milestones = [
   { year: '2025', event: 'Skill Mill Soccer launched by Zack Hargreaves & Ignacio Gallego' },
-  { year: 'December 2025', event: 'Established training presence in Savannah and began building the player development model' },
-  { year: 'January 2026', event: 'Expanded technical training and small-group sessions for serious players' },
-  { year: 'February 2026', event: 'Introduced a more complete performance approach including speed and strength work' },
-  { year: 'March 2026', event: 'Continued growing the brand, coaching structure, and training opportunities in Savannah' },
-  { year: 'April 2026', event: 'More updates coming soon...' },
+  { year: 'December 2025', event: 'Established training presence in Savannah and began building a clear player development model' },
+  { year: 'January 2026', event: 'Expanded technical training and small-group sessions for ambitious players' },
+  { year: 'February 2026', event: 'Added a more complete performance approach with speed, strength, and athletic development' },
+  { year: 'March 2026', event: 'Continued strengthening the brand, coaching structure, and training opportunities across Savannah' },
+  { year: 'June 2026', event: 'Scheduled our first College Showcase in Savannah, creating a new opportunity for players to gain exposure in front of college programs' },
+  { year: 'July 2026', event: 'Scheduled our Summer Camp in Savannah, expanding our player development offering through an intensive seasonal experience' },
 ]
 
 export default function About() {
