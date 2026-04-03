@@ -14,7 +14,7 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: '1v1 Performance Training',
+    title: '1 on 1 Performance Training',
     description:
       'Personalized sessions built around your position, technical level, and development goals.',
     link: '/programs',
