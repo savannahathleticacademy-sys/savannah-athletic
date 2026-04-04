@@ -30,9 +30,9 @@ export default function Footer() {
 
             <div className="flex items-center gap-4 mt-6">
               <a
-                href="https://www.instagram.com/skillmill.soccer/"
+                href="https://www.instagram.com/skillmillsoccer/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg border border-skill-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-200"
                 aria-label="Instagram"
               >
@@ -119,12 +119,12 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <InstagramIcon className="w-4 h-4 mt-[2px]" />
                 <a
-                  href="https://www.instagram.com/skillmill.soccer/"
+                  href="https://www.instagram.com/skillmillsoccer/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-text-main transition-colors duration-200"
                 >
-                  @skillmill.soccer
+                  @skillmillsoccer
                 </a>
               </li>
             </ul>
