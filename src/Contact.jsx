@@ -33,8 +33,8 @@ const contactItems = [
   },
   {
     label: 'Instagram',
-    value: '@skillmill.soccer',
-    href: 'https://www.instagram.com/skillmill.soccer/',
+    value: '@skillmillsoccer',
+    href: 'https://www.instagram.com/skillmillsoccer/',
     icon: 'instagram',
     accent: 'green',
   },
@@ -126,7 +126,7 @@ export default function Contact() {
                     key={item.label}
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="block rounded-2xl border border-skill-border bg-skill-black p-4 hover:border-primary/30 transition-all duration-200"
                   >
                     <div className="flex items-start gap-4">
