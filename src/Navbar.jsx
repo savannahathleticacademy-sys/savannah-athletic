@@ -81,9 +81,7 @@ export default function Navbar() {
                 {label}
                 <span
                   className={`absolute -bottom-1 left-0 h-[2px] rounded-full transition-all duration-300 ${
-                    active
-                      ? 'w-full bg-accent-green'
-                      : 'w-0 bg-primary'
+                    active ? 'w-full bg-accent-green' : 'w-0 bg-primary'
                   }`}
                 />
               </Link>
@@ -93,12 +91,12 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="https://www.instagram.com/skillmill.soccer/"
+            href="https://www.instagram.com/skillmillsoccer/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="font-heading text-xs tracking-[0.18em] uppercase text-slate-300 hover:text-primary transition-colors"
           >
-            @skillmill.soccer
+            @skillmillsoccer
           </a>
 
           <Link to="/book" className="btn-primary text-xs px-6 py-2.5">
@@ -159,12 +157,12 @@ export default function Navbar() {
           })}
 
           <a
-            href="https://www.instagram.com/skillmill.soccer/"
+            href="https://www.instagram.com/skillmillsoccer/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="font-heading tracking-[0.14em] uppercase text-sm py-3 px-3 rounded-md border border-transparent text-slate-300 hover:border-skill-border hover:bg-skill-card transition-all duration-200"
           >
-            @skillmill.soccer
+            @skillmillsoccer
           </a>
 
           <Link to="/book" className="btn-primary justify-center mt-4 text-xs">
