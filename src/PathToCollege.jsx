@@ -67,12 +67,7 @@ export default function PathToCollege() {
   const [selectedShowcase, setSelectedShowcase] = useState('')
   const [result, setResult] = useState('')
 
-  const showcaseDate =
-    selectedShowcase === 'Boys'
-      ? 'June 14th, 2026'
-      : selectedShowcase === 'Girls'
-        ? 'June 21st, 2026'
-        : ''
+  const showcaseDate = selectedShowcase === 'Boys' ? 'June 14th, 2026' : ''
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -228,7 +223,7 @@ export default function PathToCollege() {
               type="button"
               onClick={() => {
                 setSelectedShowcase('Girls')
-                setShowForm(true)
+                setShowForm(false)
                 setResult('')
               }}
               className={`rounded-2xl border p-8 text-left transition-all duration-300 ${
@@ -244,21 +239,46 @@ export default function PathToCollege() {
                 Girls
               </h3>
               <p className="text-text-muted leading-relaxed mb-4">
-                Register for the girls showcase and compete in a high-level setting designed
-                to create visibility and meaningful recruiting opportunities.
+                Our girls showcase is currently in development and will be announced soon.
+                Sign up for updates to be the first to know when registration opens.
               </p>
               <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
                 <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                  Showcase Date
+                  Status
                 </div>
-                <div className="text-text-main">June 21st, 2026</div>
+                <div className="text-primary font-medium">Coming Soon</div>
               </div>
             </button>
           </div>
+
+          {selectedShowcase === 'Girls' && (
+            <div className="mt-10">
+              <div className="max-w-3xl mx-auto rounded-3xl border border-primary/20 bg-skill-card p-8 md:p-10 text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Girls Showcase</span>
+                  <div className="w-10 h-px bg-primary" />
+                </div>
+
+                <h3 className="display-heading text-3xl md:text-4xl uppercase mb-4">
+                  COMING <span className="text-primary">SOON</span>
+                </h3>
+
+                <p className="text-text-muted leading-relaxed max-w-2xl mx-auto mb-6">
+                  We are currently preparing a high-level showcase experience for female players.
+                  Sign up for updates to be among the first to hear about dates, details, and early access.
+                </p>
+
+                <a href="#contact" className="btn-primary inline-flex justify-center">
+                  Sign Up for Updates
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {showForm && selectedShowcase && (
+      {showForm && selectedShowcase === 'Boys' && (
         <section className="py-20 bg-skill-black">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden">
