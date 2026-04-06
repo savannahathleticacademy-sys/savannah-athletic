@@ -303,7 +303,7 @@ export default function PathToCollege() {
                   </div>
                 </div>
 
-                <form onSubmit={onSubmit} className="space-y-5">
+                <form onSubmit={onSubmit} className="space-y-8">
                   <input
                     type="checkbox"
                     name="botcheck"
@@ -317,89 +317,248 @@ export default function PathToCollege() {
                   <input type="hidden" name="price" value="$100" />
                   <input type="hidden" name="age_group" value="16-19" />
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      name="first_name"
-                      placeholder="Player First Name"
-                      required
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="last_name"
-                      placeholder="Player Last Name"
-                      required
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="parent_name"
-                      placeholder="Parent / Guardian Name"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      required
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="number"
-                      name="age"
-                      min="16"
-                      max="19"
-                      placeholder="Age"
-                      required
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="graduation_year"
-                      placeholder="Graduation Year"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="current_club"
-                      placeholder="Current Club / Team"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="position"
-                      placeholder="Position"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="text"
-                      name="gpa"
-                      placeholder="GPA (optional)"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main"
-                    />
-                    <input
-                      type="url"
-                      name="highlight_video"
-                      placeholder="Highlight Video Link"
-                      className="p-3 rounded-lg bg-skill-black border border-skill-border text-text-main md:col-span-2"
-                    />
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                    <div className="mb-6">
+                      <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
+                        Section 1
+                      </div>
+                      <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
+                        Player Information
+                      </h3>
+                      <div className="w-12 h-px bg-primary mt-3" />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Player First Name</label>
+                        <input
+                          type="text"
+                          name="first_name"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Player Last Name</label>
+                        <input
+                          type="text"
+                          name="last_name"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Parent / Guardian Name</label>
+                        <input
+                          type="text"
+                          name="parent_name"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Email Address</label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Phone Number</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Age</label>
+                        <input
+                          type="number"
+                          name="age"
+                          min="16"
+                          max="19"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Citizenship</label>
+                        <input
+                          type="text"
+                          name="citizenship"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Current Club / Academy / Team</label>
+                        <input
+                          type="text"
+                          name="current_club_academy_team"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Height (cm)</label>
+                        <input
+                          type="number"
+                          name="height_cm"
+                          min="0"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Weight (kg)</label>
+                        <input
+                          type="number"
+                          name="weight_kg"
+                          min="0"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+                    </div>
                   </div>
 
-                  <textarea
-                    name="goals"
-                    placeholder="Tell us about your goals"
-                    className="w-full p-3 rounded-lg bg-skill-black border border-skill-border text-text-main min-h-[120px]"
-                  />
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                    <div className="mb-6">
+                      <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
+                        Section 2
+                      </div>
+                      <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
+                        Academic Information
+                      </h3>
+                      <div className="w-12 h-px bg-accent-green mt-3" />
+                    </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">HS Graduation Year</label>
+                        <input
+                          type="text"
+                          name="hs_graduation_year"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">GPA (Optional)</label>
+                        <input
+                          type="text"
+                          name="gpa"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                    <div className="mb-6">
+                      <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
+                        Section 3
+                      </div>
+                      <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
+                        Football Information
+                      </h3>
+                      <div className="w-12 h-px bg-primary mt-3" />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">First Position</label>
+                        <input
+                          type="text"
+                          name="first_position"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm text-slate-300 mb-2">Second Position</label>
+                        <input
+                          type="text"
+                          name="second_position"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm text-slate-300 mb-2">Highlight Video Link</label>
+                        <input
+                          type="url"
+                          name="highlight_video"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Most Important Achievement in Your Football Career
+                        </label>
+                        <textarea
+                          name="most_important_achievement"
+                          rows="4"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main min-h-[120px]"
+                        />
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm text-slate-300 mb-2">Tell Us About Your Goals</label>
+                        <textarea
+                          name="goals"
+                          rows="4"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main min-h-[120px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                    <div className="mb-6">
+                      <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
+                        Section 4
+                      </div>
+                      <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
+                        Additional Information & Consent
+                      </h3>
+                      <div className="w-12 h-px bg-accent-green mt-3" />
+                    </div>
+
+                    <div className="space-y-5">
+                      <label className="flex items-start gap-3 rounded-xl border border-skill-border bg-skill-card p-4 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="image_video_consent"
+                          value="Yes"
+                          required
+                          className="mt-1"
+                        />
+                        <span className="text-sm text-slate-300 leading-relaxed">
+                          I give consent for Savannah Athletic to use images and videos taken
+                          during the showcase for promotional, marketing, and social media purposes.
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
                     <button type="submit" className="btn-primary">
                       Submit Registration
                     </button>
