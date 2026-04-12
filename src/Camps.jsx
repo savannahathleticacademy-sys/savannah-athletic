@@ -127,7 +127,7 @@ export default function Camps() {
                     <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Age Range
                     </div>
-                    <div className="text-text-main">Ages 9–18</div>
+                    <div className="text-text-main">Ages 8–18</div>
                   </div>
                 </div>
 
