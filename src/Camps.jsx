@@ -34,11 +34,16 @@ export default function Camps() {
 
     const form = event.target
     const formData = new FormData(form)
-    const first = formData.get('first_name')
-    const last = formData.get('last_name')
+
+    const playerFirst = formData.get('player_first_name')
+    const playerLast = formData.get('player_last_name')
+    const parentFirst = formData.get('parent_first_name')
+    const parentLast = formData.get('parent_last_name')
     const email = formData.get('email')
 
-    formData.append('name', `${first} ${last}`)
+    formData.append('name', `${playerFirst} ${playerLast}`)
+    formData.append('player_name', `${playerFirst} ${playerLast}`)
+    formData.append('parent_name', `${parentFirst} ${parentLast}`)
     formData.append('camp_name', 'Skill Mill Soccer Summer Camp')
     formData.append('camp_dates', 'June 30 – July 3, 2026')
     formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
@@ -237,7 +242,7 @@ export default function Camps() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
-                      name="first_name"
+                      name="player_first_name"
                       placeholder="Player First Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
@@ -245,20 +250,30 @@ export default function Camps() {
 
                     <input
                       type="text"
-                      name="last_name"
+                      name="player_last_name"
                       placeholder="Player Last Name"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     />
                   </div>
 
-                  <input
-                    type="text"
-                    name="parent_name"
-                    placeholder="Parent / Guardian Name"
-                    required
-                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="parent_first_name"
+                      placeholder="Parent / Guardian First Name"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+
+                    <input
+                      type="text"
+                      name="parent_last_name"
+                      placeholder="Parent / Guardian Last Name"
+                      required
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    />
+                  </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
@@ -290,20 +305,6 @@ export default function Camps() {
                     />
 
                     <select
-                      name="gender"
-                      required
-                      value={selectedGender}
-                      onChange={(e) => setSelectedGender(e.target.value)}
-                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
-                    >
-                      <option value="">Boys / Girls</option>
-                      <option value="Boys">Boys</option>
-                      <option value="Girls">Girls</option>
-                    </select>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <select
                       name="position"
                       required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
@@ -314,6 +315,20 @@ export default function Camps() {
                       <option value="Midfielder">Midfielder</option>
                       <option value="Forward">Forward</option>
                     </select>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <select
+                      name="gender"
+                      required
+                      value={selectedGender}
+                      onChange={(e) => setSelectedGender(e.target.value)}
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                    >
+                      <option value="">Section (Boys / Girls)</option>
+                      <option value="Boys">Boys</option>
+                      <option value="Girls">Girls</option>
+                    </select>
 
                     <select
                       name="shirt_size_category"
@@ -322,20 +337,31 @@ export default function Camps() {
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main disabled:opacity-60"
                     >
                       <option value="">
-                        {selectedGender ? 'Shirt Size Category' : 'Select gender first'}
+                        {selectedGender ? 'Shirt Size Category' : 'Select section first'}
                       </option>
-
                       <option value="Youth">Youth</option>
-
                       {selectedGender === 'Boys' && (
                         <option value="Adult Men">Adult Men</option>
                       )}
-
                       {selectedGender === 'Girls' && (
                         <option value="Adult Women">Adult Women</option>
                       )}
                     </select>
                   </div>
+
+                  <select
+                    name="shirt_size"
+                    required
+                    className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
+                  >
+                    <option value="">Size (S / M / L / XL / XXL / XXXL)</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                  </select>
 
                   <textarea
                     name="medical_notes"
