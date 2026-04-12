@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import PageHero from './PageHero.jsx'
 
 const highlights = [
@@ -12,12 +12,28 @@ const highlights = [
 export default function Camps() {
   const [showForm, setShowForm] = useState(false)
   const [result, setResult] = useState('')
+  const [selectedGender, setSelectedGender] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const formSectionRef = useRef(null)
+
+  const openForm = () => {
+    setShowForm(true)
+
+    setTimeout(() => {
+      formSectionRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }, 100)
+  }
 
   const onSubmit = async (event) => {
     event.preventDefault()
-    setResult('Sending...')
+    setIsSubmitting(true)
+    setResult('Sending your registration...')
 
-    const formData = new FormData(event.target)
+    const form = event.target
+    const formData = new FormData(form)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
     const email = formData.get('email')
@@ -46,14 +62,22 @@ export default function Camps() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Camp registration submitted successfully.')
-        event.target.reset()
+        setResult('Registration submitted successfully. Our team will contact you soon.')
+        form.reset()
+        setSelectedGender('')
+
+        setTimeout(() => {
+          setShowForm(false)
+          setResult('')
+        }, 2500)
       } else {
-        setResult(data.message || 'Something went wrong.')
+        setResult(data.message || 'Something went wrong. Please try again.')
       }
     } catch (error) {
       console.error(error)
       setResult('Network error. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -133,7 +157,7 @@ export default function Camps() {
 
                 <button
                   type="button"
-                  onClick={() => setShowForm(true)}
+                  onClick={openForm}
                   className="btn-primary"
                 >
                   Register for Camp
@@ -178,7 +202,10 @@ export default function Camps() {
       </section>
 
       {showForm && (
-        <section className="py-20 bg-skill-dark border-t border-skill-border">
+        <section
+          ref={formSectionRef}
+          className="py-20 bg-skill-dark border-t border-skill-border"
+        >
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
@@ -196,7 +223,7 @@ export default function Camps() {
                 </h2>
 
                 <p className="text-text-muted mb-8 leading-relaxed">
-                  Complete the form below and we’ll receive your registration inquiry directly.
+                  Complete the form below to reserve your player’s spot for camp.
                 </p>
 
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
@@ -257,11 +284,16 @@ export default function Camps() {
                       name="age"
                       placeholder="Age"
                       required
+                      min="8"
+                      max="18"
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     />
 
                     <select
                       name="gender"
+                      required
+                      value={selectedGender}
+                      onChange={(e) => setSelectedGender(e.target.value)}
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     >
                       <option value="">Boys / Girls</option>
@@ -273,6 +305,7 @@ export default function Camps() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <select
                       name="position"
+                      required
                       className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
                     >
                       <option value="">Position</option>
@@ -282,12 +315,26 @@ export default function Camps() {
                       <option value="Forward">Forward</option>
                     </select>
 
-                    <input
-                      type="text"
-                      name="shirt_size"
-                      placeholder="Shirt Size"
-                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main"
-                    />
+                    <select
+                      name="shirt_size_category"
+                      required
+                      disabled={!selectedGender}
+                      className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main disabled:opacity-60"
+                    >
+                      <option value="">
+                        {selectedGender ? 'Shirt Size Category' : 'Select gender first'}
+                      </option>
+
+                      <option value="Youth">Youth</option>
+
+                      {selectedGender === 'Boys' && (
+                        <option value="Adult Men">Adult Men</option>
+                      )}
+
+                      {selectedGender === 'Girls' && (
+                        <option value="Adult Women">Adult Women</option>
+                      )}
+                    </select>
                   </div>
 
                   <textarea
@@ -302,8 +349,12 @@ export default function Camps() {
                     className="p-3 rounded-xl bg-skill-black border border-skill-border text-text-main min-h-[120px]"
                   />
 
-                  <button type="submit" className="btn-primary justify-center mt-2">
-                    Submit Registration
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary justify-center mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Registration'}
                   </button>
                 </form>
 
