@@ -369,7 +369,7 @@ export default function PathToCollege() {
                     <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Cost
                     </div>
-                    <div className="text-text-main">$100 per player</div>
+                    <div className="text-text-main">TBD </div>
                   </div>
 
                   <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
