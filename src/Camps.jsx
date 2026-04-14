@@ -14,7 +14,16 @@ export default function Clinics() {
   const [result, setResult] = useState('')
   const [selectedGender, setSelectedGender] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const infoSectionRef = useRef(null)
   const formSectionRef = useRef(null)
+
+  const scrollToInfo = () => {
+    infoSectionRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
 
   const openForm = () => {
     setShowForm(true)
@@ -160,13 +169,23 @@ export default function Clinics() {
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={openForm}
-                  className="btn-primary"
-                >
-                  Register for Clinic
-                </button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    type="button"
+                    onClick={scrollToInfo}
+                    className="px-6 py-3 rounded-full border border-skill-border text-text-main hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Learn More
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={openForm}
+                    className="btn-primary"
+                  >
+                    Register for Clinic
+                  </button>
+                </div>
               </div>
 
               <div className="p-8 md:p-10 flex flex-col justify-between">
@@ -202,6 +221,76 @@ export default function Clinics() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        ref={infoSectionRef}
+        className="py-20 bg-skill-dark border-t border-skill-border"
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-px bg-primary" />
+              <span className="section-label">About the Clinic</span>
+            </div>
+
+            <h2 className="display-heading text-4xl md:text-5xl mb-6 uppercase">
+              ABOUT
+              <br />
+              THE CLINIC
+            </h2>
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              This 4-day high-performance clinic is designed for players who want to train in a competitive environment with European coaches and experience a development model based on European methodology.
+            </p>
+
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Throughout the clinic, players will work on technical development, decision-making, game understanding, and competitive performance through training sessions built around a European training approach.
+            </p>
+
+            <p className="text-slate-300 leading-relaxed mb-8">
+              Selected boys and girls from the clinic will have the opportunity to live a professional soccer experience in Spain, where they may train, compete, and receive feedback from coaches connected to Levante, Villarreal, and other professional academies in Spain.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="rounded-xl border border-skill-border bg-skill-black p-5">
+                <h3 className="text-text-main font-semibold mb-2">European Coaching</h3>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  Players will train with experienced European coaches in a structured and demanding environment focused on development.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-skill-border bg-skill-black p-5">
+                <h3 className="text-text-main font-semibold mb-2">European Methodology</h3>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  Sessions will emphasize technical quality, tactical understanding, decision-making, and the speed of play required in competitive environments.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-skill-border bg-skill-black p-5">
+                <h3 className="text-text-main font-semibold mb-2">Player Development</h3>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  The clinic is designed to challenge players in a realistic setting while helping them build confidence, discipline, and game intelligence.
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-skill-border bg-skill-black p-5">
+                <h3 className="text-text-main font-semibold mb-2">Spain Opportunity</h3>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  Selected players may be identified for an experience in Spain that includes training, competition, and feedback from coaches connected to top-level academies.
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={openForm}
+              className="btn-primary"
+            >
+              Register for Clinic
+            </button>
           </div>
         </div>
       </section>
