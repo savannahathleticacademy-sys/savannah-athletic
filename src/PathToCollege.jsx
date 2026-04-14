@@ -62,51 +62,6 @@ const confirmedColleges = [
   },
 ]
 
-function BoysKickerFigure() {
-  return (
-    <svg
-      viewBox="0 0 320 320"
-      className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[280px] md:h-[280px] opacity-[0.08] pointer-events-none"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="170" cy="52" r="24" fill="currentColor" />
-      <path
-        d="M157 82L132 132L160 160L188 124L210 155L242 150L248 170L202 180L179 150L163 176L184 215L166 228L142 187L110 156L135 99L157 82Z"
-        fill="currentColor"
-      />
-      <path d="M182 214L230 252L217 268L170 229L182 214Z" fill="currentColor" />
-      <path d="M149 214L127 272H106L128 208L149 214Z" fill="currentColor" />
-      <circle cx="277" cy="235" r="18" stroke="currentColor" strokeWidth="10" />
-    </svg>
-  )
-}
-
-function GirlsKickerFigure() {
-  return (
-    <svg
-      viewBox="0 0 320 320"
-      className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[280px] md:h-[280px] opacity-[0.08] pointer-events-none"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="162" cy="48" r="22" fill="currentColor" />
-      <path
-        d="M150 73L130 108L146 131L122 164L144 177L165 147L188 168L212 150L194 118L216 92L197 79L179 98L168 86L150 73Z"
-        fill="currentColor"
-      />
-      <path d="M160 132L196 220L178 228L145 147L160 132Z" fill="currentColor" />
-      <path d="M147 181L115 267H94L126 178L147 181Z" fill="currentColor" />
-      <path d="M194 214L240 246L228 262L184 229L194 214Z" fill="currentColor" />
-      <circle cx="274" cy="231" r="18" stroke="currentColor" strokeWidth="10" />
-      <path
-        d="M176 30C186 33 192 40 194 50C183 47 175 42 170 34L176 30Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
   const [selectedShowcase, setSelectedShowcase] = useState('')
@@ -222,28 +177,12 @@ export default function PathToCollege() {
           }
         }
 
-        @keyframes showcaseFigureFloat {
-          0% {
-            transform: translateY(-50%) translateX(0px);
-          }
-          50% {
-            transform: translateY(calc(-50% - 8px)) translateX(-4px);
-          }
-          100% {
-            transform: translateY(-50%) translateX(0px);
-          }
-        }
-
         .showcase-form-enter {
           animation: showcaseFormReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .showcase-form-glow {
           animation: showcaseGlowPulse 4s ease-in-out infinite;
-        }
-
-        .showcase-figure-float {
-          animation: showcaseFigureFloat 5s ease-in-out infinite;
         }
       `}</style>
 
@@ -394,14 +333,6 @@ export default function PathToCollege() {
 
               <div className="absolute -left-24 top-10 w-56 h-56 rounded-full bg-primary/10 blur-3xl showcase-form-glow pointer-events-none" />
               <div className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-accent-green/10 blur-3xl showcase-form-glow pointer-events-none" />
-
-              <div
-                className={`text-primary showcase-figure-float ${
-                  selectedShowcase === 'Girls' ? 'text-accent-green' : 'text-primary'
-                }`}
-              >
-                {selectedShowcase === 'Boys' ? <BoysKickerFigure /> : <GirlsKickerFigure />}
-              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
