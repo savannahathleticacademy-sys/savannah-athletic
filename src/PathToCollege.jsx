@@ -35,30 +35,57 @@ const benefits = [
   'Create a structured pathway with clear next steps',
 ]
 
-const confirmedColleges = [
+const boysColleges = [
   {
-    name: 'School Name 1',
-    logo: '/college-logos/school-1.png',
+    name: 'Boys School 1',
+    logo: '/College-logos/boys-school-1.png',
   },
   {
-    name: 'School Name 2',
-    logo: '/college-logos/school-2.png',
+    name: 'Boys School 2',
+    logo: '/College-logos/boys-school-2.png',
   },
   {
-    name: 'School Name 3',
-    logo: '/college-logos/school-3.png',
+    name: 'Boys School 3',
+    logo: '/College-logos/boys-school-3.png',
   },
   {
-    name: 'School Name 4',
-    logo: '/college-logos/school-4.png',
+    name: 'Boys School 4',
+    logo: '/College-logos/boys-school-4.png',
   },
   {
-    name: 'School Name 5',
-    logo: '/college-logos/school-5.png',
+    name: 'Boys School 5',
+    logo: '/College-logos/boys-school-5.png',
   },
   {
-    name: 'School Name 6',
-    logo: '/college-logos/school-6.png',
+    name: 'Boys School 6',
+    logo: '/College-logos/boys-school-6.png',
+  },
+]
+
+const girlsColleges = [
+  {
+    name: 'Girls School 1',
+    logo: '/College-logos/girls-school-1.png',
+  },
+  {
+    name: 'Girls School 2',
+    logo: '/College-logos/girls-school-2.png',
+  },
+  {
+    name: 'Girls School 3',
+    logo: '/College-logos/girls-school-3.png',
+  },
+  {
+    name: 'Girls School 4',
+    logo: '/College-logos/girls-school-4.png',
+  },
+  {
+    name: 'Girls School 5',
+    logo: '/College-logos/girls-school-5.png',
+  },
+  {
+    name: 'Girls School 6',
+    logo: '/College-logos/girls-school-6.png',
   },
 ]
 
@@ -75,6 +102,13 @@ export default function PathToCollege() {
       : selectedShowcase === 'Girls'
         ? 'June 21st, 2026'
         : ''
+
+  const visibleColleges =
+    selectedShowcase === 'Boys'
+      ? boysColleges
+      : selectedShowcase === 'Girls'
+        ? girlsColleges
+        : []
 
   const handleShowcaseSelect = (showcase) => {
     setSelectedShowcase(showcase)
@@ -240,7 +274,7 @@ export default function PathToCollege() {
                 Entry Fee
               </div>
               <div className="text-text-main text-2xl font-heading tracking-wide">
-                $100 Per Player
+                TBD
               </div>
             </div>
 
@@ -369,7 +403,7 @@ export default function PathToCollege() {
                     <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Cost
                     </div>
-                    <div className="text-text-main">TBD </div>
+                    <div className="text-text-main">TBD</div>
                   </div>
 
                   <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
@@ -391,7 +425,7 @@ export default function PathToCollege() {
                   <input type="hidden" name="showcase" value={selectedShowcase} />
                   <input type="hidden" name="showcase_date" value={showcaseDate} />
                   <input type="hidden" name="event_name" value="Showcase June 2026" />
-                  <input type="hidden" name="price" value="$100" />
+                  <input type="hidden" name="price" value="TBD" />
                   <input type="hidden" name="age_group" value="16-19" />
                   <input type="hidden" name="location" value="TBD" />
 
@@ -665,30 +699,39 @@ export default function PathToCollege() {
             </h2>
 
             <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
-              College programs confirmed for the showcase will appear below. Add each school
-              logo and name as they are confirmed.
+              {selectedShowcase
+                ? `Programs confirmed for the ${selectedShowcase.toLowerCase()} showcase are displayed below.`
+                : 'Select the boys or girls showcase above to see the programs attending that specific event.'}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            {confirmedColleges.map((college) => (
-              <div
-                key={college.name}
-                className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
-              >
-                <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
-                  <img
-                    src={college.logo}
-                    alt={college.name}
-                    className="max-w-full max-h-full object-contain"
-                  />
+          {selectedShowcase ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+              {visibleColleges.map((college) => (
+                <div
+                  key={college.name}
+                  className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
+                >
+                  <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
+                    <img
+                      src={college.logo}
+                      alt={college.name}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-sm text-text-main font-medium leading-snug">
+                    {college.name}
+                  </div>
                 </div>
-                <div className="text-sm text-text-main font-medium leading-snug">
-                  {college.name}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-skill-border bg-skill-card p-8 text-center">
+              <p className="text-text-muted">
+                Choose a showcase category above to view the schools attending.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
