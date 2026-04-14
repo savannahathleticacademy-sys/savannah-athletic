@@ -9,7 +9,7 @@ const highlights = [
   'Player evaluation',
 ]
 
-export default function Camps() {
+export default function Clinics() {
   const [showForm, setShowForm] = useState(false)
   const [result, setResult] = useState('')
   const [selectedGender, setSelectedGender] = useState('')
@@ -44,10 +44,10 @@ export default function Camps() {
     formData.append('name', `${playerFirst} ${playerLast}`)
     formData.append('player_name', `${playerFirst} ${playerLast}`)
     formData.append('parent_name', `${parentFirst} ${parentLast}`)
-    formData.append('camp_name', 'Skill Mill Soccer Summer Camp')
-    formData.append('camp_dates', 'June 30 – July 3, 2026')
+    formData.append('clinic_name', 'Skill Mill Soccer Summer Clinic')
+    formData.append('clinic_dates', 'June 30 – July 3, 2026')
     formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
-    formData.append('subject', 'New Camp Registration - Skill Mill Soccer')
+    formData.append('subject', 'New Clinic Registration - Skill Mill Soccer')
     formData.append('from_name', 'Skill Mill Soccer Website')
     formData.append('replyto', email)
 
@@ -67,7 +67,7 @@ export default function Camps() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Registration submitted successfully. Our team will contact you soon.')
+        setResult('Registration submitted successfully. We’ll contact you soon with the next steps.')
         form.reset()
         setSelectedGender('')
 
@@ -89,12 +89,12 @@ export default function Camps() {
   return (
     <div>
       <PageHero
-        label="Camps"
+        label="Clinics"
         title={
           <>
             ELITE
             <br />
-            <span className="text-primary">SUMMER CAMP</span>
+            <span className="text-primary">SUMMER CLINIC</span>
           </>
         }
         subtitle="High-energy training, competitive environments, and focused development for players ready to improve."
@@ -118,7 +118,7 @@ export default function Camps() {
                 <h2 className="font-display text-4xl md:text-5xl text-text-main mb-4 leading-none uppercase">
                   Skill Mill Soccer
                   <br />
-                  Summer Camp
+                  Summer Clinic
                 </h2>
 
                 <p className="text-slate-300 leading-relaxed mb-6 max-w-2xl">
@@ -165,7 +165,7 @@ export default function Camps() {
                   onClick={openForm}
                   className="btn-primary"
                 >
-                  Register for Camp
+                  Register for Clinic
                 </button>
               </div>
 
@@ -173,7 +173,7 @@ export default function Camps() {
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-px bg-accent-green" />
-                    <span className="section-label">Camp Highlights</span>
+                    <span className="section-label">Clinic Highlights</span>
                   </div>
 
                   <div className="space-y-4 mb-8">
@@ -193,11 +193,11 @@ export default function Camps() {
 
                 <div className="rounded-2xl border border-primary/20 bg-primary/10 p-6">
                   <div className="text-slate-500 text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                    Camp Price
+                    Clinic Price
                   </div>
                   <div className="text-4xl text-primary font-display leading-none">$325</div>
                   <div className="text-slate-300 text-sm mt-2">
-                    Includes all scheduled training sessions during camp.
+                    Includes all scheduled training sessions during clinic.
                   </div>
                 </div>
               </div>
@@ -222,13 +222,13 @@ export default function Camps() {
                 </div>
 
                 <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
-                  CAMP
+                  CLINIC
                   <br />
                   REGISTRATION
                 </h2>
 
                 <p className="text-text-muted mb-8 leading-relaxed">
-                  Complete the form below to reserve your player’s spot for camp.
+                  Complete the form below to reserve your player's spot in the clinic.
                 </p>
 
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
