@@ -277,7 +277,7 @@ export default function Clinics() {
               </div>
 
               <div className="rounded-xl border border-skill-border bg-skill-black p-5">
-                <h3 className="text-text-main font-semibold mb-2">Spain Opportunity</h3>
+                <h3 className="text-text-main font-semibold mb-2">International Opportunity</h3>
                 <p className="text-slate-400 leading-relaxed text-sm">
                   Selected players may be identified for an experience in Spain that includes training, competition, and feedback from coaches connected to top-level academies.
                 </p>
