@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import PageHero from './PageHero.jsx'
 
 const steps = [
@@ -62,18 +62,89 @@ const confirmedColleges = [
   },
 ]
 
+function BoysKickerFigure() {
+  return (
+    <svg
+      viewBox="0 0 320 320"
+      className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[280px] md:h-[280px] opacity-[0.08] pointer-events-none"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="170" cy="52" r="24" fill="currentColor" />
+      <path
+        d="M157 82L132 132L160 160L188 124L210 155L242 150L248 170L202 180L179 150L163 176L184 215L166 228L142 187L110 156L135 99L157 82Z"
+        fill="currentColor"
+      />
+      <path d="M182 214L230 252L217 268L170 229L182 214Z" fill="currentColor" />
+      <path d="M149 214L127 272H106L128 208L149 214Z" fill="currentColor" />
+      <circle cx="277" cy="235" r="18" stroke="currentColor" strokeWidth="10" />
+    </svg>
+  )
+}
+
+function GirlsKickerFigure() {
+  return (
+    <svg
+      viewBox="0 0 320 320"
+      className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[280px] md:h-[280px] opacity-[0.08] pointer-events-none"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="162" cy="48" r="22" fill="currentColor" />
+      <path
+        d="M150 73L130 108L146 131L122 164L144 177L165 147L188 168L212 150L194 118L216 92L197 79L179 98L168 86L150 73Z"
+        fill="currentColor"
+      />
+      <path d="M160 132L196 220L178 228L145 147L160 132Z" fill="currentColor" />
+      <path d="M147 181L115 267H94L126 178L147 181Z" fill="currentColor" />
+      <path d="M194 214L240 246L228 262L184 229L194 214Z" fill="currentColor" />
+      <circle cx="274" cy="231" r="18" stroke="currentColor" strokeWidth="10" />
+      <path
+        d="M176 30C186 33 192 40 194 50C183 47 175 42 170 34L176 30Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
   const [selectedShowcase, setSelectedShowcase] = useState('')
   const [result, setResult] = useState('')
+  const [animateForm, setAnimateForm] = useState(false)
+  const formSectionRef = useRef(null)
 
-  const showcaseDate = selectedShowcase === 'Boys' ? 'June 14th, 2026' : ''
+  const showcaseDate =
+    selectedShowcase === 'Boys'
+      ? 'June 14th, 2026'
+      : selectedShowcase === 'Girls'
+        ? 'June 21st, 2026'
+        : ''
+
+  const handleShowcaseSelect = (showcase) => {
+    setSelectedShowcase(showcase)
+    setShowForm(true)
+    setResult('')
+    setAnimateForm(false)
+
+    setTimeout(() => {
+      formSectionRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }, 120)
+
+    setTimeout(() => {
+      setAnimateForm(true)
+    }, 220)
+  }
 
   const onSubmit = async (event) => {
     event.preventDefault()
     setResult('Sending...')
 
-    const formData = new FormData(event.target)
+    const form = event.target
+    const formData = new FormData(form)
     const first = formData.get('first_name')
     const last = formData.get('last_name')
     const email = formData.get('email')
@@ -82,6 +153,7 @@ export default function PathToCollege() {
     formData.append('program', 'College Pathway Showcase June 2026')
     formData.append('showcase_category', selectedShowcase)
     formData.append('showcase_date', showcaseDate)
+    formData.append('location', 'TBD')
     formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
     formData.append(
       'subject',
@@ -107,7 +179,7 @@ export default function PathToCollege() {
 
       if (data.success) {
         setResult('Showcase registration submitted successfully.')
-        event.target.reset()
+        form.reset()
       } else {
         setResult(data.message || 'Something went wrong.')
       }
@@ -119,6 +191,62 @@ export default function PathToCollege() {
 
   return (
     <div>
+      <style>{`
+        @keyframes showcaseFormReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(36px) scale(0.98);
+          }
+          60% {
+            opacity: 1;
+            transform: translateY(-4px) scale(1.01);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes showcaseGlowPulse {
+          0% {
+            opacity: 0.18;
+            transform: scale(0.96);
+          }
+          50% {
+            opacity: 0.32;
+            transform: scale(1.04);
+          }
+          100% {
+            opacity: 0.18;
+            transform: scale(0.96);
+          }
+        }
+
+        @keyframes showcaseFigureFloat {
+          0% {
+            transform: translateY(-50%) translateX(0px);
+          }
+          50% {
+            transform: translateY(calc(-50% - 8px)) translateX(-4px);
+          }
+          100% {
+            transform: translateY(-50%) translateX(0px);
+          }
+        }
+
+        .showcase-form-enter {
+          animation: showcaseFormReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .showcase-form-glow {
+          animation: showcaseGlowPulse 4s ease-in-out infinite;
+        }
+
+        .showcase-figure-float {
+          animation: showcaseFigureFloat 5s ease-in-out infinite;
+        }
+      `}</style>
+
       <PageHero
         label="College Pathway"
         title={
@@ -158,7 +286,7 @@ export default function PathToCollege() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             <div className="rounded-2xl border border-primary/20 bg-primary/10 p-6 text-center">
               <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Age Group
@@ -185,16 +313,21 @@ export default function PathToCollege() {
                 Boys & Girls
               </div>
             </div>
+
+            <div className="rounded-2xl border border-primary/20 bg-primary/10 p-6 text-center">
+              <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
+                Location
+              </div>
+              <div className="text-text-main text-2xl font-heading tracking-wide">
+                TBD
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <button
               type="button"
-              onClick={() => {
-                setSelectedShowcase('Boys')
-                setShowForm(true)
-                setResult('')
-              }}
+              onClick={() => handleShowcaseSelect('Boys')}
               className={`rounded-2xl border p-8 text-left transition-all duration-300 ${
                 selectedShowcase === 'Boys'
                   ? 'border-primary bg-primary/10'
@@ -221,11 +354,7 @@ export default function PathToCollege() {
 
             <button
               type="button"
-              onClick={() => {
-                setSelectedShowcase('Girls')
-                setShowForm(false)
-                setResult('')
-              }}
+              onClick={() => handleShowcaseSelect('Girls')}
               className={`rounded-2xl border p-8 text-left transition-all duration-300 ${
                 selectedShowcase === 'Girls'
                   ? 'border-primary bg-primary/10'
@@ -239,50 +368,40 @@ export default function PathToCollege() {
                 Girls
               </h3>
               <p className="text-text-muted leading-relaxed mb-4">
-                Our girls showcase is currently in development and will be announced soon.
-                Sign up for updates to be the first to know when registration opens.
+                Register for the girls showcase and compete in a high-level environment
+                designed to provide exposure and support for the next step in the recruiting journey.
               </p>
               <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
                 <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                  Status
+                  Showcase Date
                 </div>
-                <div className="text-primary font-medium">Coming Soon</div>
+                <div className="text-text-main">June 21st, 2026</div>
               </div>
             </button>
           </div>
-
-          {selectedShowcase === 'Girls' && (
-            <div className="mt-10">
-              <div className="max-w-3xl mx-auto rounded-3xl border border-primary/20 bg-skill-card p-8 md:p-10 text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="w-10 h-px bg-primary" />
-                  <span className="section-label">Girls Showcase</span>
-                  <div className="w-10 h-px bg-primary" />
-                </div>
-
-                <h3 className="display-heading text-3xl md:text-4xl uppercase mb-4">
-                  COMING <span className="text-primary">SOON</span>
-                </h3>
-
-                <p className="text-text-muted leading-relaxed max-w-2xl mx-auto mb-6">
-                  We are currently preparing a high-level showcase experience for female players.
-                  Sign up for updates to be among the first to hear about dates, details, and early access.
-                </p>
-
-                <a href="#contact" className="btn-primary inline-flex justify-center">
-                  Sign Up for Updates
-                </a>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
-      {showForm && selectedShowcase === 'Boys' && (
-        <section className="py-20 bg-skill-black">
+      {showForm && selectedShowcase && (
+        <section ref={formSectionRef} className="py-20 bg-skill-black">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden">
+            <div
+              className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
+                animateForm ? 'showcase-form-enter' : 'opacity-0'
+              }`}
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
+
+              <div className="absolute -left-24 top-10 w-56 h-56 rounded-full bg-primary/10 blur-3xl showcase-form-glow pointer-events-none" />
+              <div className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-accent-green/10 blur-3xl showcase-form-glow pointer-events-none" />
+
+              <div
+                className={`text-primary showcase-figure-float ${
+                  selectedShowcase === 'Girls' ? 'text-accent-green' : 'text-primary'
+                }`}
+              >
+                {selectedShowcase === 'Boys' ? <BoysKickerFigure /> : <GirlsKickerFigure />}
+              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
@@ -300,7 +419,7 @@ export default function PathToCollege() {
                   Complete the form below to register for the {selectedShowcase.toLowerCase()} showcase.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 relative z-10">
                   <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
                     <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Date
@@ -321,9 +440,16 @@ export default function PathToCollege() {
                     </div>
                     <div className="text-text-main">$100 per player</div>
                   </div>
+
+                  <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Location
+                    </div>
+                    <div className="text-text-main">TBD</div>
+                  </div>
                 </div>
 
-                <form onSubmit={onSubmit} className="space-y-8">
+                <form onSubmit={onSubmit} className="space-y-8 relative z-10">
                   <input
                     type="checkbox"
                     name="botcheck"
@@ -336,8 +462,9 @@ export default function PathToCollege() {
                   <input type="hidden" name="event_name" value="Showcase June 2026" />
                   <input type="hidden" name="price" value="$100" />
                   <input type="hidden" name="age_group" value="16-19" />
+                  <input type="hidden" name="location" value="TBD" />
 
-                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                         Section 1
@@ -454,7 +581,7 @@ export default function PathToCollege() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
                         Section 2
@@ -487,7 +614,7 @@ export default function PathToCollege() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                         Section 3
@@ -550,7 +677,7 @@ export default function PathToCollege() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 md:p-8">
+                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
                         Section 4
