@@ -14,6 +14,7 @@
 @layer base {
   * {
     box-sizing: border-box;
+    font-synthesis: none;
   }
 
   html {
@@ -26,6 +27,7 @@
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
   }
 
   ::selection {
@@ -48,11 +50,20 @@
 }
 
 @layer components {
+  .font-zing {
+    font-family: 'Zing Rust Base Rough', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
   .btn-primary {
-    @apply font-heading font-semibold tracking-wider uppercase text-sm px-7 py-3 
-           transition-all duration-300 active:scale-95 inline-flex items-center gap-2 rounded-xl;
+    @apply font-heading uppercase text-sm px-7 py-3 transition-all duration-300 active:scale-95 inline-flex items-center gap-2 rounded-xl;
     background-color: #7dd3fc;
     color: #0a0a0a;
+    letter-spacing: 0.08em;
   }
 
   .btn-primary:hover {
@@ -61,11 +72,11 @@
   }
 
   .btn-outline {
-    @apply font-heading font-semibold tracking-wider uppercase text-sm px-7 py-3 
-           transition-all duration-300 active:scale-95 inline-flex items-center gap-2 rounded-xl;
+    @apply font-heading uppercase text-sm px-7 py-3 transition-all duration-300 active:scale-95 inline-flex items-center gap-2 rounded-xl;
     border: 1px solid #22c55e;
     color: #22c55e;
     background: transparent;
+    letter-spacing: 0.08em;
   }
 
   .btn-outline:hover {
@@ -74,13 +85,13 @@
   }
 
   .section-label {
-    @apply font-heading tracking-[0.25em] uppercase text-sm font-medium;
+    @apply font-heading uppercase text-sm;
     color: #7dd3fc;
+    letter-spacing: 0.14em;
   }
 
-  /* 🔥 AHORA USA ZING RUST */
   .display-heading {
-    @apply font-zing leading-none uppercase;
+    @apply font-zing leading-none;
     color: #f8fafc;
   }
 
