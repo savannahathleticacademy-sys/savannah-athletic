@@ -57,10 +57,10 @@ export default function Navbar() {
           </div>
 
           <div className="leading-tight">
-            <div className="font-display text-text-main text-xl tracking-[0.14em] uppercase group-hover:text-primary transition-colors duration-300">
+            <div className="font-display text-text-main text-xl md:text-2xl tracking-[0.1em] uppercase group-hover:text-primary transition-colors duration-300">
               SKILL MILL
             </div>
-            <div className="font-heading text-accent-green text-[11px] tracking-[0.34em] uppercase -mt-1">
+            <div className="font-heading text-accent-green text-[11px] tracking-[0.24em] uppercase -mt-1">
               Soccer
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
               <Link
                 key={path}
                 to={path}
-                className={`relative font-heading text-sm tracking-[0.16em] uppercase transition-all duration-200 ${
+                className={`relative font-heading text-sm tracking-[0.14em] uppercase transition-all duration-200 ${
                   active ? 'text-primary' : 'text-slate-300 hover:text-text-main'
                 }`}
               >
@@ -94,7 +94,7 @@ export default function Navbar() {
             href="https://www.instagram.com/skillmillsoccer/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-heading text-xs tracking-[0.18em] uppercase text-slate-300 hover:text-primary transition-colors"
+            className="font-heading text-xs tracking-[0.16em] uppercase text-slate-300 hover:text-primary transition-colors"
           >
             @skillmillsoccer
           </a>
@@ -145,7 +145,7 @@ export default function Navbar() {
               <Link
                 key={path}
                 to={path}
-                className={`font-heading tracking-[0.14em] uppercase text-sm py-3 px-3 rounded-md border transition-all duration-200 ${
+                className={`font-heading tracking-[0.12em] uppercase text-sm py-3 px-3 rounded-md border transition-all duration-200 ${
                   active
                     ? 'text-primary border-primary/30 bg-primary/10'
                     : 'text-slate-300 border-transparent hover:border-skill-border hover:bg-skill-card'
@@ -160,7 +160,7 @@ export default function Navbar() {
             href="https://www.instagram.com/skillmillsoccer/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-heading tracking-[0.14em] uppercase text-sm py-3 px-3 rounded-md border border-transparent text-slate-300 hover:border-skill-border hover:bg-skill-card transition-all duration-200"
+            className="font-heading tracking-[0.12em] uppercase text-sm py-3 px-3 rounded-md border border-transparent text-slate-300 hover:border-skill-border hover:bg-skill-card transition-all duration-200"
           >
             @skillmillsoccer
           </a>
