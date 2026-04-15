@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        zing: ['"Zing Rust Base Rough"', 'cursive'],
-        display: ['Bebas Neue', 'cursive'],
-        heading: ['Barlow Condensed', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        zing: ['"Zing Rust Base Rough"', 'sans-serif'],
+        display: ['"Bebas Neue"', 'sans-serif'],
+        heading: ['"Barlow Condensed"', 'sans-serif'],
+        body: ['"DM Sans"', 'sans-serif'],
       },
       colors: {
         skill: {
