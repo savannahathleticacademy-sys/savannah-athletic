@@ -190,6 +190,14 @@ export default function Clinics() {
 
               <div className="p-8 md:p-10 flex flex-col justify-between">
                 <div>
+                  <div className="mb-6">
+                    <img
+                      src="/images/summer-clinic-2026.png"
+                      alt="Skill Mill Soccer Summer Clinic Flyer"
+                      className="w-full h-auto rounded-2xl border border-skill-border shadow-lg"
+                    />
+                  </div>
+
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-px bg-accent-green" />
                     <span className="section-label">Clinic Highlights</span>
