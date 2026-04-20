@@ -204,6 +204,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SUMMER CLINIC FEATURE */}
+      <section className="py-24 bg-skill-black border-t border-skill-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Summer 2026 Feature</span>
+                </div>
+
+                <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
+                  ELITE
+                  <br />
+                  SUMMER CLINIC
+                </h2>
+
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-8 h-px bg-accent-green" />
+                  <span className="text-xs tracking-[0.25em] uppercase text-accent-green">
+                    Skill Mill Soccer x 360 Vision Academy
+                  </span>
+                </div>
+
+                <p className="text-slate-300 leading-relaxed mb-6 max-w-2xl">
+                  A high-performance summer training experience designed for players who want to
+                  improve technically, think faster, and compete in a demanding environment with
+                  European methodology.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <span className="text-xs font-heading tracking-[0.12em] uppercase px-3 py-2 rounded-full border border-skill-border bg-skill-black text-slate-300">
+                    June 30 – July 3, 2026
+                  </span>
+                  <span className="text-xs font-heading tracking-[0.12em] uppercase px-3 py-2 rounded-full border border-skill-border bg-skill-black text-slate-300">
+                    Savannah, GA
+                  </span>
+                  <span className="text-xs font-heading tracking-[0.12em] uppercase px-3 py-2 rounded-full border border-skill-border bg-skill-black text-slate-300">
+                    Ages 8–18
+                  </span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/clinics" className="btn-primary justify-center sm:justify-start">
+                    Learn More
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+
+                  <Link to="/clinics" className="btn-outline justify-center sm:justify-start">
+                    Register Now
+                  </Link>
+                </div>
+              </div>
+
+              <div className="p-8 md:p-10 flex items-center">
+                <img
+                  src="/images/summer-clinic-2026.png"
+                  alt="Skill Mill Soccer Summer Clinic Flyer"
+                  className="w-full h-auto rounded-2xl border border-skill-border shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PROCESS */}
       <section className="py-24 bg-skill-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
