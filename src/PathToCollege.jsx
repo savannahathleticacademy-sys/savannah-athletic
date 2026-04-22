@@ -89,6 +89,8 @@ const girlsColleges = [
   },
 ]
 
+const showcaseLocation = 'Memorial Stadium, 101 John J. Scott Dr, Savannah, GA 31406'
+
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
   const [selectedShowcase, setSelectedShowcase] = useState('')
@@ -109,6 +111,13 @@ export default function PathToCollege() {
       : selectedShowcase === 'Girls'
         ? girlsColleges
         : []
+
+  const showcaseCost =
+    selectedShowcase === 'Boys'
+      ? 'Early Bird: $80 until May 4 | Standard: $100 until May 25 | Last Spots: $120 until June 7'
+      : selectedShowcase === 'Girls'
+        ? 'Early Bird: $80 until May 17 | Standard: $100 until May 31 | Last Spots: $120 until June 14'
+        : ''
 
   const handleShowcaseSelect = (showcase) => {
     setSelectedShowcase(showcase)
@@ -142,13 +151,14 @@ export default function PathToCollege() {
     formData.append('program', 'College Pathway Showcase June 2026')
     formData.append('showcase_category', selectedShowcase)
     formData.append('showcase_date', showcaseDate)
-    formData.append('location', 'TBD')
+    formData.append('location', showcaseLocation)
+    formData.append('cost_details', showcaseCost)
     formData.append('access_key', '19afe7b2-a47e-467c-a526-b22265c9e906')
     formData.append(
       'subject',
-      `New Showcase Registration - ${selectedShowcase} - ${showcaseDate} - Savannah Athletic`
+      `New Showcase Registration - ${selectedShowcase} - ${showcaseDate} - Skill Mill Soccer`
     )
-    formData.append('from_name', 'Savannah Athletic Website')
+    formData.append('from_name', 'Skill Mill Soccer Website')
     formData.append('replyto', email)
 
     const object = Object.fromEntries(formData)
@@ -273,8 +283,30 @@ export default function PathToCollege() {
               <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Entry Fee
               </div>
-              <div className="text-text-main text-2xl font-heading tracking-wide">
-                TBD
+              <div className="text-text-main text-sm leading-relaxed">
+                <div className="mb-4">
+                  <div className="font-heading tracking-wide uppercase text-base mb-2">
+                    Boys — June 14
+                  </div>
+                  <div>$80 (Early Bird) → Until May 4</div>
+                  <div>$100 (Standard) → Until May 25</div>
+                  <div>$120 (Last Spots) → Until June 7</div>
+                  <div className="text-accent-green text-xs mt-2">
+                    Limited spots available. Registration closes June 7 or when full.
+                  </div>
+                </div>
+
+                <div>
+                  <div className="font-heading tracking-wide uppercase text-base mb-2">
+                    Girls — June 21
+                  </div>
+                  <div>$80 (Early Bird) → Until May 17</div>
+                  <div>$100 (Standard) → Until May 31</div>
+                  <div>$120 (Last Spots) → Until June 14</div>
+                  <div className="text-accent-green text-xs mt-2">
+                    Limited spots available. Registration closes June 14 or when full.
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -291,8 +323,12 @@ export default function PathToCollege() {
               <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Location
               </div>
-              <div className="text-text-main text-2xl font-heading tracking-wide">
-                TBD
+              <div className="text-text-main text-sm leading-relaxed">
+                <div className="font-heading tracking-wide uppercase text-base mb-2">
+                  Memorial Stadium
+                </div>
+                <div>101 John J. Scott Dr</div>
+                <div>Savannah, GA 31406</div>
               </div>
             </div>
           </div>
@@ -403,14 +439,34 @@ export default function PathToCollege() {
                     <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Cost
                     </div>
-                    <div className="text-text-main">TBD</div>
+                    <div className="text-text-main text-sm leading-relaxed">
+                      {selectedShowcase === 'Boys' ? (
+                        <>
+                          <div>$80 (Early Bird) → Until May 4</div>
+                          <div>$100 (Standard) → Until May 25</div>
+                          <div>$120 (Last Spots) → Until June 7</div>
+                        </>
+                      ) : (
+                        <>
+                          <div>$80 (Early Bird) → Until May 17</div>
+                          <div>$100 (Standard) → Until May 31</div>
+                          <div>$120 (Last Spots) → Until June 14</div>
+                        </>
+                      )}
+                    </div>
                   </div>
 
                   <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
                     <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Location
                     </div>
-                    <div className="text-text-main">TBD</div>
+                    <div className="text-text-main text-sm leading-relaxed">
+                      Memorial Stadium
+                      <br />
+                      101 John J. Scott Dr
+                      <br />
+                      Savannah, GA 31406
+                    </div>
                   </div>
                 </div>
 
@@ -425,9 +481,9 @@ export default function PathToCollege() {
                   <input type="hidden" name="showcase" value={selectedShowcase} />
                   <input type="hidden" name="showcase_date" value={showcaseDate} />
                   <input type="hidden" name="event_name" value="Showcase June 2026" />
-                  <input type="hidden" name="price" value="TBD" />
+                  <input type="hidden" name="price" value={showcaseCost} />
                   <input type="hidden" name="age_group" value="16-19" />
-                  <input type="hidden" name="location" value="TBD" />
+                  <input type="hidden" name="location" value={showcaseLocation} />
 
                   <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
@@ -663,7 +719,7 @@ export default function PathToCollege() {
                           className="mt-1"
                         />
                         <span className="text-sm text-slate-300 leading-relaxed">
-                          I give consent for Savannah Athletic to use images and videos taken
+                          I give consent for Skill Mill Soccer to use images and videos taken
                           during the showcase for promotional, marketing, and social media purposes.
                         </span>
                       </label>
