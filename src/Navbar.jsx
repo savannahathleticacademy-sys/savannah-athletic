@@ -37,24 +37,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-primary/40 bg-skill-card shadow-[0_0_20px_rgba(125,211,252,0.15)]">
-            <svg
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-            >
-              <path
-                d="M18 4 L22 14 L32 14 L24 20 L27 30 L18 24 L9 30 L12 20 L4 14 L14 14 Z"
-                fill="#7dd3fc"
-                opacity="0.18"
-                stroke="#7dd3fc"
-                strokeWidth="1"
-                strokeLinejoin="round"
-              />
-              <circle cx="18" cy="18" r="4.5" fill="#22c55e" />
-            </svg>
-          </div>
+          <img
+            src="/logo/logo.png"
+            alt="Skill Mill Soccer Logo"
+            className="h-11 w-auto object-contain md:h-12"
+          />
 
           <div className="leading-tight">
             <div className="font-display text-text-main text-xl md:text-2xl tracking-[0.1em] uppercase group-hover:text-primary transition-colors duration-300">
@@ -102,7 +89,12 @@ export default function Navbar() {
           <Link to="/book" className="btn-primary text-xs px-6 py-2.5">
             Book Session
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </Link>
         </div>
