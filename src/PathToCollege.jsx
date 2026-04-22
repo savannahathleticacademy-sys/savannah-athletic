@@ -114,10 +114,10 @@ export default function PathToCollege() {
 
   const showcaseCost =
     selectedShowcase === 'Boys'
-      ? 'Early Bird: $80 until May 4 | Standard: $100 until May 25 | Last Spots: $120 until June 7'
+      ? 'Boys — June 14 | $80 (Early Bird) until May 4 | $100 (Standard) until May 25 | $120 (Last Spots) until June 7 | Registration closes June 7 or when full.'
       : selectedShowcase === 'Girls'
-        ? 'Early Bird: $80 until May 17 | Standard: $100 until May 31 | Last Spots: $120 until June 14'
-        : ''
+        ? 'Girls — June 21 | $80 (Early Bird) until May 17 | $100 (Standard) until May 31 | $120 (Last Spots) until June 14 | Registration closes June 14 or when full.'
+        : '$80'
 
   const handleShowcaseSelect = (showcase) => {
     setSelectedShowcase(showcase)
@@ -283,8 +283,13 @@ export default function PathToCollege() {
               <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Entry Fee
               </div>
-              <div className="text-text-main text-sm leading-relaxed">
-                <div className="mb-4">
+
+              {!selectedShowcase ? (
+                <div className="text-text-main text-2xl font-heading tracking-wide">
+                  $80
+                </div>
+              ) : selectedShowcase === 'Boys' ? (
+                <div className="text-text-main text-sm leading-relaxed">
                   <div className="font-heading tracking-wide uppercase text-base mb-2">
                     Boys — June 14
                   </div>
@@ -295,8 +300,8 @@ export default function PathToCollege() {
                     Limited spots available. Registration closes June 7 or when full.
                   </div>
                 </div>
-
-                <div>
+              ) : (
+                <div className="text-text-main text-sm leading-relaxed">
                   <div className="font-heading tracking-wide uppercase text-base mb-2">
                     Girls — June 21
                   </div>
@@ -307,7 +312,7 @@ export default function PathToCollege() {
                     Limited spots available. Registration closes June 14 or when full.
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <div className="rounded-2xl border border-skill-border bg-skill-card p-6 text-center">
@@ -445,12 +450,18 @@ export default function PathToCollege() {
                           <div>$80 (Early Bird) → Until May 4</div>
                           <div>$100 (Standard) → Until May 25</div>
                           <div>$120 (Last Spots) → Until June 7</div>
+                          <div className="text-accent-green text-xs mt-2">
+                            Limited spots available. Registration closes June 7 or when full.
+                          </div>
                         </>
                       ) : (
                         <>
                           <div>$80 (Early Bird) → Until May 17</div>
                           <div>$100 (Standard) → Until May 31</div>
                           <div>$120 (Last Spots) → Until June 14</div>
+                          <div className="text-accent-green text-xs mt-2">
+                            Limited spots available. Registration closes June 14 or when full.
+                          </div>
                         </>
                       )}
                     </div>
