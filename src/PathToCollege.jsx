@@ -263,36 +263,12 @@ export default function PathToCollege() {
               <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Entry Fee
               </div>
-
-              {!selectedShowcase ? (
-                <div className="text-text-main text-2xl font-heading tracking-wide">
-                  From $80
-                </div>
-              ) : selectedShowcase === 'Boys' ? (
-                <div className="text-text-main text-sm leading-relaxed">
-                  <div className="font-heading tracking-wide uppercase text-base mb-2">
-                    Boys — June 14
-                  </div>
-                  <div>$80 Early Bird → Until May 4</div>
-                  <div>$100 Standard → Until May 25</div>
-                  <div>$120 Last Spots → Until June 7</div>
-                  <div className="text-accent-green text-xs mt-2">
-                    Limited spots available. Registration closes June 7 or when full.
-                  </div>
-                </div>
-              ) : (
-                <div className="text-text-main text-sm leading-relaxed">
-                  <div className="font-heading tracking-wide uppercase text-base mb-2">
-                    Girls — June 21
-                  </div>
-                  <div>$80 Early Bird → Until May 17</div>
-                  <div>$100 Standard → Until May 31</div>
-                  <div>$120 Last Spots → Until June 14</div>
-                  <div className="text-accent-green text-xs mt-2">
-                    Limited spots available. Registration closes June 14 or when full.
-                  </div>
-                </div>
-              )}
+              <div className="text-text-main text-3xl font-heading tracking-wide">
+                $80
+              </div>
+              <div className="text-accent-green text-xs mt-2">
+                Starting registration price.
+              </div>
             </div>
 
             <div className="rounded-2xl border border-skill-border bg-skill-card p-6 text-center">
@@ -318,7 +294,7 @@ export default function PathToCollege() {
             </div>
           </div>
 
-          {/* BOYS SHOWCASE FEATURE WITH NEW IMAGES */}
+          {/* BOYS SHOWCASE FEATURE */}
           <div className="mb-12 rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
               <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
@@ -363,9 +339,9 @@ export default function PathToCollege() {
 
                   <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
                     <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Exposure
+                      Entry Fee
                     </div>
-                    <div className="text-text-main">College Programs</div>
+                    <div className="text-text-main">$80</div>
                   </div>
                 </div>
 
@@ -401,61 +377,83 @@ export default function PathToCollege() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button
-              type="button"
-              onClick={() => handleShowcaseSelect('Boys')}
-              className={`rounded-2xl border p-8 text-left transition-all duration-300 ${
-                selectedShowcase === 'Boys'
-                  ? 'border-primary bg-primary/10'
-                  : 'border-skill-border bg-skill-card hover:border-primary/40'
-              }`}
-            >
-              <div className="text-primary text-xs font-heading tracking-[0.2em] uppercase mb-3">
-                Showcase Category
-              </div>
-              <h3 className="font-heading text-3xl text-text-main mb-3 tracking-wide uppercase">
-                Boys
-              </h3>
-              <p className="text-text-muted leading-relaxed mb-4">
-                Register for the boys showcase on June 14 at Memorial Stadium. Players ages 16–19
-                will compete in a college exposure environment with match footage, program exposure,
-                and recruiting workshop support.
-              </p>
-              <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                  Showcase Date
+          {/* GIRLS SHOWCASE FEATURE */}
+          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-accent-green/10 via-transparent to-primary/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-accent-green" />
+                  <span className="section-label">Girls Showcase</span>
                 </div>
-                <div className="text-text-main">June 14th, 2026</div>
-              </div>
-            </button>
 
-            <button
-              type="button"
-              onClick={() => handleShowcaseSelect('Girls')}
-              className={`rounded-2xl border p-8 text-left transition-all duration-300 ${
-                selectedShowcase === 'Girls'
-                  ? 'border-primary bg-primary/10'
-                  : 'border-skill-border bg-skill-card hover:border-primary/40'
-              }`}
-            >
-              <div className="text-primary text-xs font-heading tracking-[0.2em] uppercase mb-3">
-                Showcase Category
-              </div>
-              <h3 className="font-heading text-3xl text-text-main mb-3 tracking-wide uppercase">
-                Girls
-              </h3>
-              <p className="text-text-muted leading-relaxed mb-4">
-                Register for the girls showcase and compete in a high-level environment
-                designed to provide exposure and support for the next step in the recruiting journey.
-              </p>
-              <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                  Showcase Date
+                <h3 className="display-heading text-4xl md:text-5xl uppercase mb-4">
+                  GIRLS COLLEGE
+                  <br />
+                  <span className="text-primary">SHOWCASE</span>
+                </h3>
+
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  Our Girls College Showcase is built for ambitious players ages 16–19 who
+                  want to compete in a high-level environment, gain exposure, and connect
+                  with the next step in their college recruiting journey.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Date
+                    </div>
+                    <div className="text-text-main">June 21st, 2026</div>
+                  </div>
+
+                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Ages
+                    </div>
+                    <div className="text-text-main">16–19 Years</div>
+                  </div>
+
+                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Location
+                    </div>
+                    <div className="text-text-main">Memorial Stadium</div>
+                  </div>
+
+                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Entry Fee
+                    </div>
+                    <div className="text-text-main">$80</div>
+                  </div>
                 </div>
-                <div className="text-text-main">June 21st, 2026</div>
+
+                <button
+                  type="button"
+                  onClick={() => handleShowcaseSelect('Girls')}
+                  className="btn-primary"
+                >
+                  Register for Girls Showcase
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
               </div>
-            </button>
+
+              <div className="p-8 md:p-10 bg-skill-black/40 flex items-center justify-center">
+                <div className="rounded-2xl border border-skill-border bg-skill-black p-8 text-center w-full">
+                  <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-3">
+                    Girls Showcase
+                  </div>
+                  <h4 className="font-heading text-3xl text-text-main uppercase mb-4">
+                    June 21st, 2026
+                  </h4>
+                  <p className="text-text-muted leading-relaxed max-w-md mx-auto">
+                    Official girls showcase flyer and confirmed programs will be updated soon.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -508,23 +506,30 @@ export default function PathToCollege() {
                     <div className="text-slate-400 text-xs font-heading tracking-[0.18em] uppercase mb-1">
                       Cost
                     </div>
+
                     <div className="text-text-main text-sm leading-relaxed">
                       {selectedShowcase === 'Boys' ? (
                         <>
+                          <div className="font-heading tracking-wide uppercase text-base mb-2">
+                            Boys — June 14
+                          </div>
                           <div>$80 Early Bird → Until May 4</div>
                           <div>$100 Standard → Until May 25</div>
                           <div>$120 Last Spots → Until June 7</div>
                           <div className="text-accent-green text-xs mt-2">
-                            Limited spots available. Registration closes June 7 or when full.
+                            Registration closes June 7 or when full.
                           </div>
                         </>
                       ) : (
                         <>
+                          <div className="font-heading tracking-wide uppercase text-base mb-2">
+                            Girls — June 21
+                          </div>
                           <div>$80 Early Bird → Until May 17</div>
                           <div>$100 Standard → Until May 31</div>
                           <div>$120 Last Spots → Until June 14</div>
                           <div className="text-accent-green text-xs mt-2">
-                            Limited spots available. Registration closes June 14 or when full.
+                            Registration closes June 14 or when full.
                           </div>
                         </>
                       )}
