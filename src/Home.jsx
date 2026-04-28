@@ -281,6 +281,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* GIRLS COLLEGE SHOWCASE FEATURE */}
+      <section className="py-24 bg-skill-black border-t border-skill-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Girls Showcase</span>
+                </div>
+
+                <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
+                  GIRLS COLLEGE
+                  <br />
+                  <span className="text-primary">SHOWCASE</span>
+                </h2>
+
+                <p className="text-slate-300 leading-relaxed mb-6 max-w-2xl">
+                  Our Girls College Showcase is built for ambitious players ages 16–19 who want
+                  to compete in a high-level environment, gain exposure, and connect with the
+                  next step in their college recruiting journey.
+                </p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Date</div>
+                    <div className="text-text-main font-heading">June 21st, 2026</div>
+                  </div>
+
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Ages</div>
+                    <div className="text-text-main font-heading">16–19 Years</div>
+                  </div>
+
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Location</div>
+                    <div className="text-text-main font-heading">Memorial Stadium</div>
+                  </div>
+
+                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Entry Fee</div>
+                    <div className="text-text-main font-heading">$80</div>
+                  </div>
+                </div>
+
+                <Link to="/college-pathway#girls-showcase" className="btn-primary justify-center sm:justify-start">
+                  Register for Girls Showcase
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+
+              <div className="p-8 md:p-10 flex items-center bg-skill-black/30">
+                <div className="w-full rounded-2xl border border-skill-border bg-skill-black p-8 text-center">
+                  <div className="text-primary text-xs font-heading tracking-[0.22em] uppercase mb-4">
+                    Girls Showcase
+                  </div>
+
+                  <h3 className="font-display text-5xl md:text-6xl text-text-main uppercase mb-4">
+                    June 21st, 2026
+                  </h3>
+
+                  <p className="text-text-muted leading-relaxed max-w-md mx-auto">
+                    Official girls showcase flyer and confirmed programs will be updated soon.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SUMMER CLINIC FEATURE */}
       <section className="py-24 bg-skill-black border-t border-skill-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -343,6 +416,80 @@ export default function Home() {
                   alt="Skill Mill Soccer Summer Clinic Flyer"
                   className="w-full h-auto rounded-2xl border border-skill-border shadow-lg"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COLLEGE PATHWAY PROGRAM FEATURE */}
+      <section className="py-24 bg-skill-dark border-t border-skill-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-accent-green/10 via-transparent to-primary/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-accent-green" />
+                  <span className="section-label">Program Overview</span>
+                </div>
+
+                <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
+                  A SMARTER ROUTE
+                  <br />
+                  <span className="text-primary">TO THE NEXT LEVEL</span>
+                </h2>
+
+                <p className="text-slate-300 leading-relaxed mb-5 max-w-2xl">
+                  The Skill Mill College Pathway Program is designed for serious athletes who want
+                  more than just training. It gives players and families a clearer process for
+                  building visibility, improving communication with coaches, and preparing for
+                  opportunities at the next level.
+                </p>
+
+                <p className="text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                  We combine player development with practical recruiting support so athletes are
+                  not only improving on the field, but also becoming better prepared for the college
+                  process off the field.
+                </p>
+
+                <Link to="/college-pathway" className="btn-primary justify-center sm:justify-start">
+                  Learn More
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+
+              <div className="p-8 md:p-10 bg-skill-black/30">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 sm:col-span-2">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-3">
+                      Ideal For
+                    </div>
+                    <h3 className="font-heading text-2xl text-text-main mb-3">Ages 14–19</h3>
+                    <p className="text-text-muted leading-relaxed">
+                      Best suited for committed players and families looking for structure,
+                      accountability, and support through the recruiting journey.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-primary/20 bg-primary/10 p-6">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-3">Focus</div>
+                    <div className="text-text-main font-heading text-xl">Exposure, preparation, and planning</div>
+                  </div>
+
+                  <div className="rounded-2xl border border-accent-green/20 bg-accent-green/10 p-6">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-3">Format</div>
+                    <div className="text-text-main font-heading text-xl">Custom support packages</div>
+                  </div>
+
+                  <div className="rounded-2xl border border-skill-border bg-skill-black p-6 sm:col-span-2">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-3">Goal</div>
+                    <div className="text-text-main font-heading text-xl">
+                      Help athletes move forward with a real plan.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
