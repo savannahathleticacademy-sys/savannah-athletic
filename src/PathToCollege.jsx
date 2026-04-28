@@ -37,28 +37,8 @@ const benefits = [
 
 const boysColleges = [
   {
-    name: 'Boys School 1',
-    logo: '/College-logos/boys-school-1.png',
-  },
-  {
-    name: 'Boys School 2',
-    logo: '/College-logos/boys-school-2.png',
-  },
-  {
-    name: 'Boys School 3',
-    logo: '/College-logos/boys-school-3.png',
-  },
-  {
-    name: 'Boys School 4',
-    logo: '/College-logos/boys-school-4.png',
-  },
-  {
-    name: 'Boys School 5',
-    logo: '/College-logos/boys-school-5.png',
-  },
-  {
-    name: 'Boys School 6',
-    logo: '/College-logos/boys-school-6.png',
+    name: 'Confirmed Boys Colleges',
+    logo: '/showcase/boys/logo-back.PNG',
   },
 ]
 
@@ -177,7 +157,7 @@ export default function PathToCollege() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Showcase registration submitted successfully.')
+        setResult('Showcase registration submitted successfully. We will contact you soon with the next steps.')
         form.reset()
       } else {
         setResult(data.message || 'Something went wrong.')
@@ -286,16 +266,16 @@ export default function PathToCollege() {
 
               {!selectedShowcase ? (
                 <div className="text-text-main text-2xl font-heading tracking-wide">
-                  $80
+                  From $80
                 </div>
               ) : selectedShowcase === 'Boys' ? (
                 <div className="text-text-main text-sm leading-relaxed">
                   <div className="font-heading tracking-wide uppercase text-base mb-2">
                     Boys — June 14
                   </div>
-                  <div>$80 (Early Bird) → Until May 4</div>
-                  <div>$100 (Standard) → Until May 25</div>
-                  <div>$120 (Last Spots) → Until June 7</div>
+                  <div>$80 Early Bird → Until May 4</div>
+                  <div>$100 Standard → Until May 25</div>
+                  <div>$120 Last Spots → Until June 7</div>
                   <div className="text-accent-green text-xs mt-2">
                     Limited spots available. Registration closes June 7 or when full.
                   </div>
@@ -305,9 +285,9 @@ export default function PathToCollege() {
                   <div className="font-heading tracking-wide uppercase text-base mb-2">
                     Girls — June 21
                   </div>
-                  <div>$80 (Early Bird) → Until May 17</div>
-                  <div>$100 (Standard) → Until May 31</div>
-                  <div>$120 (Last Spots) → Until June 14</div>
+                  <div>$80 Early Bird → Until May 17</div>
+                  <div>$100 Standard → Until May 31</div>
+                  <div>$120 Last Spots → Until June 14</div>
                   <div className="text-accent-green text-xs mt-2">
                     Limited spots available. Registration closes June 14 or when full.
                   </div>
@@ -338,6 +318,89 @@ export default function PathToCollege() {
             </div>
           </div>
 
+          {/* BOYS SHOWCASE FEATURE WITH NEW IMAGES */}
+          <div className="mb-12 rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Boys Showcase</span>
+                </div>
+
+                <h3 className="display-heading text-4xl md:text-5xl uppercase mb-4">
+                  BOYS COLLEGE
+                  <br />
+                  <span className="text-primary">SHOWCASE</span>
+                </h3>
+
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  Our Boys College Showcase is designed for players ages 16–19 who want
+                  to compete in front of college programs, gain exposure, and take the next
+                  step in their recruiting journey.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Date
+                    </div>
+                    <div className="text-text-main">June 14th, 2026</div>
+                  </div>
+
+                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Ages
+                    </div>
+                    <div className="text-text-main">16–19 Years</div>
+                  </div>
+
+                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Location
+                    </div>
+                    <div className="text-text-main">Memorial Stadium</div>
+                  </div>
+
+                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+                      Exposure
+                    </div>
+                    <div className="text-text-main">College Programs</div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => handleShowcaseSelect('Boys')}
+                  className="btn-primary"
+                >
+                  Register for Boys Showcase
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="p-6 md:p-8 bg-skill-black/40 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
+                  <img
+                    src="/showcase/boys/logo-front.PNG"
+                    alt="Boys College Showcase flyer"
+                    className="w-full rounded-xl"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
+                  <img
+                    src="/showcase/boys/logo-back.PNG"
+                    alt="Boys College Showcase confirmed colleges"
+                    className="w-full rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <button
               type="button"
@@ -355,8 +418,9 @@ export default function PathToCollege() {
                 Boys
               </h3>
               <p className="text-text-muted leading-relaxed mb-4">
-                Register for the boys showcase and take the field in a competitive environment
-                built to support exposure and next-level opportunities.
+                Register for the boys showcase on June 14 at Memorial Stadium. Players ages 16–19
+                will compete in a college exposure environment with match footage, program exposure,
+                and recruiting workshop support.
               </p>
               <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
                 <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
@@ -447,18 +511,18 @@ export default function PathToCollege() {
                     <div className="text-text-main text-sm leading-relaxed">
                       {selectedShowcase === 'Boys' ? (
                         <>
-                          <div>$80 (Early Bird) → Until May 4</div>
-                          <div>$100 (Standard) → Until May 25</div>
-                          <div>$120 (Last Spots) → Until June 7</div>
+                          <div>$80 Early Bird → Until May 4</div>
+                          <div>$100 Standard → Until May 25</div>
+                          <div>$120 Last Spots → Until June 7</div>
                           <div className="text-accent-green text-xs mt-2">
                             Limited spots available. Registration closes June 7 or when full.
                           </div>
                         </>
                       ) : (
                         <>
-                          <div>$80 (Early Bird) → Until May 17</div>
-                          <div>$100 (Standard) → Until May 31</div>
-                          <div>$120 (Last Spots) → Until June 14</div>
+                          <div>$80 Early Bird → Until May 17</div>
+                          <div>$100 Standard → Until May 31</div>
+                          <div>$120 Last Spots → Until June 14</div>
                           <div className="text-accent-green text-xs mt-2">
                             Limited spots available. Registration closes June 14 or when full.
                           </div>
@@ -773,25 +837,35 @@ export default function PathToCollege() {
           </div>
 
           {selectedShowcase ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-              {visibleColleges.map((college) => (
-                <div
-                  key={college.name}
-                  className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
-                >
-                  <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
-                    <img
-                      src={college.logo}
-                      alt={college.name}
-                      className="max-w-full max-h-full object-contain"
-                    />
+            selectedShowcase === 'Boys' ? (
+              <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
+                <img
+                  src="/showcase/boys/logo-back.PNG"
+                  alt="Confirmed colleges for the boys showcase"
+                  className="w-full rounded-2xl border border-skill-border"
+                />
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                {visibleColleges.map((college) => (
+                  <div
+                    key={college.name}
+                    className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
+                  >
+                    <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
+                      <img
+                        src={college.logo}
+                        alt={college.name}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                    <div className="text-sm text-text-main font-medium leading-snug">
+                      {college.name}
+                    </div>
                   </div>
-                  <div className="text-sm text-text-main font-medium leading-snug">
-                    {college.name}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )
           ) : (
             <div className="rounded-2xl border border-skill-border bg-skill-card p-8 text-center">
               <p className="text-text-muted">
