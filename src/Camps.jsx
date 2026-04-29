@@ -10,7 +10,7 @@ const highlights = [
   'Player evaluation',
 ]
 
-export default function Clinics() {
+export default function Camps() {
   const [showForm, setShowForm] = useState(false)
   const [result, setResult] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -111,7 +111,7 @@ export default function Clinics() {
   return (
     <div>
       <PageHero
-        label="Clinics"
+        label="Camps"
         title={
           <>
             ELITE
@@ -126,9 +126,7 @@ export default function Clinics() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
-
               <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-skill-border bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
-
                 <div className="flex flex-wrap items-center gap-3 mb-5">
                   <span className="text-xs font-heading tracking-[0.18em] uppercase px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary">
                     Summer 2026
@@ -198,7 +196,7 @@ export default function Clinics() {
                 <div className="mb-6">
                   <img
                     src="/images/summer-clinic-2026.png"
-                    alt="Clinic Flyer"
+                    alt="Skill Mill Soccer Summer Clinic Flyer"
                     className="w-full rounded-2xl border border-skill-border shadow-lg"
                   />
                 </div>
@@ -216,7 +214,6 @@ export default function Clinics() {
                   <div className="text-4xl text-primary">$325</div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -245,7 +242,6 @@ export default function Clinics() {
         <section ref={formSectionRef} className="py-20 bg-skill-black border-t border-skill-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10 shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
-
               <div className="text-center mb-8">
                 <span className="text-primary uppercase tracking-[0.25em] text-xs">
                   Registration Form
@@ -261,7 +257,6 @@ export default function Clinics() {
               </div>
 
               <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
                 <div>
                   <label className="block text-sm text-slate-300 mb-2">Player First Name *</label>
                   <input
@@ -328,9 +323,10 @@ export default function Clinics() {
                   <select
                     name="category"
                     required
+                    defaultValue=""
                     className="w-full rounded-xl bg-skill-black border border-skill-border px-4 py-3 text-text-main outline-none focus:border-primary"
                   >
-                    <option value="">Select category</option>
+                    <option value="" disabled>Select category</option>
                     <option value="U-8">U-8</option>
                     <option value="U-10">U-10</option>
                     <option value="U-12">U-12</option>
@@ -345,9 +341,10 @@ export default function Clinics() {
                   <select
                     name="position"
                     required
+                    defaultValue=""
                     className="w-full rounded-xl bg-skill-black border border-skill-border px-4 py-3 text-text-main outline-none focus:border-primary"
                   >
-                    <option value="">Select position</option>
+                    <option value="" disabled>Select position</option>
                     <option value="Goalkeeper">Goalkeeper</option>
                     <option value="Defender">Defender</option>
                     <option value="Midfielder">Midfielder</option>
@@ -380,7 +377,6 @@ export default function Clinics() {
                     </p>
                   )}
                 </div>
-
               </form>
             </div>
           </div>
