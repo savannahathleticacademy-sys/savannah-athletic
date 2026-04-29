@@ -404,7 +404,7 @@ export default function Home() {
                     </svg>
                   </Link>
 
-                  <Link to="/clinics" className="btn-outline justify-center sm:justify-start">
+                  <Link to="/clinics?register=true" className="btn-outline justify-center sm:justify-start">
                     Register Now
                   </Link>
                 </div>
