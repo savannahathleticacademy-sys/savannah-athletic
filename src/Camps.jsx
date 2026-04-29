@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import PageHero from './PageHero.jsx'
 
 const highlights = [
@@ -14,8 +15,26 @@ export default function Clinics() {
   const [result, setResult] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const location = useLocation()
+
   const infoSectionRef = useRef(null)
   const formSectionRef = useRef(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const shouldOpenRegister = params.get('register') === 'true'
+
+    if (shouldOpenRegister) {
+      setShowForm(true)
+
+      setTimeout(() => {
+        formSectionRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }, 300)
+    }
+  }, [location.search])
 
   const scrollToInfo = () => {
     infoSectionRef.current?.scrollIntoView({
@@ -108,7 +127,6 @@ export default function Clinics() {
           <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
 
-              {/* LEFT SIDE */}
               <div className="p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-skill-border bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
 
                 <div className="flex flex-wrap items-center gap-3 mb-5">
@@ -176,9 +194,7 @@ export default function Clinics() {
                 </div>
               </div>
 
-              {/* RIGHT SIDE */}
               <div className="p-8 md:p-10 flex flex-col justify-between">
-
                 <div className="mb-6">
                   <img
                     src="/images/summer-clinic-2026.png"
@@ -206,7 +222,6 @@ export default function Clinics() {
         </div>
       </section>
 
-      {/* INFO SECTION */}
       <section ref={infoSectionRef} className="py-20 bg-skill-black border-t border-skill-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <span className="text-primary uppercase tracking-[0.25em] text-xs">
@@ -226,12 +241,11 @@ export default function Clinics() {
         </div>
       </section>
 
-      {/* REGISTRATION FORM */}
       {showForm && (
         <section ref={formSectionRef} className="py-20 bg-skill-black border-t border-skill-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="rounded-3xl border border-skill-border bg-skill-card p-8 md:p-10 shadow-[0_16px_64px_rgba(0,0,0,0.45)]">
-              
+
               <div className="text-center mb-8">
                 <span className="text-primary uppercase tracking-[0.25em] text-xs">
                   Registration Form
@@ -247,7 +261,7 @@ export default function Clinics() {
               </div>
 
               <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                
+
                 <div>
                   <label className="block text-sm text-slate-300 mb-2">Player First Name *</label>
                   <input
