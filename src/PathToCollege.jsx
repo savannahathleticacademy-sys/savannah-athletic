@@ -87,7 +87,7 @@ const girlsColleges = [
 ]
 
 const showcaseLocation = 'Memorial Stadium, 101 John J. Scott Dr, Savannah, GA 31406'
-const accessKey = '32de9cfe-9a49-44e1-adb9-018b5c1f24b6'
+const accessKey = '19afe7b2-a47e-467c-a526-b22265c9e906'
 
 export default function PathToCollege() {
   const [showForm, setShowForm] = useState(false)
