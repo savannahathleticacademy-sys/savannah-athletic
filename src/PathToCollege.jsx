@@ -653,69 +653,56 @@ export default function PathToCollege() {
           </div>
         </section>
       )}
-
+      
       <section className="py-20 bg-skill-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-10 h-px bg-accent-green" />
-              <span className="section-label">Colleges Confirmed</span>
-              <div className="w-10 h-px bg-accent-green" />
-            </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="text-center mb-12">
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="w-10 h-px bg-accent-green" />
+        <span className="section-label">Colleges Confirmed</span>
+        <div className="w-10 h-px bg-accent-green" />
+      </div>
 
-            <h2 className="display-heading text-4xl md:text-5xl uppercase mb-4">
-              SCHOOLS ATTENDING
-              <br />
-              THE SHOWCASE
-            </h2>
+      <h2 className="display-heading text-4xl md:text-5xl uppercase mb-4">
+        SCHOOLS ATTENDING
+        <br />
+        THE SHOWCASE
+      </h2>
 
-            <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
-              {selectedShowcase
-                ? `Programs confirmed for the ${selectedShowcase.toLowerCase()} showcase are displayed below.`
-                : 'Select the boys or girls showcase above to see the programs attending that specific event.'}
-            </p>
-          </div>
+      <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
+        {selectedShowcase
+          ? `Programs confirmed for the ${selectedShowcase.toLowerCase()} showcase are displayed below.`
+          : 'Select the boys or girls showcase above to see the programs attending that specific event.'}
+      </p>
+    </div>
 
-          {selectedShowcase ? (
-            selectedShowcase === 'Boys' ? (
-              <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
-                <img
-                  src="/showcase/boys/logo-back.PNG"
-                  alt="Confirmed colleges for the boys showcase"
-                  className="w-full rounded-2xl border border-skill-border"
-                />
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-                {visibleColleges.map((college) => (
-                  <div
-                    key={college.name}
-                    className="rounded-2xl border border-skill-border bg-skill-card p-5 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-primary/40 transition-all duration-300"
-                  >
-                    <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4">
-                      <img
-                        src={college.logo}
-                        alt={college.name}
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    </div>
-                    <div className="text-sm text-text-main font-medium leading-snug">
-                      {college.name}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )
-          ) : (
-            <div className="rounded-2xl border border-skill-border bg-skill-card p-8 text-center">
-              <p className="text-text-muted">
-                Choose a showcase category above to view the schools attending.
-              </p>
-            </div>
-          )}
+    {selectedShowcase ? (
+      selectedShowcase === 'Boys' ? (
+        <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
+          <img
+            src="/showcase/boys/logo-back.PNG"
+            alt="Confirmed colleges for the boys showcase"
+            className="w-full rounded-2xl border border-skill-border"
+          />
         </div>
-      </section>
-
+      ) : (
+        <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
+          <img
+            src="/showcase/girls/logo-back.PNG"
+            alt="Confirmed colleges for the girls showcase"
+            className="w-full rounded-2xl border border-skill-border"
+          />
+        </div>
+      )
+    ) : (
+      <div className="rounded-2xl border border-skill-border bg-skill-card p-8 text-center">
+        <p className="text-text-muted">
+          Choose a showcase category above to view the schools attending.
+        </p>
+      </div>
+    )}
+  </div>
+</section>
       <section id="pathway-details" className="py-20 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10">
