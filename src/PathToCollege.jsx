@@ -458,117 +458,121 @@ export default function PathToCollege() {
           </div>
 
           <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
-            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="p-8 md:p-10 bg-gradient-to-br from-accent-green/10 via-transparent to-primary/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-px bg-accent-green" />
-                  <span className="section-label">Girls Showcase</span>
-                </div>
+  <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
+    <div className="p-8 md:p-10 bg-gradient-to-br from-accent-green/10 via-transparent to-primary/10">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-px bg-accent-green" />
+        <span className="section-label">Girls Showcase</span>
+      </div>
 
-                <h3 className="display-heading text-4xl md:text-5xl uppercase mb-4">
-                  GIRLS COLLEGE
-                  <br />
-                  <span className="text-primary">SHOWCASE</span>
-                </h3>
+      <h3 className="display-heading text-4xl md:text-5xl uppercase mb-4">
+        GIRLS COLLEGE
+        <br />
+        <span className="text-primary">SHOWCASE</span>
+      </h3>
 
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  Our Girls College Showcase is built for ambitious players ages 16–19 who
-                  want to compete in a high-level environment, gain exposure, and connect
-                  with the next step in their college recruiting journey.
-                </p>
+      <p className="text-slate-300 leading-relaxed mb-6">
+        Our Girls College Showcase is designed for players ages 16–19 who want
+        to compete in front of college programs, gain exposure, and take the next
+        step in their recruiting journey.
+      </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Date
-                    </div>
-                    <div className="text-text-main">June 21st, 2026</div>
-                  </div>
-
-                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
-                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Ages
-                    </div>
-                    <div className="text-text-main">16–19 Years</div>
-                  </div>
-
-                  <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Location
-                    </div>
-                    <div className="text-text-main">Memorial Stadium</div>
-                  </div>
-
-                  <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
-                    <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Entry Fee
-                    </div>
-                    <div className="text-text-main">$80</div>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => handleShowcaseSelect('Girls')}
-                  className="btn-primary"
-                >
-                  Register for Girls Showcase
-                </button>
-              </div>
-
-              <div className="p-8 md:p-10 bg-skill-black/40 flex items-center justify-center">
-                <div className="rounded-2xl border border-skill-border bg-skill-black p-8 text-center w-full">
-                  <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-3">
-                    Girls Showcase
-                  </div>
-                  <h4 className="font-heading text-3xl text-text-main uppercase mb-4">
-                    June 21st, 2026
-                  </h4>
-                  <p className="text-text-muted leading-relaxed max-w-md mx-auto">
-                    Official girls showcase flyer and confirmed programs will be updated soon.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+          <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+            Date
           </div>
+          <div className="text-text-main">June 21, 2026</div>
         </div>
-      </section>
-            {showForm && selectedShowcase && (
-        <section ref={formSectionRef} className="py-20 bg-skill-black">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div
-              className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
-                animateForm ? 'showcase-form-enter' : 'opacity-0'
-              }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
 
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-px bg-primary" />
-                  <span className="section-label">Showcase Registration</span>
-                </div>
+        <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+          <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+            Ages
+          </div>
+          <div className="text-text-main">16–19 Years</div>
+        </div>
 
-                <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
-                  {selectedShowcase} SHOWCASE
-                  <br />
-                  JUNE 2026
-                </h2>
+        <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
+          <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
+            Location
+          </div>
+          <div className="text-text-main">Memorial Stadium</div>
+        </div>
 
-                <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
-                  Complete the form below to register for the {selectedShowcase.toLowerCase()} showcase.
-                </p>
+        <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
+          <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
+            Entry Fee
+          </div>
+          <div className="text-text-main">$80</div>
+        </div>
+      </div>
 
-                <form onSubmit={onShowcaseSubmit} className="space-y-8 relative z-10">
-                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+      <button
+        type="button"
+        onClick={() => handleShowcaseSelect('Girls')}
+        className="btn-primary"
+      >
+        Register for Girls Showcase
+      </button>
+    </div>
 
-                  <input type="hidden" name="showcase" value={selectedShowcase} />
-                  <input type="hidden" name="showcase_date" value={showcaseDate} />
-                  <input type="hidden" name="event_name" value="Showcase June 2026" />
-                  <input type="hidden" name="price" value={showcaseCost} />
-                  <input type="hidden" name="age_group" value="16-19" />
-                  <input type="hidden" name="location" value={showcaseLocation} />
+    <div className="p-6 md:p-8 bg-skill-black/40 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+      <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
+        <img
+          src="/showcase/girls/logo-front.PNG"
+          alt="Girls College Showcase flyer"
+          className="w-full rounded-xl"
+        />
+      </div>
 
+      <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
+        <img
+          src="/showcase/girls/logo-back.PNG"
+          alt="Girls College Showcase confirmed colleges"
+          className="w-full rounded-xl"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+{showForm && selectedShowcase && (
+  <section ref={formSectionRef} className="py-20 bg-skill-black">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div
+        className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
+          animateForm ? 'showcase-form-enter' : 'opacity-0'
+        }`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
+
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-px bg-primary" />
+            <span className="section-label">Showcase Registration</span>
+          </div>
+
+          <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
+            {selectedShowcase} SHOWCASE
+            <br />
+            JUNE 2026
+          </h2>
+
+          <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
+            Complete the form below to register for the {selectedShowcase.toLowerCase()} showcase.
+          </p>
+
+          <form onSubmit={onShowcaseSubmit} className="space-y-8 relative z-10">
+            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
+            <input type="hidden" name="showcase" value={selectedShowcase} />
+            <input type="hidden" name="showcase_date" value={showcaseDate} />
+            <input type="hidden" name="event_name" value="Showcase June 2026" />
+            <input type="hidden" name="price" value={showcaseCost} />
+            <input type="hidden" name="age_group" value="16-19" />
+            <input type="hidden" name="location" value={showcaseLocation} />
                   <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
