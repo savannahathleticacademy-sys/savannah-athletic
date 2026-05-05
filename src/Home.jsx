@@ -289,7 +289,7 @@ export default function Home() {
         <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-px bg-primary" />
-            <span className="section-label">Limited Roster • College Exposure</span>
+            <span className="section-label">College Showcase</span>
           </div>
 
           <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
