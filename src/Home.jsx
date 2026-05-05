@@ -282,76 +282,111 @@ export default function Home() {
       </section>
 
       {/* GIRLS COLLEGE SHOWCASE FEATURE */}
-      <section className="py-24 bg-skill-black border-t border-skill-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-px bg-primary" />
-                  <span className="section-label">Girls Showcase</span>
-                </div>
+<section className="py-24 bg-skill-black border-t border-skill-border">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr]">
+        <div className="p-8 md:p-10 bg-gradient-to-br from-primary/10 via-transparent to-accent-green/10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-px bg-primary" />
+            <span className="section-label">Limited Roster • College Exposure</span>
+          </div>
 
-                <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
-                  GIRLS COLLEGE
-                  <br />
-                  <span className="text-primary">SHOWCASE</span>
-                </h2>
+          <h2 className="display-heading text-5xl md:text-6xl mb-4 uppercase">
+            GIRLS COLLEGE
+            <br />
+            <span className="text-primary">SHOWCASE</span>
+          </h2>
 
-                <p className="text-slate-300 leading-relaxed mb-6 max-w-2xl">
-                  Our Girls College Showcase is built for ambitious players ages 16–19 who want
-                  to compete in a high-level environment, gain exposure, and connect with the
-                  next step in their college recruiting journey.
-                </p>
+          <p className="text-slate-300 leading-relaxed mb-5 max-w-2xl">
+            A competitive showcase for serious female players ages 16–19 who want to play
+            in front of college programs, gain exposure, and take the next step in their
+            recruiting journey.
+          </p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Date</div>
-                    <div className="text-text-main font-heading">June 21st, 2026</div>
-                  </div>
+          <p className="text-slate-300 leading-relaxed mb-7 max-w-2xl">
+            Players will receive match footage, program exposure, and access to a recruiting
+            workshop designed to help families better understand the college soccer process.
+          </p>
 
-                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Ages</div>
-                    <div className="text-text-main font-heading">16–19 Years</div>
-                  </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-7">
+            <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+              <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Date</div>
+              <div className="text-text-main font-heading">June 21, 2026</div>
+            </div>
 
-                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Location</div>
-                    <div className="text-text-main font-heading">Memorial Stadium</div>
-                  </div>
+            <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+              <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Time</div>
+              <div className="text-text-main font-heading">9 AM – 1 PM</div>
+            </div>
 
-                  <div className="rounded-xl border border-skill-border bg-skill-black p-4">
-                    <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Entry Fee</div>
-                    <div className="text-text-main font-heading">$80</div>
-                  </div>
-                </div>
+            <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+              <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Ages</div>
+              <div className="text-text-main font-heading">16–19</div>
+            </div>
 
-                <Link to="/college-pathway#girls-showcase" className="btn-primary justify-center sm:justify-start">
-                  Register for Girls Showcase
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-
-              <div className="p-8 md:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center bg-skill-black/30">
-                <img
-                  src="/showcase/girls/logo-front.PNG"
-                  alt="Girls College Showcase Flyer"
-                  className="w-full rounded-2xl border border-skill-border shadow-lg"
-                />
-
-                <img
-                  src="/showcase/girls/logo-back.PNG"
-                  alt="Girls Showcase Confirmed Colleges"
-                  className="w-full rounded-2xl border border-skill-border shadow-lg"
-                />
-              </div>
+            <div className="rounded-xl border border-skill-border bg-skill-black p-4">
+              <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">Fee</div>
+              <div className="text-text-main font-heading">$80</div>
             </div>
           </div>
-        </div>
-      </section>
 
+          <div className="rounded-2xl border border-primary/30 bg-primary/10 p-5 mb-8">
+            <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
+              Included
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-300 text-sm">
+              <div>✓ Match footage</div>
+              <div>✓ College program exposure</div>
+              <div>✓ Recruiting workshop</div>
+              <div>✓ High-level competition</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/college-pathway#girls-showcase" className="btn-primary justify-center sm:justify-start">
+              Secure Your Spot
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+
+            <Link to="/college-pathway" className="btn-outline justify-center sm:justify-start">
+              View Details
+            </Link>
+          </div>
+        </div>
+
+        <div className="p-8 md:p-10 bg-skill-black/30">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <img
+              src="/showcase/girls/logo-front.PNG"
+              alt="Girls College Showcase Flyer"
+              className="w-full rounded-2xl border border-skill-border shadow-lg hover:scale-[1.02] transition-transform duration-300"
+            />
+
+            <img
+              src="/showcase/girls/logo-back.PNG"
+              alt="Girls Showcase Confirmed Colleges"
+              className="w-full rounded-2xl border border-skill-border shadow-lg hover:scale-[1.02] transition-transform duration-300"
+            />
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-accent-green/30 bg-accent-green/10 p-5 text-center">
+            <p className="text-text-main font-heading text-lg mb-2">
+              Registration Open for Girls Ages 16–19
+            </p>
+            <p className="text-text-muted text-sm">
+              Limited roster spots available to keep the level competitive.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
       {/* SUMMER CLINIC FEATURE */}
       <section className="py-24 bg-skill-black border-t border-skill-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
