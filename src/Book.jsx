@@ -7,7 +7,7 @@ const sessionTypes = [
     label: '1 on 1 Training',
     desc: 'Personalized individual session',
     duration: '60 min',
-    price: '$70/session',
+    price: '$60/session',
   },
   {
     id: 'group',
