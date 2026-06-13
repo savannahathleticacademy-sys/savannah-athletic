@@ -21,7 +21,7 @@ const sessionTypes = [
     label: 'Goalkeeping Coaching',
     desc: 'Specialized goalkeeper training with Jack',
     duration: '60 min',
-    price: '$70/session',
+    price: '$60/session',
   },
 ]
 
