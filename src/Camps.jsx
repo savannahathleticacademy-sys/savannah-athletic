@@ -146,7 +146,7 @@ export default function Camps() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-px bg-accent-green" />
                   <span className="text-xs tracking-[0.25em] uppercase text-accent-green">
-                    Skill Mill Soccer x 360 Vision Academy
+                    Skill Mill Soccer
                   </span>
                 </div>
 
