@@ -25,13 +25,41 @@ const pillars = [
 ]
 
 const milestones = [
-  { year: '2025', event: 'Skill Mill Soccer launched by Zack Hargreaves & Ignacio Gallego' },
-  { year: 'December 2025', event: 'Established training presence in Savannah and began building a clear player development model' },
-  { year: 'January 2026', event: 'Expanded technical training and small-group sessions for ambitious players' },
-  { year: 'February 2026', event: 'Added a more complete performance approach with speed, strength, and athletic development' },
-  { year: 'March 2026', event: 'Continued strengthening the brand, coaching structure, and training opportunities across Savannah' },
-  { year: 'June 2026', event: 'Scheduled our first College Showcase in Savannah, creating a new opportunity for players to gain exposure in front of college programs' },
-  { year: 'July 2026', event: 'Scheduled our Summer Camp in Savannah, expanding our player development offering through an intensive seasonal experience' },
+  {
+    year: '2025',
+    event:
+      'Skill Mill Soccer was founded by Zack Hargreaves and Ignacio Gallego to bring a more professional, intentional, and player-centered training environment to Savannah.',
+  },
+  {
+    year: 'December 2025',
+    event:
+      'Established our training presence in Savannah and began building a structured player development model focused on technical quality, confidence, and long-term growth.',
+  },
+  {
+    year: 'January 2026',
+    event:
+      'Expanded individual and small-group training options for ambitious players looking for more focused, high-quality coaching.',
+  },
+  {
+    year: 'February 2026',
+    event:
+      'Added a more complete performance approach, combining technical development with speed, strength, athletic movement, and game understanding.',
+  },
+  {
+    year: 'March 2026',
+    event:
+      'Continued strengthening the Skill Mill Soccer brand, coaching structure, and training opportunities across the Savannah soccer community.',
+  },
+  {
+    year: 'June 2026',
+    event:
+      'Hosted our first Boys College Showcase in Savannah, creating a new opportunity for players to gain exposure, compete in a professional environment, and connect with college programs.',
+  },
+  {
+    year: 'July 2026',
+    event:
+      'Scheduled the Skill Mill Soccer Summer Clinic in Savannah, expanding our player development offering through an intensive seasonal training experience.',
+  },
 ]
 
 export default function About() {
