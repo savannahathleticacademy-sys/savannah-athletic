@@ -6,7 +6,7 @@ const programs = [
     id: 'one-v-one',
     title: '1 on 1 Training',
     tagline: 'Focused. Personalized. High Impact.',
-    price: '$70/session',
+    price: '$60/h',
     description:
       'Our individual training program is built for players who want highly personalized coaching. Each session is tailored to the athlete’s position, level, and development priorities.',
     details: [
@@ -50,7 +50,7 @@ const programs = [
     id: 'goalkeeping-sessions',
     title: 'Goalkeeping Sessions',
     tagline: 'Specialized. Focused. Position-Specific.',
-    price: '$70/session',
+    price: '$60/h',
     description:
       'Our goalkeeping sessions are designed specifically for keepers who want specialized training in handling, footwork, positioning, reactions, distribution, and decision-making under pressure.',
     details: [
