@@ -52,40 +52,6 @@ const pathwayPillars = [
   },
 ]
 
-const boysColleges = [
-  {
-    name: 'Confirmed Boys Colleges',
-    logo: '/showcase/boys/logo-back.PNG',
-  },
-]
-
-const girlsColleges = [
-  {
-    name: 'Girls School 1',
-    logo: '/College-logos/girls-school-1.png',
-  },
-  {
-    name: 'Girls School 2',
-    logo: '/College-logos/girls-school-2.png',
-  },
-  {
-    name: 'Girls School 3',
-    logo: '/College-logos/girls-school-3.png',
-  },
-  {
-    name: 'Girls School 4',
-    logo: '/College-logos/girls-school-4.png',
-  },
-  {
-    name: 'Girls School 5',
-    logo: '/College-logos/girls-school-5.png',
-  },
-  {
-    name: 'Girls School 6',
-    logo: '/College-logos/girls-school-6.png',
-  },
-]
-
 const showcaseLocation = 'Memorial Stadium, 101 John J. Scott Dr, Savannah, GA 31406'
 const accessKey = '19afe7b2-a47e-467c-a526-b22265c9e906'
 
@@ -102,29 +68,13 @@ export default function PathToCollege() {
   const learnMoreRef = useRef(null)
   const programFormRef = useRef(null)
 
-  const showcaseDate =
-    selectedShowcase === 'Boys'
-      ? 'June 14th, 2026'
-      : selectedShowcase === 'Girls'
-        ? 'June 21st, 2026'
-        : ''
-
-  const visibleColleges =
-    selectedShowcase === 'Boys'
-      ? boysColleges
-      : selectedShowcase === 'Girls'
-        ? girlsColleges
-        : []
+  const showcaseDate = 'June 14th, 2026'
 
   const showcaseCost =
-    selectedShowcase === 'Boys'
-      ? 'Boys — June 14 | $80 Early Bird until May 4 | $100 Standard until May 25 | $120 Last Spots until June 7 | Registration closes June 7 or when full.'
-      : selectedShowcase === 'Girls'
-        ? 'Girls — June 21 | $80 Early Bird until May 17 | $100 Standard until May 31 | $120 Last Spots until June 14 | Registration closes June 14 or when full.'
-        : '$80'
+    'Boys — June 14 | $80 Early Bird until May 4 | $100 Standard until May 25 | $120 Last Spots until June 7 | Registration closes June 7 or when full.'
 
-  const handleShowcaseSelect = (showcase) => {
-    setSelectedShowcase(showcase)
+  const handleShowcaseSelect = () => {
+    setSelectedShowcase('Boys')
     setShowForm(true)
     setResult('')
     setAnimateForm(false)
@@ -176,14 +126,14 @@ export default function PathToCollege() {
 
     formData.append('name', `${first} ${last}`)
     formData.append('program', 'College Pathway Showcase June 2026')
-    formData.append('showcase_category', selectedShowcase)
+    formData.append('showcase_category', 'Boys')
     formData.append('showcase_date', showcaseDate)
     formData.append('location', showcaseLocation)
     formData.append('cost_details', showcaseCost)
     formData.append('access_key', accessKey)
     formData.append(
       'subject',
-      `New Showcase Registration - ${selectedShowcase} - ${showcaseDate} - Skill Mill Soccer`
+      `New Showcase Registration - Boys - ${showcaseDate} - Skill Mill Soccer`
     )
     formData.append('from_name', 'Skill Mill Soccer Website')
     formData.append('replyto', email)
@@ -201,7 +151,9 @@ export default function PathToCollege() {
       const data = await response.json()
 
       if (data.success) {
-        setResult('Showcase registration submitted successfully. We will contact you soon with the next steps.')
+        setResult(
+          'Showcase registration submitted successfully. We will contact you soon with the next steps.'
+        )
         form.reset()
       } else {
         setResult(data.message || 'Something went wrong.')
@@ -242,7 +194,9 @@ export default function PathToCollege() {
       const data = await response.json()
 
       if (data.success) {
-        setProgramResult('Application submitted successfully. We will contact you soon with the next steps.')
+        setProgramResult(
+          'Application submitted successfully. We will contact you soon with the next steps.'
+        )
         form.reset()
       } else {
         setProgramResult(data.message || 'Something went wrong.')
@@ -333,7 +287,8 @@ export default function PathToCollege() {
               gain exposure, and take the next step in their recruiting journey.
             </p>
           </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             <div className="rounded-2xl border border-primary/20 bg-primary/10 p-6 text-center">
               <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                 Age Group
@@ -360,7 +315,7 @@ export default function PathToCollege() {
                 Format
               </div>
               <div className="text-text-main text-2xl font-heading tracking-wide">
-                Boys & Girls
+                Boys Only
               </div>
             </div>
 
@@ -428,11 +383,7 @@ export default function PathToCollege() {
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => handleShowcaseSelect('Boys')}
-                  className="btn-primary"
-                >
+                <button type="button" onClick={handleShowcaseSelect} className="btn-primary">
                   Register for Boys Showcase
                 </button>
               </div>
@@ -456,187 +407,187 @@ export default function PathToCollege() {
               </div>
             </div>
           </div>
-
-          <div className="rounded-3xl border border-skill-border bg-skill-card overflow-hidden shadow-[0_16px_64px_rgba(0,0,0,0.35)]">
-  <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
-    <div className="p-8 md:p-10 bg-gradient-to-br from-accent-green/10 via-transparent to-primary/10">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-px bg-accent-green" />
-        <span className="section-label">Girls Showcase</span>
-      </div>
-
-      <h3 className="display-heading text-4xl md:text-5xl uppercase mb-4">
-        GIRLS COLLEGE
-        <br />
-        <span className="text-primary">SHOWCASE</span>
-      </h3>
-
-      <p className="text-slate-300 leading-relaxed mb-6">
-        Our Girls College Showcase is designed for players ages 16–19 who want
-        to compete in front of college programs, gain exposure, and take the next
-        step in their recruiting journey.
-      </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-        <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-          <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-            Date
-          </div>
-          <div className="text-text-main">June 21, 2026</div>
         </div>
+      </section>
 
-        <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
-          <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-            Ages
-          </div>
-          <div className="text-text-main">16–19 Years</div>
-        </div>
+      {showForm && selectedShowcase && (
+        <section ref={formSectionRef} className="py-20 bg-skill-black">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div
+              className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
+                animateForm ? 'showcase-form-enter' : 'opacity-0'
+              }`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
 
-        <div className="rounded-xl border border-primary/20 bg-skill-black p-4">
-          <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-1">
-            Location
-          </div>
-          <div className="text-text-main">Memorial Stadium</div>
-        </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <span className="section-label">Showcase Registration</span>
+                </div>
 
-        <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
-          <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-            Entry Fee
-          </div>
-          <div className="text-text-main">$80</div>
-        </div>
-      </div>
+                <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
+                  BOYS SHOWCASE
+                  <br />
+                  JUNE 2026
+                </h2>
 
-      <button
-        type="button"
-        onClick={() => handleShowcaseSelect('Girls')}
-        className="btn-primary"
-      >
-        Register for Girls Showcase
-      </button>
-    </div>
+                <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
+                  Complete the form below to register for the boys showcase.
+                </p>
 
-    <div className="p-6 md:p-8 bg-skill-black/40 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-      <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
-        <img
-          src="/showcase/girls/logo-front.PNG"
-          alt="Girls College Showcase flyer"
-          className="w-full rounded-xl"
-        />
-      </div>
+                <form onSubmit={onShowcaseSubmit} className="space-y-8 relative z-10">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    className="hidden"
+                    style={{ display: 'none' }}
+                  />
 
-      <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
-        <img
-          src="/showcase/girls/logo-back.PNG"
-          alt="Girls College Showcase confirmed colleges"
-          className="w-full rounded-xl"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</section>
+                  <input type="hidden" name="showcase" value="Boys" />
+                  <input type="hidden" name="showcase_date" value={showcaseDate} />
+                  <input type="hidden" name="event_name" value="Showcase June 2026" />
+                  <input type="hidden" name="price" value={showcaseCost} />
+                  <input type="hidden" name="age_group" value="16-19" />
+                  <input type="hidden" name="location" value={showcaseLocation} />
 
-{showForm && selectedShowcase && (
-  <section ref={formSectionRef} className="py-20 bg-skill-black">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6">
-      <div
-        className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
-          animateForm ? 'showcase-form-enter' : 'opacity-0'
-        }`}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
-
-        <div className="relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-px bg-primary" />
-            <span className="section-label">Showcase Registration</span>
-          </div>
-
-          <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
-            {selectedShowcase} SHOWCASE
-            <br />
-            JUNE 2026
-          </h2>
-
-          <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
-            Complete the form below to register for the {selectedShowcase.toLowerCase()} showcase.
-          </p>
-
-          <form onSubmit={onShowcaseSubmit} className="space-y-8 relative z-10">
-            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
-            <input type="hidden" name="showcase" value={selectedShowcase} />
-            <input type="hidden" name="showcase_date" value={showcaseDate} />
-            <input type="hidden" name="event_name" value="Showcase June 2026" />
-            <input type="hidden" name="price" value={showcaseCost} />
-            <input type="hidden" name="age_group" value="16-19" />
-            <input type="hidden" name="location" value={showcaseLocation} />
                   <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <div className="mb-6">
                       <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
                         Section 1
                       </div>
+
                       <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
                         Player Information
                       </h3>
+
                       <div className="w-12 h-px bg-primary mt-3" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Player First Name</label>
-                        <input type="text" name="first_name" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Player First Name
+                        </label>
+                        <input
+                          type="text"
+                          name="first_name"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Player Last Name</label>
-                        <input type="text" name="last_name" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Player Last Name
+                        </label>
+                        <input
+                          type="text"
+                          name="last_name"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Parent / Guardian Name</label>
-                        <input type="text" name="parent_name" className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Parent / Guardian Name
+                        </label>
+                        <input
+                          type="text"
+                          name="parent_name"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Email Address</label>
-                        <input type="email" name="email" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Phone Number</label>
-                        <input type="tel" name="phone" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Age</label>
-                        <input type="number" name="age" min="16" max="19" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Age
+                        </label>
+                        <input
+                          type="number"
+                          name="age"
+                          min="16"
+                          max="19"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">Current Club / Academy / Team</label>
-                        <input type="text" name="current_club_academy_team" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Current Club / Academy / Team
+                        </label>
+                        <input
+                          type="text"
+                          name="current_club_academy_team"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div>
-                        <label className="block text-sm text-slate-300 mb-2">First Position</label>
-                        <input type="text" name="first_position" required className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          First Position
+                        </label>
+                        <input
+                          type="text"
+                          name="first_position"
+                          required
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
 
                       <div className="md:col-span-2">
-                        <label className="block text-sm text-slate-300 mb-2">Highlight Video Link</label>
-                        <input type="url" name="highlight_video" className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main" />
+                        <label className="block text-sm text-slate-300 mb-2">
+                          Highlight Video Link
+                        </label>
+                        <input
+                          type="url"
+                          name="highlight_video"
+                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
+                        />
                       </div>
                     </div>
                   </div>
 
                   <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
                     <label className="flex items-start gap-3 rounded-xl border border-skill-border bg-skill-card p-4 cursor-pointer">
-                      <input type="checkbox" name="image_video_consent" value="Yes" required className="mt-1" />
+                      <input
+                        type="checkbox"
+                        name="image_video_consent"
+                        value="Yes"
+                        required
+                        className="mt-1"
+                      />
                       <span className="text-sm text-slate-300 leading-relaxed">
-                        I give consent for Skill Mill Soccer to use images and videos taken during the showcase for promotional, marketing, and social media purposes.
+                        I give consent for Skill Mill Soccer to use images and videos taken
+                        during the showcase for promotional, marketing, and social media
+                        purposes.
                       </span>
                     </label>
                   </div>
@@ -653,56 +604,7 @@ export default function PathToCollege() {
           </div>
         </section>
       )}
-      
-      <section className="py-20 bg-skill-black">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
-    <div className="text-center mb-12">
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <div className="w-10 h-px bg-accent-green" />
-        <span className="section-label">Colleges Confirmed</span>
-        <div className="w-10 h-px bg-accent-green" />
-      </div>
 
-      <h2 className="display-heading text-4xl md:text-5xl uppercase mb-4">
-        SCHOOLS ATTENDING
-        <br />
-        THE SHOWCASE
-      </h2>
-
-      <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
-        {selectedShowcase
-          ? `Programs confirmed for the ${selectedShowcase.toLowerCase()} showcase are displayed below.`
-          : 'Select the boys or girls showcase above to see the programs attending that specific event.'}
-      </p>
-    </div>
-
-    {selectedShowcase ? (
-      selectedShowcase === 'Boys' ? (
-        <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
-          <img
-            src="/showcase/boys/logo-back.PNG"
-            alt="Confirmed colleges for the boys showcase"
-            className="w-full rounded-2xl border border-skill-border"
-          />
-        </div>
-      ) : (
-        <div className="max-w-4xl mx-auto rounded-3xl border border-skill-border bg-skill-card p-5 shadow-[0_16px_64px_rgba(0,0,0,0.28)]">
-          <img
-            src="/showcase/girls/logo-back.PNG"
-            alt="Confirmed colleges for the girls showcase"
-            className="w-full rounded-2xl border border-skill-border"
-          />
-        </div>
-      )
-    ) : (
-      <div className="rounded-2xl border border-skill-border bg-skill-card p-8 text-center">
-        <p className="text-text-muted">
-          Choose a showcase category above to view the schools attending.
-        </p>
-      </div>
-    )}
-  </div>
-</section>
       <section id="pathway-details" className="py-20 bg-skill-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10">
@@ -717,14 +619,16 @@ export default function PathToCollege() {
               </h2>
 
               <p className="text-slate-300 leading-relaxed mb-5">
-                The <strong>Skill Mill — College Pathway Program</strong> is designed for serious athletes who want more than just training.
-                It gives players and families a clearer process for building visibility, improving communication with coaches, and preparing
-                for opportunities at the next level.
+                The <strong>Skill Mill — College Pathway Program</strong> is designed for
+                serious athletes who want more than just training. It gives players and
+                families a clearer process for building visibility, improving communication
+                with coaches, and preparing for opportunities at the next level.
               </p>
 
               <p className="text-text-muted leading-relaxed mb-8">
-                We combine player development with practical recruiting support so athletes are not only improving on the field,
-                but also becoming better prepared for the college process off the field.
+                We combine player development with practical recruiting support so athletes
+                are not only improving on the field, but also becoming better prepared for
+                the college process off the field.
               </p>
 
               <button type="button" onClick={handleLearnMore} className="btn-primary">
@@ -772,7 +676,8 @@ export default function PathToCollege() {
           </div>
         </div>
       </section>
-            {showLearnMore && (
+
+      {showLearnMore && (
         <section ref={learnMoreRef} className="py-20 bg-skill-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
@@ -806,9 +711,7 @@ export default function PathToCollege() {
 
                   <div className="w-10 h-px bg-accent-green mb-4" />
 
-                  <p className="text-text-muted leading-relaxed mb-5">
-                    {pillar.text}
-                  </p>
+                  <p className="text-text-muted leading-relaxed mb-5">{pillar.text}</p>
 
                   <div className="space-y-3">
                     {pillar.items.map((item) => (
@@ -1202,9 +1105,7 @@ export default function PathToCollege() {
 
                 <div className="w-10 h-px bg-accent-green mb-4" />
 
-                <p className="text-text-muted leading-relaxed">
-                  {step.text}
-                </p>
+                <p className="text-text-muted leading-relaxed">{step.text}</p>
               </div>
             ))}
           </div>
