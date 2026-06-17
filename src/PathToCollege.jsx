@@ -52,43 +52,27 @@ const pathwayPillars = [
   },
 ]
 
-const showcaseLocation = 'Memorial Stadium, 101 John J. Scott Dr, Savannah, GA 31406'
 const accessKey = '19afe7b2-a47e-467c-a526-b22265c9e906'
 
 export default function PathToCollege() {
-  const [showForm, setShowForm] = useState(false)
-  const [selectedShowcase, setSelectedShowcase] = useState('')
-  const [result, setResult] = useState('')
   const [programResult, setProgramResult] = useState('')
-  const [animateForm, setAnimateForm] = useState(false)
   const [showLearnMore, setShowLearnMore] = useState(false)
   const [showProgramForm, setShowProgramForm] = useState(false)
+  const [showShowcaseRecap, setShowShowcaseRecap] = useState(false)
 
-  const formSectionRef = useRef(null)
+  const showcaseRecapRef = useRef(null)
   const learnMoreRef = useRef(null)
   const programFormRef = useRef(null)
 
-  const showcaseDate = 'June 14th, 2026'
-
-  const showcaseCost =
-    'Boys — June 14 | $80 Early Bird until May 4 | $100 Standard until May 25 | $120 Last Spots until June 7 | Registration closes June 7 or when full.'
-
-  const handleShowcaseSelect = () => {
-    setSelectedShowcase('Boys')
-    setShowForm(true)
-    setResult('')
-    setAnimateForm(false)
+  const handleShowcaseRecap = () => {
+    setShowShowcaseRecap(true)
 
     setTimeout(() => {
-      formSectionRef.current?.scrollIntoView({
+      showcaseRecapRef.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       })
-    }, 120)
-
-    setTimeout(() => {
-      setAnimateForm(true)
-    }, 220)
+    }, 100)
   }
 
   const handleLearnMore = () => {
@@ -112,56 +96,6 @@ export default function PathToCollege() {
         block: 'start',
       })
     }, 100)
-  }
-
-  const onShowcaseSubmit = async (event) => {
-    event.preventDefault()
-    setResult('Sending...')
-
-    const form = event.target
-    const formData = new FormData(form)
-    const first = formData.get('first_name')
-    const last = formData.get('last_name')
-    const email = formData.get('email')
-
-    formData.append('name', `${first} ${last}`)
-    formData.append('program', 'College Pathway Showcase June 2026')
-    formData.append('showcase_category', 'Boys')
-    formData.append('showcase_date', showcaseDate)
-    formData.append('location', showcaseLocation)
-    formData.append('cost_details', showcaseCost)
-    formData.append('access_key', accessKey)
-    formData.append(
-      'subject',
-      `New Showcase Registration - Boys - ${showcaseDate} - Skill Mill Soccer`
-    )
-    formData.append('from_name', 'Skill Mill Soccer Website')
-    formData.append('replyto', email)
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(Object.fromEntries(formData)),
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        setResult(
-          'Showcase registration submitted successfully. We will contact you soon with the next steps.'
-        )
-        form.reset()
-      } else {
-        setResult(data.message || 'Something went wrong.')
-      }
-    } catch (error) {
-      console.error(error)
-      setResult('Network error. Please try again.')
-    }
   }
 
   const onProgramSubmit = async (event) => {
@@ -209,46 +143,6 @@ export default function PathToCollege() {
 
   return (
     <div>
-      <style>{`
-        @keyframes showcaseFormReveal {
-          0% {
-            opacity: 0;
-            transform: translateY(36px) scale(0.98);
-          }
-          60% {
-            opacity: 1;
-            transform: translateY(-4px) scale(1.01);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        @keyframes showcaseGlowPulse {
-          0% {
-            opacity: 0.18;
-            transform: scale(0.96);
-          }
-          50% {
-            opacity: 0.32;
-            transform: scale(1.04);
-          }
-          100% {
-            opacity: 0.18;
-            transform: scale(0.96);
-          }
-        }
-
-        .showcase-form-enter {
-          animation: showcaseFormReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .showcase-form-glow {
-          animation: showcaseGlowPulse 4s ease-in-out infinite;
-        }
-      `}</style>
-
       <PageHero
         label="College Pathway"
         title={
@@ -260,7 +154,7 @@ export default function PathToCollege() {
       >
         <div className="flex flex-col sm:flex-row gap-4">
           <a href="#showcase-june-2026" className="btn-primary justify-center">
-            Showcase June 2026
+            Boys Showcase Recap
           </a>
 
           <a href="#pathway-details" className="btn-outline justify-center">
@@ -279,12 +173,13 @@ export default function PathToCollege() {
             </div>
 
             <h2 className="display-heading text-4xl md:text-6xl uppercase mb-4">
-              SHOWCASE <span className="text-primary">JUNE 2026</span>
+              BOYS COLLEGE <span className="text-primary">SHOWCASE</span>
             </h2>
 
             <p className="text-text-muted max-w-3xl mx-auto leading-relaxed">
-              A one-day college showcase experience for ambitious players looking to compete,
-              gain exposure, and take the next step in their recruiting journey.
+              A completed one-day college showcase experience hosted at Memorial Stadium
+              for ambitious players looking to compete, gain exposure, and take the next
+              step in their recruiting journey.
             </p>
           </div>
 
@@ -300,13 +195,13 @@ export default function PathToCollege() {
 
             <div className="rounded-2xl border border-accent-green/20 bg-accent-green/10 p-6 text-center">
               <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-2">
-                Entry Fee
+                Event Status
               </div>
-              <div className="text-text-main text-3xl font-heading tracking-wide">
-                $80
+              <div className="text-text-main text-2xl font-heading tracking-wide">
+                Completed
               </div>
               <div className="text-accent-green text-xs mt-2">
-                Starting registration price.
+                June 14th, 2026
               </div>
             </div>
 
@@ -348,9 +243,9 @@ export default function PathToCollege() {
                 </h3>
 
                 <p className="text-slate-300 leading-relaxed mb-6">
-                  Our Boys College Showcase is designed for players ages 16–19 who want
-                  to compete in front of college programs, gain exposure, and take the next
-                  step in their recruiting journey.
+                  Our Boys College Showcase gave players ages 16–19 the opportunity
+                  to compete in a professional environment, perform in front of college
+                  programs, and take an important step in their recruiting journey.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
@@ -377,14 +272,14 @@ export default function PathToCollege() {
 
                   <div className="rounded-xl border border-accent-green/20 bg-skill-black p-4">
                     <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-1">
-                      Entry Fee
+                      Focus
                     </div>
-                    <div className="text-text-main">$80</div>
+                    <div className="text-text-main">College Exposure</div>
                   </div>
                 </div>
 
-                <button type="button" onClick={handleShowcaseSelect} className="btn-primary">
-                  Register for Boys Showcase
+                <button type="button" onClick={handleShowcaseRecap} className="btn-primary">
+                  Learn More About the Showcase
                 </button>
               </div>
 
@@ -400,7 +295,7 @@ export default function PathToCollege() {
                 <div className="rounded-2xl border border-skill-border bg-skill-black p-3">
                   <img
                     src="/showcase/boys/logo-back.PNG"
-                    alt="Boys College Showcase confirmed colleges"
+                    alt="Confirmed college programs for the Boys Showcase"
                     className="w-full rounded-xl"
                   />
                 </div>
@@ -410,196 +305,90 @@ export default function PathToCollege() {
         </div>
       </section>
 
-      {showForm && selectedShowcase && (
-        <section ref={formSectionRef} className="py-20 bg-skill-black">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div
-              className={`rounded-3xl border border-skill-border bg-skill-card p-8 md:p-12 relative overflow-hidden ${
-                animateForm ? 'showcase-form-enter' : 'opacity-0'
-              }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent-green/10 pointer-events-none" />
+      {showShowcaseRecap && (
+        <section ref={showcaseRecapRef} className="py-20 bg-skill-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-10 h-px bg-primary" />
+                <span className="section-label">Event Recap</span>
+                <div className="w-10 h-px bg-primary" />
+              </div>
 
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-px bg-primary" />
-                  <span className="section-label">Showcase Registration</span>
+              <h2 className="display-heading text-4xl md:text-6xl uppercase mb-4">
+                HOW THE SHOWCASE
+                <br />
+                <span className="text-primary">WENT</span>
+              </h2>
+
+              <p className="text-text-muted max-w-3xl mx-auto leading-relaxed">
+                On June 14th, 2026, Skill Mill Soccer hosted its Boys College Showcase
+                at Memorial Stadium in Savannah, Georgia. The event brought together
+                ambitious players, college programs, and families for a focused day of
+                competition, exposure, and recruiting opportunity.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="rounded-2xl border border-skill-border bg-skill-card p-7">
+                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-3">
+                  Player Experience
                 </div>
 
-                <h2 className="display-heading text-4xl md:text-5xl mb-4 uppercase">
-                  BOYS SHOWCASE
-                  <br />
-                  JUNE 2026
-                </h2>
+                <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide mb-4">
+                  Competitive Environment
+                </h3>
 
-                <p className="text-text-muted max-w-2xl mb-8 leading-relaxed">
-                  Complete the form below to register for the boys showcase.
+                <p className="text-text-muted leading-relaxed">
+                  Players had the opportunity to compete in a serious showcase setting,
+                  perform in front of college coaches, and experience a professional
+                  event structure designed around exposure and performance.
                 </p>
-
-                <form onSubmit={onShowcaseSubmit} className="space-y-8 relative z-10">
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    className="hidden"
-                    style={{ display: 'none' }}
-                  />
-
-                  <input type="hidden" name="showcase" value="Boys" />
-                  <input type="hidden" name="showcase_date" value={showcaseDate} />
-                  <input type="hidden" name="event_name" value="Showcase June 2026" />
-                  <input type="hidden" name="price" value={showcaseCost} />
-                  <input type="hidden" name="age_group" value="16-19" />
-                  <input type="hidden" name="location" value={showcaseLocation} />
-
-                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
-                    <div className="mb-6">
-                      <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-2">
-                        Section 1
-                      </div>
-
-                      <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide">
-                        Player Information
-                      </h3>
-
-                      <div className="w-12 h-px bg-primary mt-3" />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Player First Name
-                        </label>
-                        <input
-                          type="text"
-                          name="first_name"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Player Last Name
-                        </label>
-                        <input
-                          type="text"
-                          name="last_name"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Parent / Guardian Name
-                        </label>
-                        <input
-                          type="text"
-                          name="parent_name"
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Age
-                        </label>
-                        <input
-                          type="number"
-                          name="age"
-                          min="16"
-                          max="19"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Current Club / Academy / Team
-                        </label>
-                        <input
-                          type="text"
-                          name="current_club_academy_team"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm text-slate-300 mb-2">
-                          First Position
-                        </label>
-                        <input
-                          type="text"
-                          name="first_position"
-                          required
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-
-                      <div className="md:col-span-2">
-                        <label className="block text-sm text-slate-300 mb-2">
-                          Highlight Video Link
-                        </label>
-                        <input
-                          type="url"
-                          name="highlight_video"
-                          className="w-full p-3 rounded-lg bg-skill-card border border-skill-border text-text-main"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-skill-border bg-skill-black/90 backdrop-blur-sm p-6 md:p-8">
-                    <label className="flex items-start gap-3 rounded-xl border border-skill-border bg-skill-card p-4 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="image_video_consent"
-                        value="Yes"
-                        required
-                        className="mt-1"
-                      />
-                      <span className="text-sm text-slate-300 leading-relaxed">
-                        I give consent for Skill Mill Soccer to use images and videos taken
-                        during the showcase for promotional, marketing, and social media
-                        purposes.
-                      </span>
-                    </label>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
-                    <button type="submit" className="btn-primary">
-                      Submit Registration
-                    </button>
-                    <span className="text-text-main">{result}</span>
-                  </div>
-                </form>
               </div>
+
+              <div className="rounded-2xl border border-skill-border bg-skill-card p-7">
+                <div className="text-accent-green text-xs font-heading tracking-[0.18em] uppercase mb-3">
+                  Recruiting Value
+                </div>
+
+                <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide mb-4">
+                  College Exposure
+                </h3>
+
+                <p className="text-text-muted leading-relaxed">
+                  The event gave players a platform to be seen, connect with the college
+                  soccer environment, and better understand what coaches look for at the
+                  next level.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-skill-border bg-skill-card p-7">
+                <div className="text-primary text-xs font-heading tracking-[0.18em] uppercase mb-3">
+                  Event Standard
+                </div>
+
+                <h3 className="font-heading text-2xl text-text-main uppercase tracking-wide mb-4">
+                  Professional Setup
+                </h3>
+
+                <p className="text-text-muted leading-relaxed">
+                  Hosted at Memorial Stadium, the showcase was built to give players
+                  and families a high-quality experience with clear organization,
+                  strong presentation, and a real pathway toward the next step.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-primary/20 bg-primary/10 p-8 md:p-10 text-center">
+              <h3 className="font-heading text-3xl text-text-main uppercase mb-4">
+                More Showcase Opportunities Coming Soon
+              </h3>
+
+              <p className="text-text-muted max-w-3xl mx-auto leading-relaxed">
+                After the success of this event, Skill Mill Soccer will continue creating
+                showcase opportunities for players who want to compete, gain exposure,
+                and move forward in their recruiting journey.
+              </p>
             </div>
           </div>
         </section>
@@ -676,8 +465,7 @@ export default function PathToCollege() {
           </div>
         </div>
       </section>
-
-      {showLearnMore && (
+            {showLearnMore && (
         <section ref={learnMoreRef} className="py-20 bg-skill-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
